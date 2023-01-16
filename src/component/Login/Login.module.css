@@ -1,0 +1,112 @@
+.loginBackground {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(
+    to right top,
+    #2c3639,
+    #313c3f,
+    #354244,
+    #3a484a,
+    #3f4e4f
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginBackground p {
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+}
+
+.loginDaftar {
+  font-weight: 700;
+  font-size: 17px;
+  color: #a27b5c !important;
+}
+.loginDaftar a {
+  text-decoration: none !important;
+  color: #a27b5c !important;
+}
+
+.loginContainer {
+  width: 60%;
+  height: 550px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border-radius: 5px;
+}
+
+.loginForm h1 {
+  color: #3f4e4f;
+  font-size: 60px;
+  text-align: center;
+  font-weight: 600;
+
+  /* letter-spacing: 2px; */
+}
+
+.loginButton {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.loginButton button {
+  width: 120px;
+  height: 40px;
+  border: none;
+  color: white;
+  letter-spacing: 1.5px;
+  background-color: #3f4e4f;
+  border-radius: 5px;
+}
+
+.loginImage {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.loginImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.loginFailed {
+  font-size: 15px;
+  text-align: right;
+  font-weight: 400;
+  color: #d93125;
+}
+
+@media (max-width: 991.98px) {
+  .loginContainer {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768.98px) {
+  .loginContainer {
+    width: 90%;
+    height: auto;
+  }
+  .loginForm h6 {
+    font-size: 15px;
+  }
+  .loginForm h1 {
+    font-size: 40px;
+    /* margin-bottom: 2px !important;
+    margin-top: 10px !important; */
+  }
+  .loginImage {
+    display: none;
+  }
+  .loginBackground p {
+    font-size: 14px;
+  }
+  .loginBackground a {
+    font-size: 15px;
+  }
+}

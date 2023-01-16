@@ -1,0 +1,77 @@
+.jumbotronCustom {
+  background-color: #e0c097;
+}
+
+.jumbotronCustom h1 {
+  color: white;
+}
+
+.jumbotronCustom p {
+  color: white;
+}
+
+.jumbotronCustom img {
+  width: 400px;
+}
+
+.coloumn4 img {
+  width: 100%;
+}
+
+.coloumn6 img {
+  width: 100%;
+  /* height: 480px; */
+}
+
+video {
+  object-fit: cover;
+}
+
+.videoGaleri {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+video {
+  width: 450px;
+}
+
+.testimoni {
+  color: #b85c38;
+  text-decoration: none;
+}
+
+.testimoni:hover {
+  color: #e0c097;
+  transition-duration: 0.2s;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+@media (max-width: 991px) {
+  .jumbotronCustom img {
+    display: none;
+  }
+
+  video {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .videoGaleri {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .jumbotronCustom h1 {
+    font-size: 45px;
+  }
+
+  .jumbotronCustom p {
+    font-size: 17px;
+  }
+}

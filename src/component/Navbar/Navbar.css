@@ -1,0 +1,36 @@
+.navbarCustom {
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.navbar-brand {
+  font-family: "Staatliches", cursive !important;
+  letter-spacing: 1px;
+  color: #5c3d2e !important;
+}
+
+.navbar-nav a {
+  font-weight: 400;
+  color: black !important;
+}
+
+.navbar-nav a:hover {
+  border-bottom: 1px solid black;
+  margin-top: -1px;
+  font-weight: 600;
+  color: #5c3d2e;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+@media (max-width: 991.98px) {
+  .navbar a {
+    color: black !important;
+  }
+}

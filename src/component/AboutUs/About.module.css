@@ -1,0 +1,78 @@
+.jumbotronCustom {
+  background-color: #e0c097;
+}
+
+.jumbotronCustom h1 {
+  color: white;
+}
+
+.tentangKami h1 {
+  color: #5c3d2e;
+}
+
+.tentangKami h5 {
+  letter-spacing: 1px;
+}
+
+.tentangKami p {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  line-height: 27px;
+}
+
+.firstParagraph p {
+  margin: 0;
+}
+
+.secondParagraph p {
+  margin: 0;
+  text-align: right;
+}
+
+.picture1 {
+  display: flex;
+  justify-content: end;
+}
+
+.picture1 img {
+  width: 250px;
+}
+
+.picture2 {
+  display: flex;
+  justify-content: start;
+}
+
+.picture2 img {
+  width: 250px;
+}
+
+@media (max-width: 991.98px) {
+  .picture1 {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .picture2 {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .jumbotronCustom img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .secondParagraph p {
+    text-align: left;
+  }
+
+  .jumbotronCustom h1 {
+    font-size: 45px;
+  }
+
+  .tentangKami h1 {
+    font-size: 80px;
+  }
+}

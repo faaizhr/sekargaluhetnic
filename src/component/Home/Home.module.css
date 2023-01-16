@@ -1,0 +1,83 @@
+tr,
+td {
+  border: 1px solid black;
+}
+
+.removeBorder {
+  border: none;
+}
+
+.inputan {
+  margin-top: 25px;
+}
+
+.shopeeFood {
+  /* background-color: salmon; */
+}
+
+.shopeeFood p {
+  /* background-color: lightgreen; */
+  margin-bottom: 0px;
+  margin-top: 6px;
+  font-size: 50px;
+  color: red;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.shopeeFoodLogo {
+  margin-left: 10px;
+  width: 130px;
+  /* background-color: yellow; */
+}
+
+.shopeeFood p {
+  font-size: 14px;
+}
+
+.jumbotronCustom {
+  /* height: 800px; */
+  background-color: #e0c097;
+  padding-bottom: 0px;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.jumbotronCustom h1 {
+  font-size: 80px;
+  font-family: "Staatliches", cursive;
+  color: white;
+}
+
+.jumbotronCustom p {
+  color: white;
+}
+
+.jumbotronCustom img {
+  width: 100%;
+}
+
+.menuList {
+  /* margin-top: 10px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menuListBest {
+  /* margin-top: 10px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 991.98px) {
+  .jumbotronCustom {
+    margin-top: 0px;
+  }
+}

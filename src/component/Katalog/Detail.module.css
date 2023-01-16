@@ -1,0 +1,167 @@
+.marginMin {
+  margin-bottom: 4px;
+}
+
+.jumbotronCustom {
+  background-color: #e0c097;
+}
+.jumbotronCustom h1 {
+  color: white;
+}
+
+.deskripsiMenu p {
+  font-size: 16px;
+}
+
+.menuItem p {
+  font-size: 14px;
+  height: 70px;
+}
+
+.path a {
+  color: black;
+  font-size: 13px;
+}
+
+.path p {
+  font-size: 13px;
+}
+
+.cardListCustom {
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  transition-duration: 0.3s;
+}
+
+.cardListCustom:hover {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  transition-duration: 0.3s;
+}
+
+.menuList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fotoProduk {
+  width: 90%;
+  /* height: 370px; */
+  border-radius: 5px;
+}
+
+.cardBodyCustom {
+  max-width: 250px;
+}
+
+.textCard {
+  font-size: 18px;
+  cursor: pointer;
+  /* height: 45px; */
+}
+
+.fotoProdukList {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.commentBox {
+  width: 100%;
+  background-color: #e0c097;
+  border-radius: 5px;
+}
+
+.inputComment {
+  border: none;
+  border-bottom: 1px solid F1F1F1;
+  border-radius: 5px;
+}
+
+.inputComment:focus {
+  outline: none;
+}
+
+.inputTextarea {
+  width: 100%;
+  height: 100px;
+}
+
+.inputTextarea:focus {
+  outline: none;
+}
+
+.buttonBeli {
+  border: 1px solid #b85c38;
+  border-radius: 5px;
+  padding: 10px 50px 10px;
+  background-color: #b85c38;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition-duration: 0.2s;
+}
+
+.buttonBeli:hover {
+  background-color: white;
+  color: #b85c38;
+  border: 1px solid #b85c38;
+  transition-duration: 0.18s;
+}
+
+.submitButton {
+  border: 1px solid #5c3d2e;
+  background-color: #5c3d2e;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 1px;
+  transition-duration: 0.2s;
+}
+
+.submitButton:hover {
+  background-color: white;
+  color: #5c3d2e;
+  transition-duration: 0.18s;
+  font-weight: 500;
+}
+
+.feedbackBox {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.commentBox p {
+  font-size: 17px;
+}
+
+.listFeedback p {
+  font-size: 17px;
+}
+
+@media (max-width: 991px) {
+  .namaMenu {
+    margin-top: 10px;
+  }
+
+  .cardBodyCustom h5 {
+    font-size: 16px;
+  }
+
+  .cardBodyCustom h6 {
+    height: 30px;
+  }
+
+  .cardListCustom {
+    width: 170px;
+  }
+
+  .cardListCustom img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .listFeedback p {
+    font-size: 14px;
+  }
+}
