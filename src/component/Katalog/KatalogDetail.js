@@ -1,6 +1,6 @@
 
 import { gql, useLazyQuery, useQuery, useSubscription } from "@apollo/client"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 
@@ -48,6 +48,7 @@ const KatalogDetail = () => {
   const location = useLocation()
   const { id } = location.state
   console.log("cek state", location.state)
+  const navigate = useNavigate()
 
   
 
@@ -55,30 +56,23 @@ const KatalogDetail = () => {
   // // const { nama_menu, harga, deskripsi, foto, comments } = data.Chiliesious_menu
   // console.log("cek data", data)
   // // console.log("cek nama menu", nama_menu)
+  const LoggedIn = Cookies.get("token")
 
   const {data: dataKatalog, loading: loadingKatalog, error: errorKatalog} = useQuery(GetAnotherKatalog, {variables: { _neq: id }})
-
-
-  // const [nama, setNama] = useState("")
-  // const [feedback, setFeedback] = useState("")
   
   const {insertToCart, loadingInsertToCart} = useInsertToCart()
   const cart = () => {
-    insertToCart({
-      variables: {
-        user_id: Cookies.get("okogaye"),
-        katalog_id: id,
-      }
-    })
+    if(LoggedIn) {
+      insertToCart({
+        variables: {
+          user_id: Cookies.get("okogaye"),
+          katalog_id: id,
+        }
+      })
+    } else {
+      navigate("/login")
+    }
   }
-
-  // const handleChangeNama = (e) => {
-  //   setNama(e.target.value)
-  // }
-
-  // const handleChangeFeedback = (e) => {
-  //   setFeedback(e.target.value)
-  // }
 
 
     return (
@@ -107,8 +101,10 @@ const KatalogDetail = () => {
                   <p>Panjang Tubuh : </p>
                   <p>Panjang Lengan : </p>
                   <p className="mt-5">Stok Tersedia   :   1</p>
-                  <button onClick={cart} className={style.masukkanKeranjang}>Tambahkan ke Keranjang</button>
-                  <button className={style.beliLangsung}>Langsung Beli</button>
+                  <div>
+                    <button onClick={cart} className={style.masukkanKeranjang}>Tambahkan ke Keranjang</button>
+                    <button className={style.beliLangsung}>Langsung Beli</button>
+                  </div>
                 </div>
               </div>
 

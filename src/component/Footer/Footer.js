@@ -6,7 +6,7 @@ function Footer() {
     return (
         <div className={`mt-5 ${style.footer}`}>
             <div className="container pt-4">
-                <div className='row'>
+                <div className='row mt-5 mb-5'>
                     <div className='col-lg-4 col-sm-12'>
                         <h6><span className={style.textLogo}>Sekar Galuh Etnic</span></h6>
                         <p>UMKM di bidang pakaian. Kami menjual produk berupa pakaian yang sudah jadi yang kami jahit dan desain sendiri serta kami menerima pemesanan pakaian secara custom</p>

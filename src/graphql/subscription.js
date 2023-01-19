@@ -30,3 +30,15 @@ subscription MySubscription($_eq: Int!) {
   }
 }
 `;
+
+export const SubscriptionSumKeranjang = gql `
+subscription MySubscription($_eq: Int!) {
+  sekargaluhetnic_katalog_aggregate(where: {keranjangs: {user_id: {_eq: $_eq}}}) {
+    aggregate {
+      sum {
+        harga
+      }
+    }
+  }
+}
+`;

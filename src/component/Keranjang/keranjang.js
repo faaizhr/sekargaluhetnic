@@ -14,6 +14,8 @@ import { GetKeranjangKatalog, GetSumKeranjang } from "../../graphql/query"
 import { GetAnotherKatalog } from "../../graphql/query"
 import useGetKeranjangKatalog from "../../hooks/useGetKeranjangKatalog"
 import useInsertToCart from "../../hooks/useInsertToCart"
+import { SubscriptionKeranjangKatalog } from "../../graphql/subscription"
+import { SubscriptionSumKeranjang } from "../../graphql/subscription"
 
 import { AiOutlineRight } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi"
@@ -26,24 +28,17 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { borderTop } from "@mui/system"
 import Cookies from "js-cookie"
-import { SubscriptionKeranjangKatalog } from "../../graphql/subscription"
 
 
 const Keranjang = () => {
-
-  // const {data: dataKatalog, loading: loadingKatalog, error: errorKatalog} = useQuery(GetAnotherKatalog, {variables: { _neq: 2 }})
 
   const {data, loading, error} = useQuery(GetKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye") }})
 
   const {data: dataSubs, loading: loadingSubs, error:errorSubs} = useSubscription(SubscriptionKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye")}})
 
-  console.log("cek keranjang katalog subs", dataSubs)
-  // console.log("cek keranjang katalog", data.sekargaluhetnic_katalog)
-
-  const {data: dataTotalProduk, loading: loadingTotalProduk, error: errorTotalProduk} = useQuery(GetSumKeranjang, {variables: { _eq: Cookies.get("okogaye")}})
-  console.log("cel total produk", dataTotalProduk)
-
+  const {data: dataTotalProduk, loading: loadingTdataTotalProduk, error: errorTdataTotalProduk} = useSubscription(SubscriptionSumKeranjang, {variables: {_eq: Cookies.get("okogaye")}})
   const taxProduk = (11/100) * (dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga)
+  
 
     return (
         <div>

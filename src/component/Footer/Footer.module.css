@@ -21,6 +21,8 @@
 .textLogo {
   font-family: "Staatliches", cursive;
   font-size: 22px;
+  letter-spacing: 1px;
+  color: #3f4e4f;
 }
 
 .instagramLogo i:hover {

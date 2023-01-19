@@ -18,9 +18,7 @@ function Navbar() {
     const navigate = useNavigate();
 
     const LoggedIn = Cookies.get("token")
-    const [user, setUser] = useState(false);
-    // console.log("cek kuki", LoggedIn)
-    
+
     const handleLogout =  () => {
         Cookies.remove('okogaye');
         Cookies.remove('token');
@@ -63,7 +61,7 @@ function Navbar() {
                             <BsCart2/>
                         </Badge>
                     </Link>
-                    <Link className="me-4" to="/"><VscAccount/></Link>
+                    <Link className="me-4" to="/profil"><VscAccount/></Link>
                     <div className='d-inline logout'>
                         <Link className="" onClick={() => {
                             handleLogout(); 
