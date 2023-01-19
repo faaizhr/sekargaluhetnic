@@ -1,0 +1,44 @@
+.carouselCard {
+  /* background-color: lightblue; */
+  width: 100%;
+  height: 600px;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.carouselCard h2 {
+  color: #a27b5c;
+}
+.carouselCard p {
+  font-size: 16px;
+  color: white;
+}
+
+.carouselCard button {
+  background-color: #dcd7c9;
+  border: 1px solid #dcd7c9;
+  padding: 7px 20px 7px;
+  border-radius: 5px;
+  float: right;
+  transition-duration: 0.2s;
+}
+.carouselCard button:hover {
+  background-color: #2c3639;
+  border: 1px solid #2c3639;
+  color: #dcd7c9;
+  transition-duration: 0.2s;
+}
+
+.cardLayer {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.79) 100%
+  );
+  height: 600px;
+}
+
+.carouselContent {
+  margin-top: 150px;
+  width: 400px;
+  /* background-color: salmon; */
+}

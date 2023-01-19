@@ -9,6 +9,7 @@ import Katalog from './component/Katalog/Katalog';
 import KatalogDetail from './component/Katalog/KatalogDetail';
 import AboutUs from './component/AboutUs/AboutUs';
 import Galeri from './component/Galeri/Galeri';
+import Keranjang from './component/Keranjang/keranjang';
 
 import Navbar from './component/Navbar/Navbar';
 
@@ -23,6 +24,7 @@ function App() {
         <Route exact path='/' element={<Home />}/>
         <Route exact path='/katalog' element={<Katalog />}/>
         <Route exact path='/menu/:id' element={<KatalogDetail />}/>
+        <Route exact path='/keranjang' element={<Keranjang />}/>
         <Route exact path='/galeri' element={<Galeri />}/>
         <Route exact path='/tentangkami' element={<AboutUs />}/>
       </Routes>

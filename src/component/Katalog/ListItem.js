@@ -1,25 +1,22 @@
 import {useNavigate} from "react-router-dom"
-import style from './Detail.module.css'
+import style from './Katalog.module.css'
 
-const ListItem = ({item}) => {
+const ListItem = ({items}) => {
 
     // console.log("cek item", item)
 
-    const { id, nama_menu, harga, deskripsi, foto, comments, penjelasan, komposisi } = item
+    const { id, nama, harga, foto, deskripsi} = items
 
     const navigate = useNavigate()
     
     const handleDetail = () => {
-        navigate(`/menu/${item.id}`, {
+        navigate(`/menu/${items.id}`, {
             state: {
-                id: item.id, 
-                nama_menu: item.nama_menu,
-                harga: item.harga,
-                deskripsi: item.deskripsi,
-                foto: item.foto,
-                comments: item.comments,
-                penjelasan: item.penjelasan,
-                komposisi: item.komposisi
+                id: items.id,
+                nama: items.nama,
+                harga: items.harga,
+                deskripsi: items.deskripsi,
+                foto: items.foto
             }
         })
     }
@@ -30,10 +27,11 @@ const ListItem = ({item}) => {
         <div className={`card ${style.cardListCustom}`}>
           <img src={foto} className={style.fotoProdukList} alt="..." />
           <div className={`card-body ${style.cardBodyCustom}`}>
-            <h5 className={`card-title lh-base ${style.textCard}`} onClick={() => handleDetail(item.id)}>{nama_menu}</h5>
-            <p className="">{penjelasan}</p>
+            <p>Pria</p>
+            <h5 className={`card-title lh-base ${style.textCard}`} onClick={() => handleDetail(items.id)}>{nama}</h5>
+            {/* <p className="">{deskripsi}</p> */}
             <div className="text-right">
-              <h6 className="card-text">{harga}</h6>
+              <h6 className="card-text">Rp{harga.toLocaleString()}</h6>
             </div>
           </div>
           <ul className="list-group list-group-flush">

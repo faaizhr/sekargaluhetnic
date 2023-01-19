@@ -8,26 +8,26 @@ function Footer() {
             <div className="container pt-4">
                 <div className='row'>
                     <div className='col-lg-4 col-sm-12'>
-                        {/* <h6><span className={style.textLogo}>CHILIESIOUS</span></h6>
-                        <p>Cireng Isi Delicious</p> */}
+                        <h6><span className={style.textLogo}>Sekar Galuh Etnic</span></h6>
+                        <p>UMKM di bidang pakaian. Kami menjual produk berupa pakaian yang sudah jadi yang kami jahit dan desain sendiri serta kami menerima pemesanan pakaian secara custom</p>
                     </div>
                     <div className='col-lg-4 col-sm-12'>
-                        {/* <h6>Contact Us</h6>
+                        <h6>Hubungi Kami</h6>
                         <div>
                             <i className="bi bi-telephone d-inline"></i>
                             <p className='d-inline ms-3'>082288062499</p>
                         </div>
                         <div>
                             <i className="bi bi-geo-alt d-inline"></i>
-                            <p className='d-inline ms-3'>Banguntapan, Bantul, Yogyakarta</p>
+                            <p className='d-inline ms-3'>Pondok Labu, Jakarta Selatan, DKI Jakarta</p>
                         </div>
                         <div>
                             <i className="bi bi-envelope"></i>
-                            <p className='d-inline-block ms-3'>chiliesious@gmail.com</p>
-                        </div> */}
+                            <p className='d-inline-block ms-3'>sekargaluhetnic@gmail.com</p>
+                        </div>
                     </div>
                     <div className='col-lg-4 col-sm-12'>
-                        <h6>Follow Us</h6>
+                        <h6>Ikuti Kami</h6>
                         <div className={style.logo}>
                             <div className={style.instagramLogo}>
                                 <a href="https://www.instagram.com/chiliesious/" target="_blank"><i className="bi bi-instagram me-4"></i></a>
@@ -42,7 +42,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className={style.copyright}>
-                    <p>Copyright © 2022 SekarGaluhEtnic All Rights Reserved</p>
+                    <p>Copyright © 2022-2023 SekarGaluhEtnic All Rights Reserved</p>
                 </div>
             </div>
         </div>

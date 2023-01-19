@@ -1,18 +1,32 @@
 import { gql } from "@apollo/client";
 
-export const SubscriptionMenu = gql `
-subscription MySubscription {
-  Chiliesious_menu {
-    nama_menu
+export const SubscriptionCart = gql `
+subscription MySubscription($_eq: Int!) {
+  sekargaluhetnic_keranjang(where: {user_id: {_eq: $_eq}}) {
+    user_id
+    katalog_id
     id
-    harga
-    foto
-    penjelasan
-    deskripsi
-    comments {
+    katalog {
+      deskripsi
+      foto
+      gender
+      harga
+      id
       nama
-      feedback
     }
+  }
+}
+`;
+
+export const SubscriptionKeranjangKatalog = gql `
+subscription MySubscription($_eq: Int!) {
+  sekargaluhetnic_katalog(where: {keranjangs: {user_id: {_eq: $_eq}}}) {
+    deskripsi
+    foto
+    gender
+    harga
+    id
+    nama
   }
 }
 `;

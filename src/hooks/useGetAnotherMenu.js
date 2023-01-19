@@ -1,8 +1,8 @@
 import { useQuery, useLazyQuery } from "@apollo/client";
-import { GetAnotherMenu } from "../graphql/query";
+import { GetAnotherKatalog } from "../graphql/query"; 
 
-export default function useGetAnotherMenu() {
-    const [getAnotherMenu, {data, loading, error}] = useLazyQuery(GetAnotherMenu);
+export default function useGetAnotherKatalog() {
+    const [getAnotherKatalog, {data, loading, error}] = useLazyQuery(GetAnotherKatalog);
     console.log( data)
 
     return {

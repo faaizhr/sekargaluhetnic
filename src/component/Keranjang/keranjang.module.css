@@ -1,0 +1,139 @@
+.path a,
+p {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+.path svg {
+  margin-top: 2px;
+}
+
+.keranjang h4 {
+  font-size: 38px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+
+.cardKeranjang img {
+  width: 100%;
+  max-width: 200px;
+}
+.cardKeranjang h5 {
+  font-weight: 600;
+  color: #3f4e4f;
+}
+.cardKeranjang h6 {
+  font-weight: 600;
+  color: #3f4e4f;
+}
+
+.cardKeranjang {
+  border-bottom: 1px solid #dddddd;
+}
+
+.semiBold {
+  font-weight: 700;
+  color: #3f4e4f;
+}
+
+.deleteButton {
+  float: right;
+}
+.deleteButton svg {
+  width: 25px;
+  height: 25px;
+  color: #3f4e4f;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.deleteButton svg:hover {
+  color: #d93125;
+  transition-duration: 0.2s;
+}
+
+.keranjangPembayaran {
+  width: 100%;
+  /* height: 400px; */
+  /* background-color: lightblue; */
+}
+.keranjangPembayaran h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+.keranjangPembayaran h6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+.keranjangPembayaran a {
+  color: #3f4e4f;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: underline !important;
+}
+
+.hargaKeranjang {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 20px;
+}
+
+.primaryButton button {
+  border: 1px solid #3f4e4f;
+  background-color: #3f4e4f;
+  color: white;
+  padding: 10px 10px 10px;
+  width: 100%;
+  border-radius: 5px;
+  transition-duration: 0.2s;
+}
+.primaryButton button:hover {
+  background-color: white;
+  color: #3f4e4f;
+  transition-duration: 0.2s;
+}
+.secondaryButton button {
+  border: 1px solid #dcd7c9;
+  background-color: #dcd7c9;
+  color: #3f4e4f;
+  padding: 10px 10px 10px;
+  width: 100%;
+  border-radius: 5px;
+  transition-duration: 0.2s;
+}
+.secondaryButton button:hover {
+  background-color: white;
+  color: #3f4e4f;
+  transition-duration: 0.2s;
+}
+
+.modalDeleteCartItem {
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  /* height: 150px; */
+  background-color: white;
+  padding: 20px;
+  /* border: none !important; */
+}
+
+.modalDeleteCartItem:focus,
+.modalDeleteCartItem:active {
+  outline: none;
+}
+.modalDeleteCartItem h6 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+.modalDeleteCartItem p {
+  font-size: 15px;
+  /* font-weight: 600; */
+  /* color: #3f4e4f; */
+}
+/* .modalDeleteCartItem button {
+  width: 48%;
+} */

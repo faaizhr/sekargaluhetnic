@@ -1,9 +1,38 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
+import { useState } from 'react';
+import { SubscriptionCart } from '../../graphql/subscription';
+import { gql, useLazyQuery, useQuery, useSubscription } from "@apollo/client"
 
-import { CgProfile } from "react-icons/cg"
+import Cookies from "js-cookie";
+
+import { VscAccount } from "react-icons/vsc"
+import { BsCart2 } from "react-icons/bs"
+import { AiOutlineLogout } from "react-icons/ai"
+
+import Badge from '@mui/material/Badge';
+
 
 function Navbar() {
+
+    const navigate = useNavigate();
+
+    const LoggedIn = Cookies.get("token")
+    const [user, setUser] = useState(false);
+    // console.log("cek kuki", LoggedIn)
+    
+    const handleLogout =  () => {
+        Cookies.remove('okogaye');
+        Cookies.remove('token');
+    }
+    const handleNavigate = () => {
+        navigate("/");
+    }
+
+
+    const {data, loading, error} = useSubscription(SubscriptionCart, {variables: { _eq: Cookies.get("okogaye")}})
+    
+    const cartLength = data?.sekargaluhetnic_keranjang?.length
 
 
     return (
@@ -15,12 +44,44 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    <Link className="nav-link me-3" to="/">Home</Link>
+                    <Link className="nav-link me-3" to="/">Beranda</Link>
                     <Link className="nav-link me-3" to="/katalog">Katalog</Link>
                     <Link className="nav-link me-3" to="/galeri">Galeri</Link>
-                    <Link className="nav-link me-3" to="/tentangkami">Tentang Kami</Link>
-                    <CgProfile></CgProfile>
+                    <Link className="nav-link me-5" to="/tentangkami">Tentang Kami</Link>
                 </div>
+                {LoggedIn && 
+                <div className=''>
+                    <Link className="me-4" to="/keranjang">
+                        <Badge 
+                        color="success"
+                        badgeContent={cartLength}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        >
+                            <BsCart2/>
+                        </Badge>
+                    </Link>
+                    <Link className="me-4" to="/"><VscAccount/></Link>
+                    <div className='d-inline logout'>
+                        <Link className="" onClick={() => {
+                            handleLogout(); 
+                            handleNavigate();
+                            window.location.reload(); }
+                            } 
+                            to="/"
+                        ><AiOutlineLogout/></Link>
+                    </div>
+                </div>
+                }
+                {!LoggedIn && 
+                <div className='loginButton'>
+                    <Link to="/login">
+                        <button>Masuk</button>
+                    </Link>
+                </div>
+                }
                 </div>
             </div>
         </nav>

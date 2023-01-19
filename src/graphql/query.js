@@ -1,74 +1,53 @@
 import { gql } from '@apollo/client';
 
-export const GetMenu = gql `
+export const GetKatalog = gql `
 query MyQuery {
-  Chiliesious_menu (order_by: {id: asc}){
+  sekargaluhetnic_katalog {
     deskripsi
+    foto
     harga
     id
-    nama_menu
-    foto
-    penjelasan
-    komposisi
-    comments {
-      nama
-      feedback
-    }
+    nama
   }
 }
 `;
 
-export const GetBestMenu = gql `
-query MyQuery {
-  Chiliesious_menu(order_by: {id: asc}, limit: 2) {
-    penjelasan
-    nama_menu
-    komposisi
-    id
-    harga
-    foto
-    deskripsi
-    comments {
-      nama
-      feedback
-    }
-  }
-}
-`;
-
-export const GetMenuDetail = gql `
-query MyQuery($_eq: Int!) {
-  Chiliesious_menu(where: {id: {_eq: $_eq}}) {
-    nama_menu
-    id
-    harga
-    deskripsi
-    foto
-    comments {
-      nama
-      feedback
-    }
-  }
-}
-`
-
-export const GetAnotherMenu = gql `
+export const GetAnotherKatalog = gql `
 query MyQuery($_neq: Int!) {
-  Chiliesious_menu(where: {id: {_neq: $_neq}}, limit: 4) {
-    nama_menu
-    id
-    harga
-    foto
+  sekargaluhetnic_katalog(where: {id: {_neq: $_neq}}, limit: 4) {
     deskripsi
-    penjelasan
-    komposisi
-    comments {
-      nama
-      feedback
+    foto
+    harga
+    id
+    nama
+  }
+}
+`;
+
+export const GetKeranjangKatalog = gql `
+query MyQuery($_eq: Int!) {
+  sekargaluhetnic_katalog(where: {keranjangs: {user_id: {_eq: $_eq}}}) {
+    deskripsi
+    foto
+    gender
+    harga
+    id
+    nama
+  }
+}
+`;
+
+export const GetSumKeranjang = gql `
+query MyQuery($_eq: Int!) {
+  sekargaluhetnic_katalog_aggregate(where: {keranjangs: {user_id: {_eq: $_eq}}}) {
+    aggregate {
+      sum {
+        harga
+      }
     }
   }
 }
-`
+`;
 
 
 

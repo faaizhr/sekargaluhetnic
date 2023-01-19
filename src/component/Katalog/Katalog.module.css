@@ -1,0 +1,134 @@
+.jumbotronCustom {
+  background-image: url("https://cdn.discordapp.com/attachments/915505289174847510/1064550181443481760/tomas-petz-N7QHi-VpEFE-unsplash.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+.jumbotronCustom h1 {
+  color: #2c3639;
+  font-size: 60px;
+}
+
+.cardListCustom {
+  border-radius: 5px;
+  border: none !important;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  transition-duration: 0.3s;
+}
+.cardListCustom:hover {
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  transition-duration: 0.3s;
+}
+
+.menuList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fotoProduk {
+  width: 90%;
+  /* height: 370px; */
+  border-radius: 5px;
+}
+
+.cardBodyCustom {
+  max-width: 250px;
+}
+
+.textCard {
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 45px;
+}
+
+.fotoProdukList {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px 5px 0px 0px;
+}
+.deskripsiMenu p {
+  font-size: 16px;
+}
+
+.menuItem p {
+  font-size: 14px;
+  font-weight: 600;
+  color: grey;
+  margin-bottom: 5px;
+}
+
+.path a,
+p {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+.path svg {
+  margin-top: 2px;
+}
+
+.penjelasanProduk h4 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #3f4e4f;
+}
+.penjelasanProduk h5 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+
+.deskripsi {
+  border-bottom: 1px solid #dddddd;
+}
+
+.masukkanKeranjang {
+  padding: 10px 15px 10px;
+  margin-right: 5px;
+  background-color: #a27b5c;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid #a27b5c;
+  transition-duration: 0.2s;
+}
+.masukkanKeranjang:hover {
+  background-color: white;
+  color: #a27b5c;
+  transition-duration: 0.2s;
+}
+.beliLangsung {
+  padding: 10px 15px 10px;
+  background-color: #3f4e4f;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid #3f4e4f;
+  transition-duration: 0.2s;
+}
+.beliLangsung:hover {
+  background-color: white;
+  color: #3f4e4f;
+  transition-duration: 0.2s;
+}
+
+.accordion {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.accordion p {
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+
+.anotherKatalog h4 {
+  font-weight: 600;
+  color: #3f4e4f;
+  font-size: 25px;
+}
+
+@media (max-width: 991px) {
+}

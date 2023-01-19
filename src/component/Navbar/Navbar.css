@@ -3,22 +3,37 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.navbarCustom svg {
+  width: 24px;
+  height: 24px;
+  color: #3f4e4f;
+}
+
+.logout svg:hover {
+  color: #d93125 !important;
+}
+
 .navbar-brand {
   font-family: "Staatliches", cursive !important;
   letter-spacing: 1px;
-  color: #5c3d2e !important;
+  color: #3f4e4f !important;
 }
 
 .navbar-nav a {
   font-weight: 400;
   color: black !important;
+  transition-duration: 0.3s;
+  font-size: 15px;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
 }
 
 .navbar-nav a:hover {
-  border-bottom: 1px solid black;
-  margin-top: -1px;
-  font-weight: 600;
+  border-bottom: 2px solid #3f4e4f;
+  /* margin-top: -1px; */
+  /* font-weight: 600; */
   color: #5c3d2e;
+  transition-duration: 0.3s;
 }
 
 .navbar-toggler:focus,
@@ -29,6 +44,25 @@
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
+.loginButton button {
+  background-color: #3f4e4f;
+  color: white;
+  border-radius: 5px;
+  padding: 7px 15px 7px;
+  transition-duration: 0.5s;
+  border: 1px solid #3f4e4f;
+}
+.loginButton button:hover {
+  background-color: white;
+  color: #3f4e4f;
+  /* font-weight: 500; */
+  transition-duration: 0.5s;
+  border: 1px solid #3f4e4f;
+}
+
+.css-pwyk3z-MuiBadge-badge {
+  background-color: #a27b5c !important;
+}
 @media (max-width: 991.98px) {
   .navbar a {
     color: black !important;

@@ -3,81 +3,59 @@ td {
   border: 1px solid black;
 }
 
-.removeBorder {
-  border: none;
-}
-
-.inputan {
-  margin-top: 25px;
-}
-
-.shopeeFood {
-  /* background-color: salmon; */
-}
-
-.shopeeFood p {
-  /* background-color: lightgreen; */
-  margin-bottom: 0px;
-  margin-top: 6px;
-  font-size: 50px;
-  color: red;
-  letter-spacing: 1px;
-}
-
-p {
-  font-size: 20px;
-}
-
-.shopeeFoodLogo {
-  margin-left: 10px;
-  width: 130px;
-  /* background-color: yellow; */
-}
-
-.shopeeFood p {
-  font-size: 14px;
-}
-
-.jumbotronCustom {
-  /* height: 800px; */
-  background-color: #e0c097;
-  padding-bottom: 0px;
-}
-
 * {
   font-family: "Poppins", sans-serif;
 }
 
-.jumbotronCustom h1 {
-  font-size: 80px;
-  font-family: "Staatliches", cursive;
+.lakukanImage {
+  margin-top: 70px;
+}
+.lakukanImage img {
+  width: 400px;
+  object-fit: cover;
+}
+.lakukanImage button {
+  background-color: #2c3639;
   color: white;
+  padding: 7px 20px 7px;
+  border-radius: 5px;
+  border: 1px solid #2c3639;
+  transition-duration: 0.2s;
+}
+.lakukanImage button:hover {
+  background-color: white;
+  color: #2c3639;
+  border: 1px solid #2c3639;
+  transition-duration: 0.2s;
 }
 
-.jumbotronCustom p {
+.jualImage {
+  margin-top: 70px;
+}
+.jualImage img {
+  width: 400px;
+  object-fit: cover;
+}
+.jualImage button {
+  background-color: #a27b5c;
   color: white;
+  padding: 7px 20px 7px;
+  border-radius: 5px;
+  border: 1px solid #a27b5c;
+  transition-duration: 0.2s;
 }
-
-.jumbotronCustom img {
-  width: 100%;
-}
-
-.menuList {
-  /* margin-top: 10px; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.menuListBest {
-  /* margin-top: 10px; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.jualImage button:hover {
+  background-color: white;
+  color: #a27b5c;
+  border: 1px solid #a27b5c;
+  transition-duration: 0.2s;
 }
 
 @media (max-width: 991.98px) {
-  .jumbotronCustom {
-    margin-top: 0px;
+  .lakukanImage img {
+    margin-bottom: 50px;
+  }
+  .jualImage img {
+    margin-top: 50px;
   }
 }

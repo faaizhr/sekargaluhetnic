@@ -2,13 +2,14 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { gql, useQuery, useLazyQuery } from "@apollo/client"
+import Cookies from "js-cookie";
+import { v4 as uuidv4 } from 'uuid';
 
-import Navbar from "../Navbar/Navbar"
 import style from "./Login.module.css"
-import Footer from "../Footer/Footer"
 import LoadingSvg from "../Loading/LoadingSvg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-import Slide from "@mui/material/Slide";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -16,7 +17,6 @@ import FormHelperText from "@mui/material/FormHelperText";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
-// import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 
 const GetLogin = gql `
@@ -32,6 +32,7 @@ query MyQuery($_eq: String!, $_eq1: String!) {
 `
 
 function Login() {
+  AOS.init();
 
   const[getUser, { data, loading, error}] = useLazyQuery(GetLogin);
 
@@ -65,8 +66,10 @@ function Login() {
 
   useEffect(() => {
     if(data?.sekargaluhetnic_user.length === 1) {
-      console.log("data", data);
+      // console.log("data", data?.sekargaluhetnic_user[0]?.id);
       setLoginSuccess("Login Berhasil, Harap Tunggu....")
+      Cookies.set("token", uuidv4());
+      Cookies.set("okogaye", data?.sekargaluhetnic_user[0]?.id);
       return navigate ("/")
     } 
   }, [data]);
@@ -96,7 +99,11 @@ function Login() {
 
     return(
         <div className={style.loginBackground}>
-          <div className={`row ${style.loginContainer}`}>
+          <div 
+            data-aos="fade-down"
+            data-aos-duration="1500"
+            className={`row ${style.loginContainer}`}
+          >
             <div className={`col-md-6 col-12 ${style.loginForm}`}>
               <h1 className="mt-4 mb-4">Masuk</h1>
               <form onSubmit={login}>

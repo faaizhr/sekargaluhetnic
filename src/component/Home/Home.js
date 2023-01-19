@@ -2,56 +2,76 @@ import Navbar from "../Navbar/Navbar";
 import style from './Home.module.css'
 // import useGetComicLatest from "../../hooks/useGetComicLatest";
 // import useGetComicBest from "../../hooks/useGetBestMenu";
-import useGetMenu from "../../hooks/useGetMenu";
-import useGetBestMenu from "../../hooks/useGetBestMenu";
+import useGetKatalog from "../../hooks/useGetKatalog";
 import ListItem from "../Katalog/ListItem";
 import Footer from "../Footer/Footer";
+import CarouselItem from "../Carousel/CarouselItem";
+import Carousel from 'react-material-ui-carousel'
+
 
 function Home() {
 
-  const {data: dataMenu, loading: loadingMenu, error} = useGetMenu()
-  console.log("data latest di home", dataMenu)
+  // const {data: dataMenu, loading: loadingMenu, error} = useGetMenu()
+  // console.log("data latest di home", dataMenu)
 
-  const {data: bestMenu, loading: loadingBestMenu, error: errorBestMenu} = useGetBestMenu() 
-  console.log("data best", bestMenu)
+  // const {data: bestMenu, loading: loadingBestMenu, error: errorBestMenu} = useGetBestMenu() 
+  // console.log("data best", bestMenu)
+
+  var items = [
+    {
+        name: "Random Name #1",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum. Sed odio morbi quis commodo odio aenean.",
+        image: "https://firebasestorage.googleapis.com/v0/b/sekargaluhetnic.appspot.com/o/Carousel%2Fclose-up-woman-working-with-sewing-machine.jpg?alt=media&token=824855d4-9610-418a-86c2-1b57c1bc262e",
+        link: ""
+    },
+    {
+        name: "Random Name #2",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales.",
+        image: "https://cdn.discordapp.com/attachments/915505289174847510/1065477784794832947/fashion-designer-cutting-tailor-made-concept_1.jpg",
+        link: ""
+    }
+]
 
 
   return (
     <div>
       <Navbar/>
-      <div className={`jumbotron jumbotron-fluid ${style.jumbotronCustom}`}>
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-6">
-              <div className="d-flex align-items-center h-100">
-                <div>
-                  <p>CAROUSEL</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-md-6">
-              <img src=""></img>
-            </div>
-          </div>
-        </div>
+      <div className={`${style.jumbotronCustom}`}>
+          <Carousel>
+              {
+                items.map( (item, i) => <CarouselItem key={i} item={item} /> )
+              }
+          </Carousel>
       </div>
       <div className="container">
         <div className="home-content">
-        </div>
-      </div>
 
-      <div className="container">
-        <h3 className="">New Release</h3>
-        <div className={style.menuListBest}>
-          {/* {bestMenu?.Chiliesious_menu.map((menu) => <ListItem key={menu.id} item={menu}/>)}
-          { loadingMenu ? <LoadingSvg/> : ""} */}
-        </div>
-        <h3 className="mb-4 mt-5">Our Collection</h3>
-        <div className={style.menuList}>
-          {/* {dataMenu?.Chiliesious_menu.map((menu) => <ListItem key={menu.id} item={menu}/>)}
-          { loadingMenu ? <LoadingSvg/> : ""} */}
-        </div>
+          <div className={`row ${style.lakukanImage}` }>
+            <div className={`col-lg-6 col-12 text-center`}>
+              <img src="https://media.discordapp.net/attachments/915505289174847510/1064440531389784074/Desktop_-_2.png?width=424&height=550"></img>
+            </div>
+            <div className="col-lg-6 col-12 d-flex align-items-center">
+              <div>
+                <h3>Apa yang kami lakukan?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit sed vulputate mi sit.</p>
+                <button>Selengkapnya</button>
+              </div>
+            </div>
+          </div>
 
+          <div className={`row ${style.jualImage}` }>
+            <div className="col-lg-6 col-12 d-flex align-items-center">
+              <div>
+                <h3 className="text-right">Apa yang kami jual?</h3>
+                <p className="text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit sed vulputate mi sit.</p>
+                <button className="float-right">Selengkapnya</button>
+              </div>
+            </div>
+            <div className={`col-lg-6 col-12 text-center`}>
+              <img src="https://media.discordapp.net/attachments/915505289174847510/1064440532006350848/Desktop_-_3.png?width=424&height=550"></img>
+            </div>
+          </div>
+        </div>
       </div>
       <Footer/>
     </div>

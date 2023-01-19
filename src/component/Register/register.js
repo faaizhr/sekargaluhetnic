@@ -7,6 +7,8 @@ import Navbar from "../Navbar/Navbar"
 import style from "./Register.module.css"
 import Footer from "../Footer/Footer"
 import LoadingSvg from "../Loading/LoadingSvg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Slide from "@mui/material/Slide";
 import Visibility from "@mui/icons-material/Visibility";
@@ -40,6 +42,7 @@ mutation MyMutation($object: sekargaluhetnic_user_insert_input!) {
 `
 
 function Register() {
+  AOS.init();
 
   const {data: dataUser, loading: loadingGetUser, error: errorGetUser} = useQuery(GetUser)
   console.log("cek data user", dataUser?.sekargaluhetnic_user)
@@ -159,8 +162,12 @@ function Register() {
 
     return(
         <div className={style.loginBackground}>
-          <div className={`row ${style.loginContainer}`}>
-            <div className={`col-md-6 col-12 ${style.loginImage}`} >
+          <div 
+            data-aos="fade-down"
+            data-aos-duration="1500"
+            className={`row ${style.loginContainer}`}
+          >
+            <div className={`col-md-6 col-12 ${style.registImage}`} >
               <img src="https://firebasestorage.googleapis.com/v0/b/chiliesious-a5086.appspot.com/o/SekarGaluhEtnic%2FLogin%2Fmany-colorful-buttons-brown-thread-needle-wooden-background%20(1).jpg?alt=media&token=d20f2804-86f0-44fc-bda5-e7dd3f622e38"></img>
             </div>
 
