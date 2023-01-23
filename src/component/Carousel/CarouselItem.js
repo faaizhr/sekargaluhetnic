@@ -20,7 +20,7 @@ function CarouselItem(props) {
                 <div className={style.carouselContent}>
                   <h2 className="text-right">{props.item.name}</h2>
                   <p className="text-right">{props.item.description}</p>
-                  <button>Tekan Saya</button>
+                  <button>{props.item.button}</button>
                 </div>
               </div>
             </div>

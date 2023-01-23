@@ -49,5 +49,29 @@ query MyQuery($_eq: Int!) {
 }
 `;
 
+export const GetUserProfileData = gql `
+query MyQuery($_eq: Int!) {
+  sekargaluhetnic_user(where: {id: {_eq: $_eq}}) {
+    email
+    id
+    name
+    password
+    telephone
+    jenis_kelamin
+    alamats {
+      alamat
+      id
+      kabupaten_kota
+      kecamatan
+      kelurahan
+      kodepos
+      negara
+      provinsi
+      user_id
+    }
+  }
+}
+`
+
 
 

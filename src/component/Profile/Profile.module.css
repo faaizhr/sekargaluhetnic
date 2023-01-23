@@ -1,0 +1,59 @@
+.path a,
+p {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+.path svg {
+  margin-top: 2px;
+}
+
+.profil h2 {
+  font-size: 38px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+
+.menuProfil h6 {
+  font-weight: 600;
+  font-size: 15px;
+  color: #3f4e4f;
+}
+
+.menuProfil a {
+  color: black;
+  text-decoration: none;
+}
+.menuProfil p {
+  margin-bottom: 5px !important;
+  margin-left: 10px;
+}
+
+.contentProfil {
+  border: 1px solid #dddddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.contentProfil h5 {
+  color: #3f4e4f;
+  font-weight: 600;
+}
+
+/* ALAMAT */
+
+.contentAlamat {
+  border: 1px solid #dddddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.contentAlamat h5 {
+  color: #3f4e4f;
+  font-weight: 600;
+}
+
+.contentAlamat a {
+  color: black;
+  font-weight: 600;
+}

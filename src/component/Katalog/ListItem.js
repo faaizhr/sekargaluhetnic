@@ -25,7 +25,7 @@ const ListItem = ({items}) => {
     return (
       <div className={`mb-4 ${style.menuItem}`}>
         <div className={`card ${style.cardListCustom}`}>
-          <img src={foto} className={style.fotoProdukList} alt="..." />
+          <img src={foto} className={`m-auto ${style.fotoProdukList}`} alt="..." />
           <div className={`card-body ${style.cardBodyCustom}`}>
             <p>Pria</p>
             <h5 className={`card-title lh-base ${style.textCard}`} onClick={() => handleDetail(items.id)}>{nama}</h5>

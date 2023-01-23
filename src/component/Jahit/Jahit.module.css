@@ -1,0 +1,145 @@
+.path a,
+p {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+}
+.path svg {
+  margin-top: 2px;
+}
+
+.ketentuan h5 {
+  color: #3f4e4f;
+  font-weight: 600;
+}
+
+.ketentuan li {
+  font-size: 15px;
+}
+
+.jahitImage img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.jahit h2 {
+  font-size: 38px;
+  font-weight: 600;
+  color: #3f4e4f;
+}
+.jahitImage {
+  width: 100%;
+  height: 600px;
+  background-color: #3f4e4f;
+  border-radius: 5px;
+}
+
+.jahitImage h5 {
+  color: #dcd7c9;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.jahitImage button {
+  width: 100%;
+  padding: 10px;
+  background-color: #dcd7c9;
+  border: 1px solid #dcd7c9;
+  border-radius: 5px;
+  color: #3f4e4f;
+  font-size: 18px;
+  font-weight: 600;
+  transition-duration: 0.2s;
+}
+.jahitImage button:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: #3f4e4f;
+  transition-duration: 0.2s;
+}
+
+.jahitOnline {
+  border: 1px solid #dddddd;
+  padding: 20px;
+  border-radius: 5px;
+  /* font-weight: 600; */
+  color: #3f4e4f;
+}
+.jahitOnline h6 {
+  font-weight: 600;
+  color: #3f4e4f;
+  font-size: 20px;
+}
+
+.jenisPakaian {
+  /* border: 1px solid #dddddd; */
+  border-radius: 5px;
+  width: 200px;
+  height: 100px;
+}
+.jenisPakaian p {
+  text-align: center;
+  font-size: 15px;
+}
+
+.ukuranTubuh {
+  /* background-color: salmon; */
+}
+
+.ukuranTubuh table,
+tbody,
+tr,
+td {
+  border: none !important;
+}
+
+.ukuranTubuh td {
+  padding: 10px 100px 10px 0px;
+  font-weight: 500;
+}
+.ukuranTubuh input {
+  margin-left: 20px;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  display: block;
+  font-size: 15px;
+}
+.ukuranTubuh input:active,
+.ukuranTubuh input:focus {
+  outline: none;
+}
+
+.uploadImage {
+  width: 200px;
+  height: 50px;
+  font-size: 14px;
+}
+
+.previewImage {
+  margin-top: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.previewImage img {
+  width: 300px;
+  /* height: 150px; */
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.uploadedImage {
+  margin-top: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.uploadedImage img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}

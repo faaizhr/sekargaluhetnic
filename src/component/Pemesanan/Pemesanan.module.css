@@ -8,47 +8,38 @@ p {
   margin-top: 2px;
 }
 
+.alamatPengiriman {
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 15px;
+}
+.pemesananPembayaran {
+  border: 1px solid #dddddd;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.opsiPengiriman h5 {
+  font-weight: 600;
+  color: #3f4e4f;
+}
+
+.pilihanPengiriman label {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
 .keranjang h2 {
   font-size: 38px;
   font-weight: 600;
   color: #3f4e4f;
 }
 
-.cardKeranjang img {
-  width: 100%;
-  max-width: 200px;
+.katalogPemesanan img {
+  width: 85px;
 }
-.cardKeranjang h5 {
-  font-weight: 600;
-  color: #3f4e4f;
-}
-.cardKeranjang h6 {
-  font-weight: 600;
-  color: #3f4e4f;
-}
-
-.cardKeranjang {
-  border-bottom: 1px solid #dddddd;
-}
-
-.semiBold {
-  font-weight: 700;
-  color: #3f4e4f;
-}
-
-.deleteButton {
-  float: right;
-}
-.deleteButton svg {
-  width: 25px;
-  height: 25px;
-  color: #3f4e4f;
-  cursor: pointer;
-  transition-duration: 0.2s;
-}
-.deleteButton svg:hover {
-  color: #d93125;
-  transition-duration: 0.2s;
+.katalogPemesanan h6 {
+  font-size: 13px !important;
+  font-weight: 500 !important;
 }
 
 .keranjangPembayaran {
@@ -106,34 +97,3 @@ p {
   color: #3f4e4f;
   transition-duration: 0.2s;
 }
-
-.modalDeleteCartItem {
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  /* height: 150px; */
-  background-color: white;
-  padding: 20px;
-  /* border: none !important; */
-}
-
-.modalDeleteCartItem:focus,
-.modalDeleteCartItem:active {
-  outline: none;
-}
-.modalDeleteCartItem h6 {
-  font-size: 22px;
-  font-weight: 600;
-  color: #3f4e4f;
-}
-.modalDeleteCartItem p {
-  font-size: 15px;
-  /* font-weight: 600; */
-  /* color: #3f4e4f; */
-}
-/* .modalDeleteCartItem button {
-  width: 48%;
-} */

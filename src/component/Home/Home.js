@@ -19,15 +19,17 @@ function Home() {
 
   var items = [
     {
-        name: "Random Name #1",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum. Sed odio morbi quis commodo odio aenean.",
+        name: "Jahit Baju Online",
+        description: "Ingin menjahit baju tanpa keluar rumah? Kami menyediakan fitur jahit online dimana Anda hanya perlu memberikan ukuran tubuh kalian, desain yang diinginkan, foto contoh pakaian yang dinginkan, dan bisa memilih menggunakan bahan yang tersedia di toko kami ataupun bahan dari Anda.",
         image: "https://firebasestorage.googleapis.com/v0/b/sekargaluhetnic.appspot.com/o/Carousel%2Fclose-up-woman-working-with-sewing-machine.jpg?alt=media&token=824855d4-9610-418a-86c2-1b57c1bc262e",
+        button: "Jahit Online",
         link: ""
     },
     {
         name: "Random Name #2",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales.",
         image: "https://cdn.discordapp.com/attachments/915505289174847510/1065477784794832947/fashion-designer-cutting-tailor-made-concept_1.jpg",
+        button: "Jahit Online",
         link: ""
     }
 ]
@@ -53,7 +55,7 @@ function Home() {
             <div className="col-lg-6 col-12 d-flex align-items-center">
               <div>
                 <h3>Apa yang kami lakukan?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit sed vulputate mi sit.</p>
+                <p>Kami menjahit pakaian dengan spesialisasi menjahit batik. Kami menerima pesanan jahit kustom sesuai dengan permintaan pelanggan dan juga menjahit pakaian untuk dijual secara bebas.</p>
                 <button>Selengkapnya</button>
               </div>
             </div>
@@ -63,7 +65,7 @@ function Home() {
             <div className="col-lg-6 col-12 d-flex align-items-center">
               <div>
                 <h3 className="text-right">Apa yang kami jual?</h3>
-                <p className="text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est ultricies integer quis auctor elit sed vulputate mi sit.</p>
+                <p className="text-right">Kami menjual produk berupa pakaian yang sudah jadi. Pakaian yang dijual adalah pakaian hasil jahitan dari UMKM kami dan juga desain kami pribadi. Kami juga membuka jasa jahit pakaian secara kustom.</p>
                 <button className="float-right">Selengkapnya</button>
               </div>
             </div>
