@@ -73,5 +73,45 @@ query MyQuery($_eq: Int!) {
 }
 `
 
+export const GetKain = gql `
+query MyQuery {
+  sekargaluhetnic_kain {
+    id
+    nama
+    foto
+    deskripsi
+  }
+}
+`
+
+export const GetPesananID = gql `
+query MyQuery($_eq: String!) {
+  sekargaluhetnic_pesanan_jahit(where: {jahit_session: {_eq: $_eq}}) {
+    id
+  }
+}
+`
+
+export const GetPesananJahitUser = gql `
+query MyQuery($_eq: Int!) {
+  sekargaluhetnic_pesanan_jahit(where: {user_id: {_eq: $_eq}}) {
+    id
+    jahit_session
+    jenis_pakaian
+    kain
+    panjang_lengan
+    ukuran_leher
+    user_id
+    foto_desains {
+      foto
+      id
+      pesanan_jahit_id
+    }
+    updated_at
+    created_at
+  }
+}
+`
+
 
 

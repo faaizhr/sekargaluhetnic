@@ -23,14 +23,14 @@ function Home() {
         description: "Ingin menjahit baju tanpa keluar rumah? Kami menyediakan fitur jahit online dimana Anda hanya perlu memberikan ukuran tubuh kalian, desain yang diinginkan, foto contoh pakaian yang dinginkan, dan bisa memilih menggunakan bahan yang tersedia di toko kami ataupun bahan dari Anda.",
         image: "https://firebasestorage.googleapis.com/v0/b/sekargaluhetnic.appspot.com/o/Carousel%2Fclose-up-woman-working-with-sewing-machine.jpg?alt=media&token=824855d4-9610-418a-86c2-1b57c1bc262e",
         button: "Jahit Online",
-        link: ""
+        link: "/jahit"
     },
     {
         name: "Random Name #2",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales.",
         image: "https://cdn.discordapp.com/attachments/915505289174847510/1065477784794832947/fashion-designer-cutting-tailor-made-concept_1.jpg",
         button: "Jahit Online",
-        link: ""
+        link: "/"
     }
 ]
 

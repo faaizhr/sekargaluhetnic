@@ -1,10 +1,16 @@
 import style from"./carousel.module.css"
+import { useNavigate } from "react-router-dom"
 
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@mui/material'
 
 function CarouselItem(props) {
 
+  const navigate = useNavigate()
+
+  const link = () => {
+    navigate(props.item.link)
+  }
 
   return (
     <div>
@@ -20,7 +26,7 @@ function CarouselItem(props) {
                 <div className={style.carouselContent}>
                   <h2 className="text-right">{props.item.name}</h2>
                   <p className="text-right">{props.item.description}</p>
-                  <button>{props.item.button}</button>
+                  <button onClick={link}>{props.item.button}</button>
                 </div>
               </div>
             </div>

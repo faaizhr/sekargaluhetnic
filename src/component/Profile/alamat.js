@@ -2,6 +2,7 @@ import { Component, useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import {useNavigate, Link} from "react-router-dom"
+import axios from "axios";
 
 import MenuProfil from "./MenuProfil";
 
@@ -20,10 +21,27 @@ function Alamat() {
     // console.log("cek data profile", dataUser)
 
     const data = dataUser?.sekargaluhetnic_user[0];
-    console.log(data)
+    // console.log(data)
 
     const dataAlamat = dataUser?.sekargaluhetnic_user[0].alamats[0];
-    console.log(dataAlamat)
+    // console.log(dataAlamat)
+
+    useEffect(() => {
+        axios
+          .get("https://api.rajaongkir.com/starter/city", {
+            headers: {
+                'Key' : '5caf420e58934a671ab0699a2fb241b3'
+            }
+          })
+          .then((res) => {
+            console.log(res)
+            // setDataUser(res.data.data);
+          })
+          .catch((err) => {
+            console.log(err);
+            console.log("Data gak ketemu");
+          });
+      }, []);
 
     return(
         <div>

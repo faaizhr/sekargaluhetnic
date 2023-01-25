@@ -27,8 +27,8 @@ mutation MyMutation($jahit_session: String!, $user_id: Int!) {
 `;
 
 export const UpdateJahitBaju = gql `
-mutation MyMutation($_eq: String = "", $jenis_pakaian: String!, $kain: String!, $panjang_lengan: Int!) {
-  update_sekargaluhetnic_pesanan_jahit(where: {jahit_session: {_eq: $_eq}}, _set: {jenis_pakaian: $jenis_pakaian, kain: $kain, panjang_lengan: $panjang_lengan}) {
+mutation MyMutation($_eq: String = "", $jenis_pakaian: String!, $kain: String!, $panjang_lengan: Int!, $ukuran_leher: Int!) {
+  update_sekargaluhetnic_pesanan_jahit(where: {jahit_session: {_eq: $_eq}}, _set: {jenis_pakaian: $jenis_pakaian, kain: $kain, panjang_lengan: $panjang_lengan, ukuran_leher: $ukuran_leher}) {
     affected_rows
   }
 }

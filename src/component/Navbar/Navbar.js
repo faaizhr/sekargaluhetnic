@@ -1,14 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom'
-import './Navbar.css'
 import { useState } from 'react';
 import { SubscriptionCart } from '../../graphql/subscription';
 import { gql, useLazyQuery, useQuery, useSubscription } from "@apollo/client"
-
 import Cookies from "js-cookie";
+import './Navbar.css'
 
 import { VscAccount } from "react-icons/vsc"
 import { BsCart2 } from "react-icons/bs"
 import { AiOutlineLogout } from "react-icons/ai"
+import { TfiReceipt } from "react-icons/tfi"
 
 import Badge from '@mui/material/Badge';
 
@@ -62,6 +62,7 @@ function Navbar() {
                         </Badge>
                     </Link>
                     <Link className="me-4" to="/profil"><VscAccount/></Link>
+                    {/* <Link className="me-4" to="/profil"><TfiReceipt/></Link> */}
                     <div className='d-inline logout'>
                         <Link className="" onClick={() => {
                             handleLogout(); 
