@@ -109,7 +109,7 @@ const Pemesanan = () => {
         }
       })
       Cookies.remove("pesanan-session")
-      navigate("/profil")
+      // navigate("/profil")
     } else {
       navigate("/login")
     }
