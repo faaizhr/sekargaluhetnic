@@ -113,5 +113,44 @@ query MyQuery($_eq: Int!) {
 }
 `
 
+export const GetPesananPakaian = gql `
+query MyQuery {
+  sekargaluhetnic_pesanan_pakaian {
+    id
+    katalog_id
+    ongkir
+    status
+    katalog {
+      deskripsi
+      foto
+      gender
+      harga
+      id
+    }
+    user {
+      email
+      id
+      jenis_kelamin
+      name
+      alamats {
+        alamat
+        id
+        kabupaten_kota
+        kecamatan
+        kelurahan
+        kodepos
+        negara
+        provinsi
+      }
+    }
+    chats {
+      id
+      message
+      pesanan_pakaian_id
+    }
+  }
+}
+`
+
 
 

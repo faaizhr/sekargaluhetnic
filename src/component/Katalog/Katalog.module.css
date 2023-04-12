@@ -79,7 +79,7 @@
 }
 
 .cardBodyCustom {
-  max-width: 250px;
+  max-width: 200px;
 }
 
 .textCard {
@@ -91,10 +91,15 @@
   color: #3f4e4f;
 }
 
+.fotoProduk img {
+  width: 500px;
+  border-radius: 10px;
+}
+
 .fotoProdukList {
   width: 200px;
-  height: 200px;
-  /* border-radius: 5px 5px 0px 0px; */
+  height: 250px;
+  border-radius: 5px 5px 0px 0px;
 }
 .deskripsiMenu p {
   font-size: 16px;

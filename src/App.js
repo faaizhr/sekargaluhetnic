@@ -15,6 +15,8 @@ import Keranjang from './component/Keranjang/keranjang';
 import Pemesanan from './component/Pemesanan/pemesanan';
 import Profile from './component/Profile/profile';
 import Alamat from './component/Profile/alamat';
+import Pesanan from './component/Pesanan/pesanan';
+import PesananDetail from './component/Pesanan/pesananDetail';
 
 import Navbar from './component/Navbar/Navbar';
 
@@ -37,6 +39,8 @@ function App() {
         <Route exact path='/tentangkami' element={<AboutUs />}/>
         <Route exact path='/profil' element={<Profile />}/>
         <Route exact path='/alamat' element={<Alamat />}/>
+        <Route exact path='/pesanan-pakaian' element={<Pesanan />}/>
+        <Route exact path='/pesanan-pakaian/:id' element={<PesananDetail />}/>
       </Routes>
     </Router>
   );

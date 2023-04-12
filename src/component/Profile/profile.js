@@ -6,24 +6,43 @@ import {useNavigate, Link} from "react-router-dom"
 import { FiChevronRight } from "react-icons/fi"
 
 import style from './Profile.module.css'
-import { gql, useLazyQuery, useQuery } from "@apollo/client";
+import { gql, useLazyQuery, useQuery, useSubscription } from "@apollo/client";
 
 import { GetUserProfileData } from "../../graphql/query";
 import { GetPesananJahitUser } from '../../graphql/query';
+import { SubscriptionPesanan } from "../../graphql/subscription";
+
+import PesananItem from "../Pesanan/pesananItem";
+
 import Cookies from "js-cookie";
 
 
 function Profile() {
+
+    // const handleDetail = () => {
+    //     navigate(`/pesanan-pakaian/${items.id}`, {
+    //         state: {
+    //             id: items.id,
+    //             nama: items.nama,
+    //             harga: items.harga,
+    //             deskripsi: items.deskripsi,
+    //             foto: items.foto
+    //         }
+    //     })
+    // }
 
     const {data: dataUser, loading, error} = useQuery(GetUserProfileData, {variables: { _eq: Cookies.get("okogaye") }})
     // console.log("cek data profile", dataUser)
 
     const {data: dataPesananJahit, loading: loadingPesananJahit, error: errorPesananJahit} = useQuery(GetPesananJahitUser, {variables: {_eq: Cookies.get("okogaye")}})
 
+    const {data: dataPesanan, loading: loadingPesanan, error:errorPesanan} = useSubscription(SubscriptionPesanan, {variables: { _eq: Cookies.get("okogaye")}})
+    console.log("cek data pesanaan", dataPesanan)
+
     const data = dataUser?.sekargaluhetnic_user[0];
     // console.log(data)
 
-    console.log("cek pesanan", dataPesananJahit)
+    // console.log("cek pesanan", dataPesananJahit)
     // console.log("cek time stamp", dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at)
     var timestamp = dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at
     console.log(timestamp)
@@ -61,7 +80,7 @@ function Profile() {
                         <div className="col-6">
                             <h4>Pembelian Pakaian</h4>
                             <div className={style.pesananContainer}>
-                                
+                                {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.map((el) => <PesananItem key={el.id} items={el} /> )}
                             </div>
                         </div>
                         <div className="col-6">

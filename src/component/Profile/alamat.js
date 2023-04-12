@@ -13,7 +13,7 @@ import { gql, useLazyQuery, useQuery } from "@apollo/client";
 
 import { GetUserProfileData } from "../../graphql/query";
 import Cookies from "js-cookie";
-
+// import { fetchToCurl } from 'fetch-to-curl';
 
 function Alamat() {
 
@@ -26,22 +26,26 @@ function Alamat() {
     const dataAlamat = dataUser?.sekargaluhetnic_user[0].alamats[0];
     // console.log(dataAlamat)
 
-    useEffect(() => {
-        axios
-          .get("https://api.rajaongkir.com/starter/city", {
-            headers: {
-                'Key' : '5caf420e58934a671ab0699a2fb241b3'
-            }
-          })
-          .then((res) => {
-            console.log(res)
-            // setDataUser(res.data.data);
-          })
-          .catch((err) => {
-            console.log(err);
-            console.log("Data gak ketemu");
-          });
-      }, []);
+
+
+    // useEffect(() => {
+
+    //     axios
+    //       .get("https://api.rajaongkir.com/starter/city", {
+    //         headers: {
+    //             'Key' :'5caf420e58934a671ab0699a2fb241b3',
+    //             'Content-Type': 'application/x-www-form-urlencoded',
+    //             'Access-Control-Allow-Origin' : '*'
+    //         }
+    //       })
+    //       .then((res) => {
+    //         console.log(res)
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //         console.log("Data gak ketemu");
+    //       });
+    //   }, []);
 
     return(
         <div>

@@ -27,7 +27,7 @@ const ListItem = ({items}) => {
         <div className={`card ${style.cardListCustom}`}>
           <img src={foto} className={`m-auto ${style.fotoProdukList}`} alt="..." />
           <div className={`card-body ${style.cardBodyCustom}`}>
-            <p>Pria</p>
+            <p>Wanita</p>
             <h5 className={`card-title lh-base ${style.textCard}`} onClick={() => handleDetail(items.id)}>{nama}</h5>
             {/* <p className="">{deskripsi}</p> */}
             <div className="text-right">

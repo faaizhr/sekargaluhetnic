@@ -61,3 +61,53 @@ mutation MyMutation($objects: [sekargaluhetnic_foto_desain_insert_input!] = {}) 
 //   }
 // ]
 // }
+
+export const InsertPemesananFromKeranjang = gql `
+mutation MyMutation($ongkir: Int!, $status: String!, $user_id: Int!, $pesanan_session: String!) {
+  insert_sekargaluhetnic_pesanan_pakaian(objects: {ongkir: $ongkir, status: $status, user_id: $user_id, pesanan_session: $pesanan_session}) {
+    affected_rows
+  }
+}
+`;
+// {
+//   "ongkir": 13000,
+//   "status": "Lunas",
+//   "user_id": 2,
+//   "pesanan_session": "shdajsdas-dsa9d8as-sda"
+// }
+
+
+export const InsertPemesananPakaian = gql `
+mutation MyMutation($objects: [sekargaluhetnic_pesanan_insert_input!] = {}) {
+  insert_sekargaluhetnic_pesanan(objects: $objects) {
+    affected_rows
+  }
+}
+`;
+// {
+//   "objects": [
+//     {
+//       "katalog_id": 1,
+//       "pesanan_pakaian_id": 14
+//     },
+//     {
+//       "katalog_id": 2,
+//       "pesanan_pakaian_id": 14
+//     }
+//   ]
+// }
+
+export const InsertChat = gql `
+mutation MyMutation($object: sekargaluhetnic_chat_insert_input = {}) {
+  insert_sekargaluhetnic_chat_one(object: $object) {
+    id
+  }
+}
+`
+// {  VARIABLES YANG DIPERLUKAN
+//   "object": {
+//     "pesanan_pakaian_id": 8,
+//     "user_id": 3,
+//     "message": "balas chat"
+//   }
+// }
