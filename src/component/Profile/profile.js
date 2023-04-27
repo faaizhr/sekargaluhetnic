@@ -80,7 +80,7 @@ function Profile() {
                         <div className="col-6">
                             <h4>Pembelian Pakaian</h4>
                             <div className={style.pesananContainer}>
-                                {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.map((el) => <PesananItem key={el.id} items={el} /> )}
+                                {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.slice(0, 2).map((el) => <PesananItem key={el.id} items={el} /> )}
                             </div>
                         </div>
                         <div className="col-6">

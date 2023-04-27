@@ -20,18 +20,24 @@ const PesananItem = ({items}) => {
             }
         })
     }
-    // console.log("cek rating avg di listitem", ratings_aggregate)
+
+
+    let day = items.created_at.slice(8, 10)
+    let month = items.created_at.slice(4, 7)
+    let year = items.created_at.slice(11, 15)
+
+    console.log("cek date", day)
+    console.log("cek date", month)
+    console.log("cek date", year)
     
     return (
-      <div className="border p-2 rounded mb-2">
+      <div className="border p-2 rounded mb-2 ">
         <div className={``}>
-          {/* <img src={foto} className={`m-auto ${style.fotoProdukList}`} alt="..." /> */}
           <div className={``}>
-            <p>haloo</p>
-            <p className="fs-6 fw-semibold" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</p>
-            {/* <p className="">{deskripsi}</p> */}
+            <p className="m-0">{items.status}</p>
+            <p className="m-0 fw-semibold" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</p>
             <div className="text-right">
-              {/* <p className="m-0">Rp{items.katalog.harga.toLocaleString()}</p> */}
+
             </div>
           </div>
         </div>

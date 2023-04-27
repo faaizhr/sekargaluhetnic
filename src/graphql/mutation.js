@@ -63,8 +63,8 @@ mutation MyMutation($objects: [sekargaluhetnic_foto_desain_insert_input!] = {}) 
 // }
 
 export const InsertPemesananFromKeranjang = gql `
-mutation MyMutation($ongkir: Int!, $status: String!, $user_id: Int!, $pesanan_session: String!) {
-  insert_sekargaluhetnic_pesanan_pakaian(objects: {ongkir: $ongkir, status: $status, user_id: $user_id, pesanan_session: $pesanan_session}) {
+mutation MyMutation($ongkir: Int!, $status: String!, $user_id: Int!, $pesanan_session: String!, $created_at: String!) {
+  insert_sekargaluhetnic_pesanan_pakaian(objects: {ongkir: $ongkir, status: $status, user_id: $user_id, pesanan_session: $pesanan_session, created_at: $created_at}) {
     affected_rows
   }
 }
@@ -74,6 +74,7 @@ mutation MyMutation($ongkir: Int!, $status: String!, $user_id: Int!, $pesanan_se
 //   "status": "Lunas",
 //   "user_id": 2,
 //   "pesanan_session": "shdajsdas-dsa9d8as-sda"
+//   "created_at": text
 // }
 
 
@@ -95,6 +96,20 @@ mutation MyMutation($objects: [sekargaluhetnic_pesanan_insert_input!] = {}) {
 //       "pesanan_pakaian_id": 14
 //     }
 //   ]
+// }
+
+export const UpdatePemesananPakaian = gql `
+mutation MyMutation($id: Int!, $ongkir: Int!, $total_harga: Int!, $created_at: String!) {
+  update_sekargaluhetnic_pesanan_pakaian_by_pk(pk_columns: {id: $id}, _set: {ongkir: $ongkir, total_harga: $total_harga, created_at: $created_at}) {
+    id
+  }
+}
+`
+// {
+//   "id": 46,
+//   "ongkir": 9000,
+//   "total_harga": 500000,
+//   "created_at": "jumat"
 // }
 
 export const InsertChat = gql `

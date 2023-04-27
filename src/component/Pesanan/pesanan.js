@@ -41,9 +41,14 @@ const Pesanan = () => {
         <div>
           <Navbar/>
           <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-            <Link className="me-1" to="/katalog">Katalog</Link>
+            <Link className="me-1 text-decoration-none text-body " to="/profil"><p>Profil</p></Link>
             <FiChevronRight/>
-            <p className="ms-1">Pesanan Pakaian</p>
+            <p className="ms-1">Riwayat Pemesanan Pakaian</p>
+          </div>
+          
+          <div className="container">
+            <h2>Riwayat Pemesanan Pakaian</h2>
+
           </div>
             
           <Footer />

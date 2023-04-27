@@ -51,6 +51,8 @@ subscription MySubscription($_eq: Int!) {
     pesanan_session
     status
     user_id
+    created_at
+    total_harga
     pesanans {
       id
       katalog_id

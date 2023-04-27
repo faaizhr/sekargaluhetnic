@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { v1 } from "uuid";
 import { useNavigate } from "react-router-dom";
+// import { redirect } from "react-router-dom";
+
 
 import KeranjangItem from "./keranjangItem"
 import ListItem from "../Katalog/ListItem"
@@ -55,6 +57,7 @@ const Keranjang = () => {
 
   var newdate = year.toString() + month.toString()  + day.toString() + "-";
   // console.log("cek id", newdate + v1())
+  console.log("cek waktu", Date())
 
   const pemesanan = () => {
     if (LoggedIn) {
@@ -65,13 +68,16 @@ const Keranjang = () => {
             user_id: Cookies.get("okogaye"),
             pesanan_session: Cookies.get("pesanan-session"),
             status: "Menunggu Pembayaran",
-            ongkir: 0
+            ongkir: 0,
+            total_harga: 0,
+            created_at: Date()
           }
         })
-        navigate("/pemesanan")
-        
+        navigate("/pemesanan");
+        window.location.reload(false);
       } else {
-        navigate("/pemesanan")
+        navigate("/pemesanan");
+        window.location.reload(false);
       }
     }
   }
@@ -87,46 +93,54 @@ const Keranjang = () => {
           </div>
 
           <div className={`container mt-4 ${style.keranjang}`}>
-            <h2>KERANJANG BELANJA</h2>
-            <div className="row mt-5">
-              <div className="col-md-8">
-                {dataSubs?.sekargaluhetnic_katalog?.map((katalog) => <KeranjangItem key={katalog.id} items={katalog}/>)}
-              </div>
-              <div className="col-md-4">
-                <div className={style.keranjangPembayaran}>
-                  <div className={style.hargaKeranjang}>
-                    <h5>RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>
-                    <div className="d-flex justify-content-between">
-                      <p>Subtotal produk</p>
-                      <p>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga.toLocaleString()}</p>
+            {!dataSubs ? 
+            <div>
+              <h1>Keranjang Kosong</h1>
+            </div>
+            : 
+            <div>
+              <h2>KERANJANG BELANJA</h2>
+              <div className="row mt-5">
+                <div className="col-md-8">
+                  {dataSubs?.sekargaluhetnic_katalog.map((katalog) => <KeranjangItem key={katalog.id} items={katalog}/>)}
+                </div>
+                <div className="col-md-4">
+                  <div className={style.keranjangPembayaran}>
+                    <div className={style.hargaKeranjang}>
+                      <h5>RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>
+                      <div className="d-flex justify-content-between">
+                        <p>Subtotal produk</p>
+                        <p>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga?.toLocaleString()}</p>
+                      </div>
+                      <div className="d-flex justify-content-between mb-n1">
+                        <h6 className="text-uppercase">Subtotal</h6>
+                        <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga?.toLocaleString()}</h6>
+                      </div>
+                      <div className="d-flex justify-content-between">
+                        <p className="">Termasuk pajak</p>
+                        <p>Rp{taxProduk?.toLocaleString()}</p>
+                      </div>
+                      <div className="d-flex justify-content-between mb-n1">
+                        <h6 className="text-uppercase">Subtotal</h6>
+                        <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga?.toLocaleString()}</h6>
+                      </div>
                     </div>
-                    <div className="d-flex justify-content-between mb-n1">
-                      <h6 className="text-uppercase">Subtotal</h6>
-                      <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga.toLocaleString()}</h6>
-                    </div>
-                    <div className="d-flex justify-content-between">
-                      <p className="">Termasuk pajak</p>
-                      <p>Rp{taxProduk.toLocaleString()}</p>
-                    </div>
-                    <div className="d-flex justify-content-between mb-n1">
-                      <h6 className="text-uppercase">Subtotal</h6>
-                      <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga.toLocaleString()}</h6>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <h5>KETENTUAN PENGGUNAAN</h5>
-                    <p>Dengan menekan tombol pembayaran, Anda setuju dengan syarat dan ketentuan kami.</p>
-                    <Link to="/">KETENTUAN PENGGUNAAN</Link>
-                    <div className={`mt-4 ${style.primaryButton}`}>
-                      <button onClick={pemesanan}>LANJUTKAN KE PEMESANAN</button>
-                    </div>
-                    <div className={`mt-2 ${style.secondaryButton}`}>
-                      <button>LANJUT BELANJA</button>
+                    <div className="mt-4">
+                      <h5>KETENTUAN PENGGUNAAN</h5>
+                      <p>Dengan menekan tombol pembayaran, Anda setuju dengan syarat dan ketentuan kami.</p>
+                      <Link to="/">KETENTUAN PENGGUNAAN</Link>
+                      <div className={`mt-4 ${style.primaryButton}`}>
+                        <button onClick={pemesanan}>LANJUTKAN KE PEMESANAN</button>
+                      </div>
+                      <div className={`mt-2 ${style.secondaryButton}`}>
+                        <button>LANJUT BELANJA</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            
+            </div>}
           </div>
           <Footer />
       </div>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { v1 } from "uuid";
 
+
 import KeranjangItem from "../Keranjang/keranjangItem"
 import ListItem from "../Katalog/ListItem"
 import Navbar from "../Navbar/Navbar";
@@ -19,6 +20,7 @@ import useInsertToPemesanan from "../../hooks/useInsertToPemesanan"
 import { SubscriptionKeranjangKatalog } from "../../graphql/subscription"
 import { SubscriptionSumKeranjang } from "../../graphql/subscription"
 import { InsertPemesananPakaian } from "../../graphql/mutation";
+import { UpdatePemesananPakaian } from "../../graphql/mutation";
 
 import { AiOutlineRight } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi"
@@ -52,22 +54,21 @@ const Pemesanan = () => {
   // console.log("cek id", dataID?.sekargaluhetnic_pesanan_pakaian[0].id)
 
   const {data, loading, error} = useQuery(GetKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye") }})
-
   const {data: dataSubs, loading: loadingSubs, error:errorSubs} = useSubscription(SubscriptionKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye")}})
-
   const {data: dataTotalProduk, loading: loadingTdataTotalProduk, error: errorTdataTotalProduk} = useSubscription(SubscriptionSumKeranjang, {variables: {_eq: Cookies.get("okogaye")}})
-  const taxProduk = (11/100) * (dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga)
-  
   const {data: dataUser, loading: loadingUser, error: errorUser} = useQuery(GetUserProfileData, {variables: { _eq: Cookies.get("okogaye") }})
-  const dataAlamat = dataUser?.sekargaluhetnic_user[0].alamats[0];
-  // console.log(dataAlamat)
 
+  const taxProduk = (11/100) * (dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga)
+  const dataAlamat = dataUser?.sekargaluhetnic_user[0].alamats[0];
   const LoggedIn = Cookies.get("token")
+
+  // console.log("cek waktu", Date())
 
   const mappingPesanan = dataSubs?.sekargaluhetnic_katalog?.map(function(el) {
     return {
       katalog_id: el.id,
-      pesanan_pakaian_id: dataID?.sekargaluhetnic_pesanan_pakaian[0]?.id
+      pesanan_pakaian_id: dataID?.sekargaluhetnic_pesanan_pakaian[0]?.id,
+      created_at: Date()
     }
   }) 
   console.log("coba mapping", mappingPesanan)
@@ -75,16 +76,8 @@ const Pemesanan = () => {
 
   const [ongkir, setOngkir] = useState(0)
   const [opsiPengiriman, setOpsiPengiriman] = useState('')
-  // const [tot, setTot] = useState(v1())
-
-
   let totalHarga = dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga + parseInt(ongkir)
 
-  console.log("cek di state", totalHarga)
-
-  // const handleChangePengiriman = (e) => {
-  //   setOpsiPengiriman(e.target.value)
-  // }
   
   useEffect(() => { 
     if (dataAlamat?.provinsi == "DKI Jakarta") {
@@ -99,16 +92,31 @@ const Pemesanan = () => {
   
   console.log("opsi", opsiPengiriman)
   console.log("cek ongkir" ,ongkir)
+
   
+  const [updatePemesananPakaian, {loading: loadingUpdatePemesananPakaian}] = useMutation(UpdatePemesananPakaian)
   const {insertPemesananPakaian, loadingInsertPemesananPakaian} = useInsertToPemesanan()
   const pesan = () => {
     if(LoggedIn) {
-      insertPemesananPakaian({
-        variables: {
-          objects: mappingPesanan
-        }
-      })
-      Cookies.remove("pesanan-session")
+      if(ongkir == 0) {
+        toast.error("Pilih Opsi Pengiriman")
+      } else {
+        insertPemesananPakaian({
+          variables: {
+            objects: mappingPesanan
+          }
+        })
+        Cookies.remove("pesanan-session")
+
+        updatePemesananPakaian({
+          variables: {
+            id: dataID?.sekargaluhetnic_pesanan_pakaian[0]?.id,
+            ongkir: ongkir,
+            total_harga: totalHarga,
+            created_at: Date()
+          }
+        })
+      }
       // navigate("/profil")
     } else {
       navigate("/login")
@@ -119,10 +127,13 @@ const Pemesanan = () => {
     return (
         <div>
           <Navbar/>
+          <ToastContainer />
           <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
             <Link className="me-1" to="/katalog">Katalog</Link>
             <FiChevronRight/>
-            <p className="ms-1">Keranjang</p>
+            <Link to="/keranjang" className="ms-1 me-1">Keranjang</Link>
+            <FiChevronRight/>
+            <p className="ms-1">Pemesanan</p>
           </div>
 
           <div className={`container mt-4 ${style.pemesanan}`}>
@@ -192,7 +203,7 @@ const Pemesanan = () => {
                       )}
                     </div>
                     <div>
-                      <button onClick={pesan} className="w-100 rounded-1 p-2 border border-0">BUAT PESANAN</button>
+                      <button onClick={pesan} className="w-100 mt-2 rounded-1 p-2 border border-0">BUAT PESANAN</button>
                     </div>
                   </div>
                 </div>
