@@ -19,42 +19,47 @@ function Katalog() {
   return(
       <div>
           <Navbar/>
-          <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-            <Link className="me-1" to="/">SekarGaluhEtnic</Link>
+          <div className="container mx-auto flex justify-start items-center gap-2">
+            <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
             <FiChevronRight/>
-            <p className="ms-1">Katalog</p>
+            <p className="font-semibold">Katalog</p>
           </div>
 
-          <div className={`container mt-4 ${style.katalog}`}>
-            <h2 className="mb-5">KATALOG</h2>
-            <div className={`row`}>
-              <div className={`col-2 ${style.filterKatalog}`}>
-                <h5>Filter</h5>
-                <h6>Gender</h6>
-                <p>Wanita</p>
-                <p>Pria</p>
-                <h6>Kategori</h6>
-                <p>Kemeja Lengan Panjang</p>
-                <p>Kemeja Lengan Pendek</p>
-                <p>Gaun</p>
-                <p>Blouse</p>
-                <p>Rok</p>
+          <div className="container mx-auto mt-4">
+            <h2 className="text-6xl font-bold text-primary my-14">KATALOG</h2>
+            <div className="grid grid-cols-12 gap-5">
+              <div className="col-span-2">
+                <h5 className="text-lg font-semibold">Filter</h5>
+                <h6 className="mt-3 mb-1 font-semibold text-secondary">Gender</h6>
+                <div className="ml-2 grid gap-2">
+                  <p>Wanita</p>
+                  <p>Pria</p>
+                </div>
+                <h6 className="mt-3 mb-1 font-semibold text-secondary">Kategori</h6>
+                <div className="ml-2 grid gap-2">
+                  <p>Kemeja Lengan Panjang</p>
+                  <p>Kemeja Lengan Pendek</p>
+                  <p>Gaun</p>
+                  <p>Blouse</p>
+                  <p>Rok</p>
+                </div>
               </div>
-              <div className="col-10">
-                <div className="d-flex justify-content-between">
-                  <div className={style.sortKatalog}>
-                    <select>
+              <div className="col-span-10">
+                <div className="flex justify-between">
+                  <div className="">
+                    <select className="border-b p-2 text-sm text-gray-500 focus:outline-none">
                       <option>Pilih Berdasarkan</option>
                       <option>Termahal - Termurah</option>
                       <option>Termurah - Termahal</option>
                     </select>
                   </div>
-                  <div className={style.searchbar}>
-                    <input type="text" placeholder="Cari Pakaian...."></input>
-                    <button>Cari</button>
+                  <div className="border-b">
+                    <input type="text" className="p-2 text-sm text-gray-500 focus:outline-none" placeholder="Cari Pakaian...."></input>
+                    <button className="bg-secondary2 p-2 text-white rounded-e-md">Cari</button>
                   </div>
                 </div>
-                <div className={`d-flex justify-content-between flex-wrap mt-5`}>
+
+                <div className={`grid grid-cols-2 lg:grid-cols-4 mt-5 gap-7`}>
                   {dataKatalog?.sekargaluhetnic_katalog?.map((katalog) => <ListItem key={katalog.id} items={katalog}/>)}
                 </div>
               </div>

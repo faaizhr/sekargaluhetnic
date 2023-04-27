@@ -78,32 +78,34 @@ const KatalogDetail = () => {
     return (
         <div>
           <Navbar/>
-          <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-            <Link className="me-1" to="/katalog">Katalog</Link>
+          <div className="container mx-auto flex justify-start items-center gap-2">
+            <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
             <FiChevronRight/>
-            <p className="ms-1">{location.state.nama}</p>
+            <Link className="" to="/katalog"><p>Katalog</p></Link>
+            <FiChevronRight/>
+            <p className="font-semibold">{location.state.nama}</p>
           </div>
 
-          <div className={`container mt-5`}>
-            <div className="row">
-              <div className={`col-lg-7 ${style.fotoProduk}`}>
-                <img src={location.state.foto}></img>
+          <div className="container mx-auto mt-10">
+            <div className="grid lg:grid-cols-12 gap-10">
+              <div className="col-span-7">
+                <img src={location.state.foto} className="w-[520px] rounded-md"></img>
               </div>
-              <div className={`col-lg-5 ${style.penjelasanProduk}`}>
-                <div className={style.deskripsi}>
-                  <h4>{location.state.nama}</h4>
-                  <h5 className="mt-1">Rp{location.state.harga.toLocaleString()}</h5>
+              <div className="col-span-5">
+                <div className="border-b pb-5">
+                  <h4 className="font-bold text-5xl text-secondary">{location.state.nama}</h4>
+                  <h5 className="mt-2 font-semibold text-2xl text-secondary">Rp{location.state.harga.toLocaleString()}</h5>
                   <p className="mt-4">{location.state.deskripsi}</p>
                 </div>
                 <div className="pt-4">
-                  <h6>Ukuran Pakaian</h6>
+                  <h6 className="mb-1">Ukuran Pakaian</h6>
                   <p>Lebar Tubuh : </p>
                   <p>Panjang Tubuh : </p>
                   <p>Panjang Lengan : </p>
-                  <p className="mt-5">Stok Tersedia   :   1</p>
-                  <div>
-                    <button onClick={cart} className={style.masukkanKeranjang}>Tambahkan ke Keranjang</button>
-                    <button className={style.beliLangsung}>Langsung Beli</button>
+                  <p className="my-5">Stok Tersedia   :   1</p>
+                  <div className="flex justify-start gap-2">
+                    <button onClick={cart} className="text-white px-5 py-3 bg-secondary2 rounded-md hover:bg-white hover:text-secondary2 border border-secondary2 duration-200">Tambahkan ke Keranjang</button>
+                    <button className="text-white px-4 py-3 bg-secondary rounded-md hover:bg-white hover:text-secondary border border-secondary duration-200">Langsung Beli</button>
                   </div>
                 </div>
               </div>
@@ -150,9 +152,9 @@ const KatalogDetail = () => {
               </Accordion>
             </div>
 
-            <div className={`mt-5${style.anotherKatalog}`}>
-              <h4 className="mb-3">Pakaian Lainnya</h4>
-              <div className="d-flex justify-content-between flex-wrap">
+            <div className="my-20">
+              <h4 className="mb-5 text-3xl font-bold text-primary">Pakaian Lainnya</h4>
+              <div className="flex justify-start gap-10">
               {dataKatalog?.sekargaluhetnic_katalog?.map((katalog) => <ListItem key={katalog.id} items={katalog}/>)}
               </div>
             </div>

@@ -12,7 +12,7 @@ import KeranjangItem from "./keranjangItem"
 import ListItem from "../Katalog/ListItem"
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import style from "./keranjang.module.css"
+// import style from "./keranjang.module.css"
 
 import { GetKeranjangKatalog, GetSumKeranjang } from "../../graphql/query"
 import { GetAnotherKatalog } from "../../graphql/query"
@@ -86,54 +86,55 @@ const Keranjang = () => {
     return (
         <div>
           <Navbar/>
-          <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-            <Link className="me-1" to="/katalog">Katalog</Link>
+          <div className="container mx-auto flex justify-start items-center gap-2">
+            <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
             <FiChevronRight/>
-            <p className="ms-1">Keranjang</p>
+            <p className="font-semibold">Keranjang</p>
           </div>
 
-          <div className={`container mt-4 ${style.keranjang}`}>
+
+          <div className="container mx-auto mt-4">
             {!dataSubs ? 
             <div>
               <h1>Keranjang Kosong</h1>
             </div>
             : 
             <div>
-              <h2>KERANJANG BELANJA</h2>
-              <div className="row mt-5">
-                <div className="col-md-8">
+              <h2 className="text-6xl font-bold text-primary my-14">KERANJANG BELANJA</h2>
+              <div className="grid grid-cols-12 gap-10 mt-5">
+                <div className="col-span-8">
                   {dataSubs?.sekargaluhetnic_katalog.map((katalog) => <KeranjangItem key={katalog.id} items={katalog}/>)}
                 </div>
-                <div className="col-md-4">
-                  <div className={style.keranjangPembayaran}>
-                    <div className={style.hargaKeranjang}>
-                      <h5>RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>
-                      <div className="d-flex justify-content-between">
+                <div className="col-span-4">
+                  <div className="">
+                    <div className="">
+                      <h5 className="text-lg font-semibold mb-3 text-primary">RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>
+                      <div className="flex justify-between">
                         <p>Subtotal produk</p>
                         <p>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga?.toLocaleString()}</p>
                       </div>
-                      <div className="d-flex justify-content-between mb-n1">
-                        <h6 className="text-uppercase">Subtotal</h6>
+                      <div className="flex justify-between -mb-1 font-medium">
+                        <h6 className="uppercase">Subtotal</h6>
                         <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga?.toLocaleString()}</h6>
                       </div>
-                      <div className="d-flex justify-content-between">
+                      <div className="flex justify-between">
                         <p className="">Termasuk pajak</p>
                         <p>Rp{taxProduk?.toLocaleString()}</p>
                       </div>
-                      <div className="d-flex justify-content-between mb-n1">
-                        <h6 className="text-uppercase">Subtotal</h6>
+                      <div className="flex justify-between -mb-1 font-medium">
+                        <h6 className="uppercase">total</h6>
                         <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga?.toLocaleString()}</h6>
                       </div>
                     </div>
                     <div className="mt-4">
-                      <h5>KETENTUAN PENGGUNAAN</h5>
+                      <h5 className="text-lg font-semibold text-primary">KETENTUAN PENGGUNAAN</h5>
                       <p>Dengan menekan tombol pembayaran, Anda setuju dengan syarat dan ketentuan kami.</p>
-                      <Link to="/">KETENTUAN PENGGUNAAN</Link>
-                      <div className={`mt-4 ${style.primaryButton}`}>
-                        <button onClick={pemesanan}>LANJUTKAN KE PEMESANAN</button>
+                      <Link className="underline-offset-2" to="/"><u>KETENTUAN PENGGUNAAN</u></Link>
+                      <div className="mt-7">
+                        <button onClick={pemesanan} className="bg-secondary w-full py-2 border border-secondary text-white hover:bg-white hover:text-secondary duration-200 rounded-md">LANJUTKAN KE PEMESANAN</button>
                       </div>
-                      <div className={`mt-2 ${style.secondaryButton}`}>
-                        <button>LANJUT BELANJA</button>
+                      <div className="mt-2">
+                        <button className="bg-secondary3 w-full py-2 border border-secondary3 text-secondary hover:bg-white duration-200 rounded-md">LANJUT BELANJA</button>
                       </div>
                     </div>
                   </div>

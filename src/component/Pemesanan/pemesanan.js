@@ -128,30 +128,30 @@ const Pemesanan = () => {
         <div>
           <Navbar/>
           <ToastContainer />
-          <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-            <Link className="me-1" to="/katalog">Katalog</Link>
-            <FiChevronRight/>
-            <Link to="/keranjang" className="ms-1 me-1">Keranjang</Link>
-            <FiChevronRight/>
-            <p className="ms-1">Pemesanan</p>
-          </div>
+          <div className="container mx-auto flex justify-start items-center gap-2">
+                <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
+                <FiChevronRight/>
+                <Link to="/keranjang" className=""><p>Keranjang</p></Link>
+                <FiChevronRight/>
+                <p className="font-semibold">Pemesanan</p>
+            </div>
 
-          <div className={`container mt-4 ${style.pemesanan}`}>
-            <h2>PEMESANAN DAN PEMBAYARAN</h2>
-            <div className="row mt-5">
-              <div className={`col-md-8`}>
-                <div className={style.pemesananPembayaran}>
-                  <div className={style.alamatPengiriman}>
-                    <h5>ALAMAT PENGIRIMAN</h5>
+          <div className="container mt-4 mx-auto">
+            <h2 className="text-primary text-6xl font-bold">PEMESANAN DAN PEMBAYARAN</h2>
+            <div className="grid lg:grid-cols-12 mt-5 gap-10">
+              <div className={`col-span-8`}>
+                <div className="border p-5 rounded-md">
+                  <div className="border-b pb-4">
+                    <h5 className="uppercase text-lg font-semibold text-secondary">ALAMAT PENGIRIMAN</h5>
                     {(dataAlamat ? 
                     <p>{dataAlamat?.alamat}, {dataAlamat?.kelurahan}, {dataAlamat?.kecamatan}, {dataAlamat?.kabupaten_kota}, {dataAlamat?.provinsi}, {dataAlamat?.negara}, {dataAlamat?.kodepos}</p> :
                     <p>Belum ada alamat</p>
                     )}
                   </div>
-                  <div className={style.opsiPengiriman}>
-                    <h5>OPSI PENGIRIMAN</h5>
-                    <h6>Pemberitahuan</h6>
-                    <p>Dalam opsi pengiriman tidak terdapat pilihan kurir, kurir yang kami gunakan adalah kurir yang sudah bermitra dengan kami. Hanya terdapat pilihan kelas pengiriman yang berpengaruh kepada waktu sampai barang.</p>
+                  <div className="mt-5">
+                    <h5 className="uppercase text-lg font-semibold text-secondary">OPSI PENGIRIMAN</h5>
+                    <h6 className="font-medium">Pemberitahuan</h6>
+                    <p className="mb-3">Dalam opsi pengiriman tidak terdapat pilihan kurir, kurir yang kami gunakan adalah kurir yang sudah bermitra dengan kami. Hanya terdapat pilihan kelas pengiriman yang berpengaruh kepada waktu sampai barang.</p>
                     <div className={style.pilihanPengiriman}>
                       <input type="radio" id="age1" name="age" value="reguler" onChange={() => setOpsiPengiriman("reguler")}/>
                       <label for="age1">Reguler</label><br/>
@@ -163,47 +163,47 @@ const Pemesanan = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4 mt-4">
-                <div className={style.keranjangPembayaran}>
-                  <div className={style.hargaKeranjang}>
-                    <h5>RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>
-                    <div className="d-flex justify-content-between">
+              <div className="col-span-4 mt-4">
+                <div className="">
+                  <div className="">
+                    <h5 className="text-lg font-semibold mb-3 text-primarys">RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>
+                    <div className="flex justify-between mb-3">
                       <p>Subtotal produk</p>
                       <p>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga.toLocaleString()}</p>
                     </div>
-                    <div className="d-flex justify-content-between mb-n1">
+                    <div className="flex justify-between mb-n1 font-semibold">
                       <h6 className="text-uppercase">Subtotal</h6>
                       <h6>Rp{dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga.toLocaleString()}</h6>
                     </div>
-                    <div className="d-flex justify-content-between">
+                    <div className="flex justify-between">
                       <p className="">Termasuk pajak</p>
                       <p>Rp{taxProduk.toLocaleString()}</p>
                     </div>
-                    <div className="d-flex justify-content-between mt-n3">
+                    <div className="flex justify-between mt-n3 mb-3">
                       <p className="">Ongkir</p>
                       <p>Rp{ongkir.toLocaleString()}</p>
                     </div>
-                    <div className="d-flex justify-content-between mb-n1">
-                      <h6 className="text-uppercase">total</h6>
+                    <div className="flex justify-between mb-n1 font-semibold ">
+                      <h6 className="text-uppercase">Total</h6>
                       <h6>Rp{totalHarga}</h6>
                     </div>
                   </div>
                   <div className="mt-4">
-                    <h5>PRODUK YANG DIPESAN</h5>
-                    <div className={style.katalogPemesanan}>
+                    <h5 className="text-xl font-semibold text-secondary">PRODUK YANG DIPESAN</h5>
+                    <div className="grid-5">
                       {dataSubs?.sekargaluhetnic_katalog?.map((katalog) => 
-                        <div className="row mb-2">
-                          <div className="col-4 ">
-                            <img className="" src={katalog?.foto}></img>
+                        <div className="grid grid-cols-12 mb-2 gap-1 border-b pb-3">
+                          <div className="col-span-4 ">
+                            <img className="rounded-md" src={katalog?.foto}></img>
                           </div>
-                          <div className="col-8 d-flex align-items-center">
+                          <div className="col-span-8 d-flex align-items-center">
                             <h6 className="ms-3">{katalog.nama}</h6>
                           </div>
                         </div>
                       )}
                     </div>
                     <div>
-                      <button onClick={pesan} className="w-100 mt-2 rounded-1 p-2 border border-0">BUAT PESANAN</button>
+                      <button onClick={pesan} className="w-full bg-secondary3 text-primary mt-2 rounded-1 p-2 border border-secondary3 rounded-md hover:bg-white duration-200">BUAT PESANAN</button>
                     </div>
                   </div>
                 </div>

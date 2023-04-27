@@ -38,38 +38,41 @@ function Home() {
   return (
     <div>
       <Navbar/>
-      <div className={`${style.jumbotronCustom}`}>
+      <div className="-mt-5 mb-20">
           <Carousel>
               {
                 items.map( (item, i) => <CarouselItem key={i} item={item} /> )
               }
           </Carousel>
       </div>
-      <div className="container">
-        <div className="home-content">
+      <div className="container mx-auto">
 
-          <div className={`row ${style.lakukanImage}` }>
-            <div className={`col-lg-6 col-12 text-center`}>
+        <div className="">
+
+          <div className="grid grid-cols-5 gap-10">
+            <div className="col-span-2">
               <img src="https://media.discordapp.net/attachments/915505289174847510/1064440531389784074/Desktop_-_2.png?width=424&height=550"></img>
             </div>
-            <div className="col-lg-6 col-12 d-flex align-items-center">
-              <div>
-                <h3>Apa yang kami lakukan?</h3>
-                <p>Kami menjahit pakaian dengan spesialisasi menjahit batik. Kami menerima pesanan jahit kustom sesuai dengan permintaan pelanggan dan juga menjahit pakaian untuk dijual secara bebas.</p>
-                <button>Selengkapnya</button>
+            <div className="col-span-3 flex items-center">
+              <div className="">
+                <h3 className="font-semibold text-2xl text-secondary">Apa yang kami lakukan?</h3>
+                <p className="text-base mt-3">Kami menjahit pakaian dengan spesialisasi menjahit batik. Kami menerima pesanan jahit kustom sesuai dengan permintaan pelanggan dan juga menjahit pakaian untuk dijual secara bebas.</p>
+                <button className="mt-3 px-10 py-3 bg-secondary text-white rounded-md">Selengkapnya</button>
               </div>
             </div>
           </div>
 
-          <div className={`row ${style.jualImage}` }>
-            <div className="col-lg-6 col-12 d-flex align-items-center">
+          <div className="grid grid-cols-5 mt-10 gap-10">
+            <div className="col-span-3 flex items-center">
               <div>
-                <h3 className="text-right">Apa yang kami jual?</h3>
-                <p className="text-right">Kami menjual produk berupa pakaian yang sudah jadi. Pakaian yang dijual adalah pakaian hasil jahitan dari UMKM kami dan juga desain kami pribadi. Kami juga membuka jasa jahit pakaian secara kustom.</p>
-                <button className="float-right">Selengkapnya</button>
+                <h3 className="text-right font-semibold text-2xl text-secondary2">Apa yang kami jual?</h3>
+                <p className="text-right text-base mt-3">Kami menjual produk berupa pakaian yang sudah jadi. Pakaian yang dijual adalah pakaian hasil jahitan dari UMKM kami dan juga desain kami pribadi. Kami juga membuka jasa jahit pakaian secara kustom.</p>
+                <div className="flex justify-end">
+                  <button className="mt-3 px-10 py-3 bg-secondary2 text-white rounded-md">Selengkapnya</button>
+                </div>
               </div>
             </div>
-            <div className={`col-lg-6 col-12 text-center`}>
+            <div className="col-span-2">
               <img src="https://media.discordapp.net/attachments/915505289174847510/1064440532006350848/Desktop_-_3.png?width=424&height=550"></img>
             </div>
           </div>

@@ -75,11 +75,11 @@ const KeranjangItem = ({items}) => {
     return (
       <div className={`mb-4 ${style.menuKeranjangItem}`}>
         <div className={`mb-3 pb-4 ${style.cardKeranjang}`}>
-          <div className="row g-0">
-            <div className="col-sm-4">
-              <img src={foto} className="img-fluid rounded-start" alt="..."/>
+          <div className="grid grid-cols-12 gap-5">
+            <div className="col-span-4">
+              <img src={foto} className="rounded-md" alt="..."/>
             </div>
-            <div className="col-sm-8">
+            <div className="col-span-8">
               <div className="card-body">
                 <h5 className="">{nama}</h5>
                 <p className="mb-3 fw-bold text-muted">Kode Produk : 78568HSJ4</p>

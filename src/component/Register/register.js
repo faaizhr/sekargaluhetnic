@@ -165,13 +165,13 @@ function Register() {
           <div 
             data-aos="fade-down"
             data-aos-duration="1500"
-            className={`row ${style.loginContainer}`}
+            className={`grid lg:grid-cols-2 ${style.loginContainer}`}
           >
-            <div className={`col-md-6 col-12 ${style.registImage}`} >
+            <div className={`hidden lg:block ${style.registImage}`} >
               <img src="https://firebasestorage.googleapis.com/v0/b/chiliesious-a5086.appspot.com/o/SekarGaluhEtnic%2FLogin%2Fmany-colorful-buttons-brown-thread-needle-wooden-background%20(1).jpg?alt=media&token=d20f2804-86f0-44fc-bda5-e7dd3f622e38"></img>
             </div>
 
-            <div className={`col-md-6 col-12 ${style.loginForm}`}>
+            <div className={`px-5 ${style.loginForm}`}>
               <h1 className="mt-4 mb-4">Daftar</h1>
               <form onSubmit={register}>
                 <div className="mb-3">

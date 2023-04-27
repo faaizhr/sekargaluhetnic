@@ -34,7 +34,7 @@ const PesananItem = ({items}) => {
       <div className="border p-2 rounded mb-2 ">
         <div className={``}>
           <div className={``}>
-            <p className="m-0">{items.status}</p>
+            <p className="m-0 bg-blue-400 w-fit border border-blue-400 px-3 py-1 text-white rounded-3xl text-xs">{items.status}</p>
             <p className="m-0 fw-semibold" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</p>
             <div className="text-right">
 

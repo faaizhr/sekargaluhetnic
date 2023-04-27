@@ -15,18 +15,20 @@ function CarouselItem(props) {
   return (
     <div>
       <div 
-        className={style.carouselCard}
+        className="w-full h-[600px]"
         style=
           {{
             backgroundImage: `url(${props.item.image})`,
             backgroundSize: "cover"
           }}>
             <div className={style.cardLayer}>
-              <div className="container pt-5 pb-5 d-flex justify-content-end">
-                <div className={style.carouselContent}>
-                  <h2 className="text-right">{props.item.name}</h2>
-                  <p className="text-right">{props.item.description}</p>
-                  <button onClick={link}>{props.item.button}</button>
+              <div className="container mx-auto flex justify-end pt-40">
+                <div className={`${style.carouselContent}`}>
+                  <h2 className="text-right text-secondary3 text-3xl font-bold mb-3">{props.item.name}</h2>
+                  <p className="text-right text-white">{props.item.description}</p>
+                  <div className="flex justify-end">
+                    <button onClick={link} className="px-10 py-2 rounded-md mt-5 bg-secondary2 text-white ">{props.item.button}</button>
+                  </div>
                 </div>
               </div>
             </div>

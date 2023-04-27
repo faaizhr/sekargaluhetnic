@@ -68,23 +68,24 @@ function Profile() {
     return(
         <div>
             <Navbar/>
-                <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-                    <Link className="me-1" to="/katalog">SekarGaluhEtnic</Link>
-                    <FiChevronRight/>
-                    <p className="ms-1">Profil</p>
-                </div>
-            <div className={`container mt-4 ${style.profil}`}>
-              <h2>PESANAN SAYA</h2>
-                <div className={style.pesananSaya}>
-                    <div className="row">
-                        <div className="col-6">
-                            <h4>Pembelian Pakaian</h4>
+            <div className="container mx-auto flex justify-start items-center gap-2">
+                <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
+                <FiChevronRight/>
+                <p className="font-semibold">Profil</p>
+            </div>
+
+            <div className="container mx-auto mt-5">
+              <h2 className="text-primary text-6xl font-bold">PESANAN SAYA</h2>
+                <div className="">
+                    <div className="grid lg:grid-cols-2 gap-10 mt-5">
+                        <div className="">
+                            <h4 className="font-semibold uppercase text-secondary">Pembelian Pakaian</h4>
                             <div className={style.pesananContainer}>
                                 {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.slice(0, 2).map((el) => <PesananItem key={el.id} items={el} /> )}
                             </div>
                         </div>
-                        <div className="col-6">
-                            <h4>Pemesanan Jahit Pakaian</h4>
+                        <div className="">
+                            <h4 className="font-semibold uppercase text-secondary">Pemesanan Jahit Pakaian</h4>
                             <div className={style.pesananContainer}>
                                 {dataPesananJahit?.sekargaluhetnic_pesanan_jahit?.map((el) => 
                                     <div>
@@ -97,27 +98,29 @@ function Profile() {
                 </div>
 
             <br></br>
-              <h2>PROFIL</h2>
-              <div className="row mt-4">
-                <div className={`col-3 ${style.menuProfil}`}>
-                    <h6>Pengaturan Profil</h6>
-                    <p><Link to="/profil">Profil</Link></p>
-                    <p><Link to="/">Sunting Profil</Link></p>
-                    <p><Link to="/alamat">Alamat</Link></p>
-                    <p><Link to="/">Ubah Kata Sandi</Link></p>
-                    <p><Link to="/">Riwayat Transaksi</Link></p>
+              <h2 className="text-primary text-6xl font-bold">PROFIL</h2>
+              <div className="grid lg:grid-cols-12 mt-4">
+                <div className={`col-span-3 `}>
+                    <h6 className="uppercase font-medium mb-3">Pengaturan Profil</h6>
+                    <div className="ml-2 grid gap-1">
+                        <p><Link to="/profil">Profil</Link></p>
+                        <p><Link to="/">Sunting Profil</Link></p>
+                        <p><Link to="/alamat">Alamat</Link></p>
+                        <p><Link to="/">Ubah Kata Sandi</Link></p>
+                        <p><Link to="/">Riwayat Transaksi</Link></p>
+                    </div>
                 </div>
-                <div className="col-9">
-                    <div className={style.contentProfil}>
-                        <h5 className="mb-4">Profil</h5>
-                        <h6>Alamat Email</h6>
-                        <p>{data?.email}</p>
-                        <h6>Nama</h6>
-                        <p>{data?.name}</p>
-                        <h6>No. Telefon</h6>
-                        <p>{data?.telephone}</p>
-                        <h6>Jenis Kelamin</h6>
-                        <p>{data?.jenis_kelamin}</p>
+                <div className="col-span-9">
+                    <div className="border rounded-md p-5">
+                        <h5 className="mb-3 font-semibold uppercase">Profil</h5>
+                        <h6 className="font-medium">Alamat Email</h6>
+                        <p className="mb-2">{data?.email}</p>
+                        <h6 className="font-medium">Nama</h6>
+                        <p className="mb-2">{data?.name}</p>
+                        <h6 className="font-medium">No. Telefon</h6>
+                        <p className="mb-2">{data?.telephone}</p>
+                        <h6 className="font-medium">Jenis Kelamin</h6>
+                        <p className="mb-2">{data?.jenis_kelamin}</p>
                     </div>
                 </div>
               </div>

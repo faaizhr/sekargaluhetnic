@@ -23,18 +23,18 @@ const ListItem = ({items}) => {
     // console.log("cek rating avg di listitem", ratings_aggregate)
     
     return (
-      <div className={`mb-4 ${style.menuItem}`}>
-        <div className={`card ${style.cardListCustom}`}>
-          <img src={foto} className={`m-auto ${style.fotoProdukList}`} alt="..." />
-          <div className={`card-body ${style.cardBodyCustom}`}>
-            <p>Wanita</p>
-            <h5 className={`card-title lh-base ${style.textCard}`} onClick={() => handleDetail(items.id)}>{nama}</h5>
+      <div className="hover:shadow-md rounded-md duration-300 max-w-[200px] w-full border">
+        <div className="">
+          <img src={foto} className="rounded-t-md mb-3 " alt="..." />
+          <div className="px-3 pb-3">
+            <p className="text-gray-600 font-semibold text-xs">Wanita</p>
+            <h5 className="font-medium text-primary text-sm h-11 cursor-pointer" onClick={() => handleDetail(items.id)}>{nama}</h5>
             {/* <p className="">{deskripsi}</p> */}
             <div className="text-right">
-              <h6 className="card-text">Rp{harga.toLocaleString()}</h6>
+              <h6 className="text-base font-semibold text-secondary">Rp{harga.toLocaleString()}</h6>
             </div>
           </div>
-          <ul className="list-group list-group-flush">
+          <ul className="">
             {/* <li className="list-group-item">{item.id}</li> */}
             {/* <li className="list-group-item">{penulis}</li>
             <li className="list-group-item">{penerbit}</li>

@@ -102,9 +102,9 @@ function Login() {
           <div 
             data-aos="fade-down"
             data-aos-duration="1500"
-            className={`row ${style.loginContainer}`}
+            className={`grid lg:grid-cols-2 ${style.loginContainer}`}
           >
-            <div className={`col-md-6 col-12 ${style.loginForm}`}>
+            <div className={`px-5 ${style.loginForm}`}>
               <h1 className="mt-4 mb-4">Masuk</h1>
               <form onSubmit={login}>
                 <div className="mb-3">
@@ -171,8 +171,8 @@ function Login() {
               <p className={`mt-3 text-center`}>Belum punya akun?<span className={style.loginDaftar}><a href="/register"> Daftar</a></span></p>
             </div>
 
-            <div className={`col-md-6 col-12 ${style.loginImage}`} >
-              <img src="https://firebasestorage.googleapis.com/v0/b/chiliesious-a5086.appspot.com/o/SekarGaluhEtnic%2FLogin%2Fsewing-keeps-my-mind-relaxed-cropped-shot-female-tailor-working-new-project-making-clothes-with-sewing-machine-workshop-being-busy-young-designer-making-her-ideas-come-true%20(1).jpg?alt=media&token=3e9cd4f8-b944-4ab1-a33b-e9d78ce20071"></img>
+            <div className="lg:block hidden" >
+              <img className="w-full h-full object-cover" src="https://firebasestorage.googleapis.com/v0/b/chiliesious-a5086.appspot.com/o/SekarGaluhEtnic%2FLogin%2Fsewing-keeps-my-mind-relaxed-cropped-shot-female-tailor-working-new-project-making-clothes-with-sewing-machine-workshop-being-busy-young-designer-making-her-ideas-come-true%20(1).jpg?alt=media&token=3e9cd4f8-b944-4ab1-a33b-e9d78ce20071"></img>
             </div>
             
           </div>
