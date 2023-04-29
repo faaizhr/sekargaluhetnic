@@ -50,40 +50,41 @@ function Alamat() {
     return(
         <div>
             <Navbar/>
-                <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-                    <Link className="me-1" to="/katalog">SekarGaluhEtnic</Link>
-                    <FiChevronRight/>
-                    <p className="ms-1">Profil</p>
-                    <FiChevronRight className="ms-1"/>
-                    <p className="ms-1 ">Alamat</p>
-                </div>
-            <div className={`container mt-4 ${style.profil}`}>
-              <h2>PROFIL</h2>
-              <div className="row mt-4">
-                <div className={`col-3 ${style.menuProfil}`}>
+            <div className="container mx-auto flex justify-start items-center gap-2">
+                <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
+                <FiChevronRight/>
+                <Link className="" to="/profil"><p>Profil</p></Link>
+                <FiChevronRight/>
+                <p className="font-semibold">Alamat</p>
+            </div>
+
+            <div className="container mx-auto mt-4">
+              <h2 className="text-primary text-6xl font-bold">PROFIL</h2>
+              <div className="grid lg:grid-cols-12 mt-4">
+                <div className={`col-span-3`}>
                     <MenuProfil/>
                 </div>
-                <div className="col-9">
-                    <div className={style.contentAlamat}>
+                <div className="col-span-9">
+                    <div className="border rounded-md p-5">
                         {( dataAlamat ? 
                         <div> 
-                          <h5 className="mb-4">Alamat</h5>
-                          <h6>Negara</h6>
-                          <p>{dataAlamat?.negara}</p>
-                          <h6>Provinsi</h6>
-                          <p>{dataAlamat?.provinsi}</p>
-                          <h6>Kabupaten / Kota</h6>
-                          <p>{dataAlamat?.kabupaten_kota}</p>
-                          <h6>Kecamatan</h6>
-                          <p>{dataAlamat?.kecamatan}</p>
-                          <h6>Kelurahan</h6>
-                          <p>{dataAlamat?.kelurahan}</p>
-                          <h6>Detail Alamat</h6>
-                          <p>{dataAlamat?.alamat}</p>
-                          <h6>Kode Pos</h6>
-                          <p>{dataAlamat?.kodepos}</p>
-                          <h5 className="mb-2 mt-4">Alamat Lengkap</h5>
-                          <p>{dataAlamat?.alamat}, {dataAlamat?.kelurahan}, {dataAlamat?.kecamatan}, {dataAlamat?.kabupaten_kota}, {dataAlamat?.provinsi}, {dataAlamat?.negara}, {dataAlamat?.kodepos}</p>
+                          <h5 className="mb-3 font-semibold uppercase">Alamat</h5>
+                          <h6 className="font-medium">Negara</h6>
+                          <p className="mb-2">{dataAlamat?.negara}</p>
+                          <h6 className="font-medium">Provinsi</h6>
+                          <p className="mb-2">{dataAlamat?.provinsi}</p>
+                          <h6 className="font-medium">Kabupaten / Kota</h6>
+                          <p className="mb-2">{dataAlamat?.kabupaten_kota}</p>
+                          <h6 className="font-medium">Kecamatan</h6>
+                          <p className="mb-2">{dataAlamat?.kecamatan}</p>
+                          <h6 className="font-medium">Kelurahan</h6>
+                          <p className="mb-2">{dataAlamat?.kelurahan}</p>
+                          <h6 className="font-medium">Detail Alamat</h6>
+                          <p className="mb-2">{dataAlamat?.alamat}</p>
+                          <h6 className="font-medium">Kode Pos</h6>
+                          <p className="mb-5">{dataAlamat?.kodepos}</p>
+                          <h5 className="font-semibold">Alamat Lengkap</h5>
+                          <p className="mb-2 text-base">{dataAlamat?.alamat}, {dataAlamat?.kelurahan}, {dataAlamat?.kecamatan}, {dataAlamat?.kabupaten_kota}, {dataAlamat?.provinsi}, {dataAlamat?.negara}, {dataAlamat?.kodepos}</p>
                         </div> : 
                         <p>Belum ada alamat. <Link to="/">Tambahkan alamat</Link></p>
                         )}

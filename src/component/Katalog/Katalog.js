@@ -26,10 +26,10 @@ function Katalog() {
           </div>
 
           <div className="container mx-auto mt-4">
-            <h2 className="text-6xl font-bold text-primary my-14">KATALOG</h2>
-            <div className="grid grid-cols-12 gap-5">
-              <div className="col-span-2">
-                <h5 className="text-lg font-semibold">Filter</h5>
+            <h2 className="lg:text-6xl text-4xl font-bold text-primary my-14">KATALOG</h2>
+            <div className="grid lg:grid-cols-12 gap-5">
+              <div className="col-span-12 lg:col-span-2">
+                <h5 className="text-xl font-semibold text-primary">Filter</h5>
                 <h6 className="mt-3 mb-1 font-semibold text-secondary">Gender</h6>
                 <div className="ml-2 grid gap-2">
                   <p>Wanita</p>
@@ -44,18 +44,18 @@ function Katalog() {
                   <p>Rok</p>
                 </div>
               </div>
-              <div className="col-span-10">
-                <div className="flex justify-between">
-                  <div className="">
+              <div className="col-span-12 lg:col-span-10">
+                <div className="lg:flex lg:justify-between">
+                  <div className="flex justify-end">
                     <select className="border-b p-2 text-sm text-gray-500 focus:outline-none">
                       <option>Pilih Berdasarkan</option>
                       <option>Termahal - Termurah</option>
                       <option>Termurah - Termahal</option>
                     </select>
                   </div>
-                  <div className="border-b">
-                    <input type="text" className="p-2 text-sm text-gray-500 focus:outline-none" placeholder="Cari Pakaian...."></input>
-                    <button className="bg-secondary2 p-2 text-white rounded-e-md">Cari</button>
+                  <div className="border-b rounded-md mt-5 lg:mt-0">
+                    <input type="text" className="w-10/12 lg:w-fit p-2 text-sm text-gray-500 focus:outline-none" placeholder="Cari Pakaian...."></input>
+                    <button className="bg-secondary2 p-2 text-white rounded-e-md w-2/12 lg:w-fit">Cari</button>
                   </div>
                 </div>
 

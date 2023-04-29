@@ -6,7 +6,7 @@ function Footer() {
     return (
         <div className={`mt-5 ${style.footer}`}>
             <div className="container mx-auto pt-4">
-                <div className='grid grid-cols-3 mt-5 mb-5 gap-10 py-10'>
+                <div className='grid lg:grid-cols-3 mt-5 mb-5 gap-10 py-10'>
                     <div className=''>
                         <h6><span className={style.textLogo}>Sekar Galuh Etnic</span></h6>
                         <p>UMKM di bidang pakaian. Kami menjual produk berupa pakaian yang sudah jadi yang kami jahit dan desain sendiri serta kami menerima pemesanan pakaian secara custom</p>

@@ -80,6 +80,7 @@ query MyQuery {
     nama
     foto
     deskripsi
+    harga
   }
 }
 `

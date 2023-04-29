@@ -72,7 +72,21 @@ subscription MySubscription($_eq: Int!) {
       pesanan_pakaian_id
       user_id
     }
+    user {
+      email
+      id
+      jenis_kelamin
+      name
+      alamats {
+        alamat
+        kabupaten_kota
+        kecamatan
+        kelurahan
+        kodepos
+        negara
+        provinsi
+      }
+    }
   }
 }
-
 `

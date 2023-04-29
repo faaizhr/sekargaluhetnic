@@ -16,14 +16,16 @@ function MenuProfil() {
 
 
     return(
-        <div>
-            <h6>Pengaturan Profil</h6>
-            <p><Link to="/profil">Profil</Link></p>
-            <p><Link to="/sunting-profil">Sunting Profil</Link></p>
-            <p><Link to="/alamat">Alamat</Link></p>
-            <p><Link to="/sunting-alamat">Sunting Alamat</Link></p>
-            <p><Link to="/ubah-katasandi">Ubah Kata Sandi</Link></p>
-            <p><Link to="/riwayat-transaksi">Riwayat Transaksi</Link></p>
+        <div className="">
+            <h6 className="uppercase font-medium mb-3">Pengaturan Profil</h6>
+            <div className="ml-2 grid gap-1 mb-5">
+                <p><Link to="/profil">Profil</Link></p>
+                <p><Link to="/sunting-profil">Sunting Profil</Link></p>
+                <p><Link to="/alamat">Alamat</Link></p>
+                <p><Link to="/sunting-alamat">Sunting Alamat</Link></p>
+                <p><Link to="/ubah-katasandi">Ubah Kata Sandi</Link></p>
+                <p><Link to="/riwayat-transaksi">Riwayat Transaksi</Link></p>
+            </div>
         </div>
     )
 }

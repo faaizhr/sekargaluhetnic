@@ -12,11 +12,16 @@ const PesananItem = ({items}) => {
     const handleDetail = () => {
         navigate(`/pesanan-pakaian/${items.id}`, {
             state: {
-                id: items.id,
-                katalog: items.pesanans,
-                ongkir: items.ongkir,
-                status: items.status,
-                chats: items.chats
+              created_at: items.created_at,
+              pesanan_session: items.pesanan_session,
+              pesanans: items.pesanans,
+              id: items.id,
+              ongkir: items.ongkir,
+              status: items.status,
+              chats: items.chats,
+              total_harga: items.total_harga,
+              user_id: items.user_id,
+              user: items.user
             }
         })
     }
@@ -33,11 +38,23 @@ const PesananItem = ({items}) => {
     return (
       <div className="border p-2 rounded mb-2 ">
         <div className={``}>
-          <div className={``}>
-            <p className="m-0 bg-blue-400 w-fit border border-blue-400 px-3 py-1 text-white rounded-3xl text-xs">{items.status}</p>
-            <p className="m-0 fw-semibold" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</p>
-            <div className="text-right">
-
+          <div className="flex justify-between">
+            <div className="flex justify-start gap-3">
+              <img src={items.pesanans[0].katalog.foto} className="w-20 h-20 rounded-md object-cover"></img>
+              <div className="flex flex-col justify-between">
+                <div>
+                  <h6 className="text-sm font-semibold text-secondary" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</h6>
+                  <p className="text-[10px] lg:text-xs text-gray-500">1 barang x Rp{items.pesanans[0].katalog.harga.toLocaleString()}</p>
+                </div>
+                {items.pesanans.length > 1 ? <p className="text-[10px] lg:text-xs text-gray-500"> +{items.pesanans.length - 1} barang lainnya</p> : ""}
+              </div>
+            </div>
+            <div className="flex flex-col justify-between">
+              <p className="m-0 bg-blue-400 w-fit border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p>
+              <div>
+                <p className="text-xs text-gray-500">Total belanja</p>
+                <p className="font-semibold">Rp{items.total_harga.toLocaleString()}</p>
+              </div>
             </div>
           </div>
         </div>

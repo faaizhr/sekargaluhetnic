@@ -95,17 +95,21 @@ const Keranjang = () => {
 
           <div className="container mx-auto mt-4">
             {!dataSubs ? 
-            <div>
-              <h1>Keranjang Kosong</h1>
+            <div className="my-10">
+              <img src="https://cdn.discordapp.com/attachments/915505289174847510/1101853623983546389/No_data-rafiki.png" className="mx-auto -mt-20"></img>
+              <h1 className="text-center font-semibold text-secondary">Keranjang Anda masih kosong, pilih katalog untuk dimasukkan ke keranjang . . .</h1>
+              <p className="mt-10 text-center">
+                <Link to="/katalog" className="bg-secondary px-10 py-2 text-white rounded-md mt-10 text-xl font-normal tracking-wider border border-secondary hover:bg-white hover:text-secondary duration-200">Katalog</Link>
+              </p>
             </div>
             : 
             <div>
-              <h2 className="text-6xl font-bold text-primary my-14">KERANJANG BELANJA</h2>
-              <div className="grid grid-cols-12 gap-10 mt-5">
+              <h2 className="text-4xl lg:text-6xl font-bold text-primary my-14">KERANJANG BELANJA</h2>
+              <div className="grid lg:grid-cols-12 gap-10 mt-5">
                 <div className="col-span-8">
                   {dataSubs?.sekargaluhetnic_katalog.map((katalog) => <KeranjangItem key={katalog.id} items={katalog}/>)}
                 </div>
-                <div className="col-span-4">
+                <div className="lg:col-span-4 col-span-8">
                   <div className="">
                     <div className="">
                       <h5 className="text-lg font-semibold mb-3 text-primary">RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>

@@ -13,6 +13,7 @@ import { GetPesananJahitUser } from '../../graphql/query';
 import { SubscriptionPesanan } from "../../graphql/subscription";
 
 import PesananItem from "../Pesanan/pesananItem";
+import MenuProfil from "./MenuProfil";
 
 import Cookies from "js-cookie";
 
@@ -75,40 +76,38 @@ function Profile() {
             </div>
 
             <div className="container mx-auto mt-5">
-              <h2 className="text-primary text-6xl font-bold">PESANAN SAYA</h2>
+              <h2 className="text-primary text-4xl lg:text-6xl font-bold">PESANAN SAYA</h2>
                 <div className="">
                     <div className="grid lg:grid-cols-2 gap-10 mt-5">
                         <div className="">
-                            <h4 className="font-semibold uppercase text-secondary">Pembelian Pakaian</h4>
-                            <div className={style.pesananContainer}>
+                            <h4 className="font-semibold text-lg uppercase text-secondary">Pembelian Pakaian</h4>
+                            <div className="h-64 border rounded-md p-3">
                                 {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.slice(0, 2).map((el) => <PesananItem key={el.id} items={el} /> )}
+                                <div className="flex ml-auto mr-0 items-center gap-1 w-fit cursor-pointer">
+                                    <p className="text-right text-secondary"><u>Lihat semua</u></p>
+                                    <FiChevronRight/>
+                                </div>
                             </div>
                         </div>
                         <div className="">
-                            <h4 className="font-semibold uppercase text-secondary">Pemesanan Jahit Pakaian</h4>
-                            <div className={style.pesananContainer}>
+                            <h4 className="font-semibold uppercase text-lg text-secondary">Pemesanan Jahit Pakaian</h4>
+                            <div className="h-64 border rounded-md p-3">
                                 {dataPesananJahit?.sekargaluhetnic_pesanan_jahit?.map((el) => 
                                     <div>
                                         <p>{el.jenis_pakaian}</p>
                                     </div>
                                 )}
+                                <p>Lihat semua</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
             <br></br>
-              <h2 className="text-primary text-6xl font-bold">PROFIL</h2>
+              <h2 className="text-primary text-4xl lg:text-6xl font-bold">PROFIL</h2>
               <div className="grid lg:grid-cols-12 mt-4">
                 <div className={`col-span-3 `}>
-                    <h6 className="uppercase font-medium mb-3">Pengaturan Profil</h6>
-                    <div className="ml-2 grid gap-1">
-                        <p><Link to="/profil">Profil</Link></p>
-                        <p><Link to="/">Sunting Profil</Link></p>
-                        <p><Link to="/alamat">Alamat</Link></p>
-                        <p><Link to="/">Ubah Kata Sandi</Link></p>
-                        <p><Link to="/">Riwayat Transaksi</Link></p>
-                    </div>
+                    <MenuProfil/>
                 </div>
                 <div className="col-span-9">
                     <div className="border rounded-md p-5">

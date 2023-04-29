@@ -49,11 +49,11 @@ function Home() {
 
         <div className="">
 
-          <div className="grid grid-cols-5 gap-10">
-            <div className="col-span-2">
-              <img src="https://media.discordapp.net/attachments/915505289174847510/1064440531389784074/Desktop_-_2.png?width=424&height=550"></img>
+          <div className="grid lg:grid-cols-5 gap-10">
+            <div className="lg:col-span-2">
+              <img className="lg:mx-0 mx-auto" src="https://media.discordapp.net/attachments/915505289174847510/1064440531389784074/Desktop_-_2.png?width=424&height=550"></img>
             </div>
-            <div className="col-span-3 flex items-center">
+            <div className="lg:col-span-3 flex items-center">
               <div className="">
                 <h3 className="font-semibold text-2xl text-secondary">Apa yang kami lakukan?</h3>
                 <p className="text-base mt-3">Kami menjahit pakaian dengan spesialisasi menjahit batik. Kami menerima pesanan jahit kustom sesuai dengan permintaan pelanggan dan juga menjahit pakaian untuk dijual secara bebas.</p>
@@ -62,7 +62,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-5 mt-10 gap-10">
+          <div className="grid lg:grid-cols-5 mt-10 gap-10">
             <div className="col-span-3 flex items-center">
               <div>
                 <h3 className="text-right font-semibold text-2xl text-secondary2">Apa yang kami jual?</h3>
@@ -72,7 +72,7 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="lg:col-span-2 col-span-3">
               <img src="https://media.discordapp.net/attachments/915505289174847510/1064440532006350848/Desktop_-_3.png?width=424&height=550"></img>
             </div>
           </div>

@@ -137,7 +137,7 @@ const Pemesanan = () => {
             </div>
 
           <div className="container mt-4 mx-auto">
-            <h2 className="text-primary text-6xl font-bold">PEMESANAN DAN PEMBAYARAN</h2>
+            <h2 className="text-primary text-4xl lg:text-6xl font-bold">PEMESANAN DAN PEMBAYARAN</h2>
             <div className="grid lg:grid-cols-12 mt-5 gap-10">
               <div className={`col-span-8`}>
                 <div className="border p-5 rounded-md">
@@ -163,7 +163,7 @@ const Pemesanan = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-span-4 mt-4">
+              <div className="col-span-8 lg:col-span-4 mt-4">
                 <div className="">
                   <div className="">
                     <h5 className="text-lg font-semibold mb-3 text-primarys">RINGKASAN PESANAN | {data?.sekargaluhetnic_katalog?.length} PRODUK</h5>

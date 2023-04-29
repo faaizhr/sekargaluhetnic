@@ -61,34 +61,54 @@ const PesananDetail = () => {
     return (
         <div className="detailPesanan">
           <Navbar/>
-          <div className={`container mt-3 d-flex justify-content-start ${style.path}`}>
-            <Link className="me-1" to="/katalog">Katalog</Link>
+          <div className="container mx-auto flex justify-start items-center gap-2">
+            <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
             <FiChevronRight/>
-            {/* <p className="ms-1">{location.state.nama}</p> */}
+            <Link className="" to="/riwayat-pesanan"><p>Riwayat Pesanan</p></Link>
+            <FiChevronRight/>
+            <p className="font-semibold">Profil</p>
           </div>
 
-          <div className={`container mt-5`}>
-            <p>Detail Pesanan</p>
-            <div>
-              <div>
-                {/* <img src={location.state.katalog.foto} /> */}
+          <div className={`container mx-auto mt-5`}>
+            <h2 className="text-primary text-4xl lg:text-6xl font-bold uppercase">Detail Pesanan</h2>
+            <div className="my-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+              <div className="col-span-8">
+                {location.state.pesanans.map((pesanan) => 
+                  <div className="grid grid-cols-5 mb-5 gap-10">
+                    <div className="col-span-2">
+                      <img className="w-56 h-56 object-cover" src={pesanan.katalog.foto} />
+                    </div>
+                    <div className="col-span-3">
+                      <p className="font-medium text-lg text-primary">{pesanan.katalog.nama}</p>
+                      <p>{pesanan.katalog.deskripsi}</p>
+                      <p className="font-semibold text-lg text-primary">Rp{pesanan.katalog.harga.toLocaleString()}</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div>
-                {/* <p>{location.state.katalog.nama}</p>
-                <p>{location.state.id}</p>
-                <p>{location.state.katalog.deskripsi}</p>
-                <p>Rp.{location.state.katalog.harga.toLocaleString()}</p>
-                <p>{location.state.ongkir}</p>
-                <p>{location.state.status}</p> */}
-              </div>
-              <div>
-                <button onClick={popUpModal}>Chat</button>
-                <div className={ chatModal ? 'd-block': 'd-none' }>
-                  <div className={style.chat}>
-                    <Chat id={location.state.id} />
+              
+              <div className="lg:col-span-4 col-span-8">
+                <h6 className="font-medium text-base">Alamat Pengiriman</h6>
+                <p>{location.state.user.alamats[0].alamat}, {location.state.user.alamats[0].kelurahan}, {location.state.user.alamats[0].kecamatan}, {location.state.user.alamats[0].kabupaten_kota}, {location.state.user.alamats[0].provinsi}, {location.state.user.alamats[0].negara}, {location.state.user.alamats[0].kodepos}</p>
+                <h6 className="font-medium text-base mt-3">Biaya Ongkos Kirim</h6>
+                <p>Rp{location.state.ongkir}</p>
+                <h6 className="font-medium text-base mt-3">Total Biaya</h6>
+                <p>Rp{location.state.total_harga}</p>
+                <h6 className="font-medium text-base mt-3">Status</h6>
+                <p>{location.state.status}</p>
+                <h6 className="font-medium text-base mt-3">Waktu Pemesanan</h6>
+                <p>{location.state.created_at}</p>
+                <h6 className="font-medium text-base mt-3">Kode Pemesanan</h6>
+                <p>{location.state.created_at}</p>
+
+                <button className="bg-secondary text-white w-full rounded-md py-2 mt-5 border border-secondary hover:bg-white hover:text-secondary duration-200" onClick={popUpModal}>Chat</button>
+                <div className={ chatModal ? 'block': 'hidden' }>
+                  <div className="w-[400px] fixed bottom-5 right-5 bg-white border shadow px-1 py-2 rounded-md">
+                    <Chat id={location.state.id} popUp={popUpModal} chatModal={chatModal}/>
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
           <Footer />
