@@ -58,6 +58,7 @@ function Navbar() {
                         <div className="flex justify-start gap-7 items-center">
                             <Link className="border-b border-white hover:border-primary duration-200" to="/">Beranda</Link>
                             <Link className="border-b border-white hover:border-primary duration-200" to="/katalog">Katalog</Link>
+                            <Link className="border-b border-white hover:border-primary duration-200" to="/jahit">Jahit</Link>
                             <Link className="border-b border-white hover:border-primary duration-200" to="/galeri">Galeri</Link>
                             <Link className="border-b border-white hover:border-primary duration-200" to="/tentangkami">Tentang Kami</Link>
                         </div>
@@ -106,6 +107,7 @@ function Navbar() {
                                 <div className="grid gap-5 mt-10 text-white font-light mb-5">
                                     <Link className="hover:font-semibold border-b border-primary  hover:border-primary duration-200" to="/">Beranda</Link>
                                     <Link className="hover:font-semibold border-b border-primary  hover:border-primary duration-200" to="/katalog">Katalog</Link>
+                                    <Link className="hover:font-semibold border-b border-primary  hover:border-primary duration-200" to="/jahit">Jahit</Link>
                                     <Link className="hover:font-semibold border-b border-primary  hover:border-primary duration-200" to="/galeri">Galeri</Link>
                                     <Link className="hover:font-semibold border-b border-primary  hover:border-primary duration-200" to="/tentangkami">Tentang Kami</Link>
                                 </div>

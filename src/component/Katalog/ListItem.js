@@ -16,7 +16,12 @@ const ListItem = ({items}) => {
                 nama: items.nama,
                 harga: items.harga,
                 deskripsi: items.deskripsi,
-                foto: items.foto
+                foto: items.foto,
+                gender: items.gender,
+                ukuran: items.ukuran,
+                kode_produk: items.kode_produk,
+                material: items.material,
+                stok: items.stok
             }
         })
     }

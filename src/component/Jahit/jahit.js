@@ -28,6 +28,7 @@ function Jahit() {
         }
       })
       navigate("/jahit-online")
+      window.location.reload(false);
       
     } else {
       navigate("/jahit-online")
@@ -43,7 +44,7 @@ function Jahit() {
                 <p className="font-semibold">Jahit</p>
             </div>
 
-          <div className={`container mt-4 mx-auto`}>
+          <div className={`container mt-14 mx-auto`}>
             <h2 className="mb-5 text-primary text-6xl font-bold">JAHIT</h2>
             <div className={`mb-5 `}>
               <h5 className="font-semibold text-primary">Ketentuan Jahit Online</h5>

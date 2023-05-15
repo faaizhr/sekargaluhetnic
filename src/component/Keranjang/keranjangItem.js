@@ -110,7 +110,7 @@ const KeranjangItem = ({items}) => {
           <div className={style.modalDeleteCartItem}>
             <h6 id="modal-modal-title" variant="h6" component="h2">HAPUS PRODUK</h6>
             <p id="modal-modal-description" sx={{ mt: 2 }}>Anda yakin ingin menghapus produk ini dari keranjang?</p>
-            <div className="d-flex justify-content-start">
+            <div className="flex justify-start mt-5">
               <div className={`me-3 ${style.primaryButton}`}>
                 <button onClick={() => handleDeleteCartItem(id)}>HAPUS</button>
               </div>

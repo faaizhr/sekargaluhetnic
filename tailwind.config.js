@@ -20,6 +20,10 @@ module.exports = {
         //   '2xl': '6.5rem',
         },
       },
+
+      fontFamily: {
+        'brand': ['Staatliches']
+      }
     },
   },
   plugins: [],

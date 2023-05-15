@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom" 
+import { Link, useNavigate } from "react-router-dom" 
 import { useState, useEffect } from "react";
 import {
   ref,
@@ -10,11 +10,13 @@ import {
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
 import Cookies from "js-cookie";
+import Modal from '@mui/material/Modal';
 
 import { GetKain } from "../../graphql/query";
 import { GetPesananID } from "../../graphql/query";
 import { UpdateJahitBaju } from "../../graphql/mutation";
 import { InsertFotoDesainJahit } from "../../graphql/mutation";
+import { GetUserProfileData } from "../../graphql/query";
 
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -23,6 +25,7 @@ import styled from "@emotion/styled";
 
 import { FiChevronRight } from "react-icons/fi"
 import { useMutation, useQuery } from "@apollo/client";
+
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -66,6 +69,8 @@ import 'react-quill/dist/quill.snow.css';
   ];
 
 function JahitOnline() {
+
+  const navigate = useNavigate();
 
   const [activeQuestion, setActiveQuestioin] = useState();
 
@@ -119,17 +124,19 @@ function JahitOnline() {
   const {data: dataPesanan, loading: LoadingPesanan, error: errorPesanan} = useQuery(GetPesananID, {variables: {_eq: Cookies.get("jahit-session")}})
   const [updatePesanan, {loading: loadngUpdatePesanan}] = useMutation(UpdateJahitBaju);
   const [insertFotoDesain, {loading: loadingInsertFotoDesain}] = useMutation(InsertFotoDesainJahit)
+  const {data: userData, loading: userLoading} = useQuery(GetUserProfileData, {variables: { _eq: Cookies.get("okogaye")}})
+  console.log("cek user", userData)
+
+  const [ongkir, setOngkir] = useState(0)
+  const [opsiPengiriman, setOpsiPengiriman] = useState('')
 
   const [pilihJenisPakaian, setPilihJenisPakaian] = useState("")
   const [pilihKain, setPilihKain] = useState("")
-  const [ukuranTubuh, setUkuranTubuh] = useState({
-    panjang_lengan: "",
-    ukuran_leher: ""
-  })
+  const [ukuranTubuh, setUkuranTubuh] = useState({})
   const [value, setValue] = useState('');
   const [hargaJenisPakaian, setHargaJenisPakaian] = useState(0)
   const [hargaKain, setHargaKain] = useState(0)
-  const [totalBiaya, setTotalBiaya] = useState(hargaKain + hargaJenisPakaian)
+  const [totalBiaya, setTotalBiaya] = useState(hargaKain + hargaJenisPakaian + ongkir)
   const [deskripsi, setDeskripsi] = useState('');
   const [uploadImageUrl, setUploadImageUrl] = useState([
     {
@@ -157,8 +164,8 @@ function JahitOnline() {
   }
 
   useEffect(() => {
-    setTotalBiaya(hargaJenisPakaian + hargaKain)
-  }, [hargaJenisPakaian + hargaKain]);
+    setTotalBiaya(hargaJenisPakaian + hargaKain + ongkir)
+  }, [hargaJenisPakaian + hargaKain + ongkir]);
 
   // setTotalBiaya(hargaKain + hargaJenisPakaian)
 
@@ -170,7 +177,7 @@ function JahitOnline() {
       [e.target.name]: e.target.value
     })
   }
-  // console.log(ukuranTubuh.panjang_lengan)
+  console.log(ukuranTubuh)
   // console.log(ukuranTubuh.ukuran_leher)
   // console.log(pilihJenisPakaian)
   // console.log(pilihKain)
@@ -183,6 +190,8 @@ function JahitOnline() {
     }
   }) 
   console.log("coba mapping", mappingImage)
+
+  console.log(Date())
   
   const handleUploadPesanan = () => {
       updatePesanan({
@@ -190,8 +199,22 @@ function JahitOnline() {
           _eq: Cookies.get("jahit-session"),
           jenis_pakaian: pilihJenisPakaian,
           kain: pilihKain,
+          lebar_bahu: ukuranTubuh.lebar_bahu,
+          lingkar_dada: ukuranTubuh.lingkar_dada,
+          lingkar_leher: ukuranTubuh.lingkar_leher,
+          lingkar_pinggul: ukuranTubuh.lingkar_pinggul,
+          lingkar_pinggang: ukuranTubuh.lingkar_pinggang,
+          lingkar_kerung_lengan: ukuranTubuh.lingkar_kerung_lengan,
+          lingkar_pergelangan_tangan: ukuranTubuh.lingkar_pergelangan_tangan,
+          panjang_baju: ukuranTubuh.panjang_baju,
           panjang_lengan: ukuranTubuh.panjang_lengan,
-          ukuran_leher: ukuranTubuh.ukuran_leher
+          ongkir: ongkir,
+          opsi_pengiriman: opsiPengiriman,
+          deskripsi: deskripsi,
+          updated_at: Date(),
+          created_at: Date(),
+          total_biaya: totalBiaya,
+          status: "Menunggu Pembayaran"
         }
       })
 
@@ -202,8 +225,251 @@ function JahitOnline() {
       })
 
       Cookies.remove("jahit-session")
+      setTimeout(() => {
+        navigate("/profil")
+      }, 2000);
   }
 
+  useEffect(() => { 
+    if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Nanggroe Aceh Darussalam") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(54000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(63000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sumatera Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(47000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(53000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sumatera Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(23000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(46000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sumatera Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(38000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(49000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Bengkulu") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(34000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(39000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Riau") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(38000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(49000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Kepulauan Riau") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(47000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(55000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Jambi") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(25000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(29000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Lampung") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(20000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(38000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Bangka Belitung") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(29000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(48000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Kalimantan Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(47000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(60000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Kalimantan Timur") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(59000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(69000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Kalimantan Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(45000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(52000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Kalimantan Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(45000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(52000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Kalimantan Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(77000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(90000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Banten") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(12000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(24000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "DKI Jakarta") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(10000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(18000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Jawa Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(12000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(24000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Jawa Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(19000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(35000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Daerah Istimewa Yogyakarta") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(19000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(35000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Jawa Timur") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(20000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(37000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Bali") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(30000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(50000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Nusa Tenggara Timur") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(74000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(86000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Nusa Tenggara Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(46000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(60000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Gorontalo") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(73000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(85000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sulawesi Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(55000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(64000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sulawesi Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(73000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(85000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sulawesi Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(67000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(78000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sulawesi Tenggara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(73000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(85000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Sulawesi Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(56000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(75000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Maluku Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(89000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(104000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Maluku ") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(89000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(104000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Papua Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(139000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(163000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Papua") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(117000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(137000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Papua Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(134000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(157000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Papua Pegunungan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(134000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(157000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Papua Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(166000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(195000)
+      }
+    } else if (userData?.sekargaluhetnic_user[0].alamats[0].provinsi == "Papua Barat Daya") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(122000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(143000)
+      }
+    } 
+    
+  }, [opsiPengiriman])
+  
+  console.log("opsi", opsiPengiriman)
+  console.log("cek ongkir" ,ongkir)
+
+  // MODAL
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
   return(
       <div>
@@ -254,16 +520,17 @@ function JahitOnline() {
               <div className="">
                 <h6 className="font-semibold text-lg text-primary">Masukkan Ukuran Tubuh</h6>
                 <p>Input ukuran tubuh Anda ke dalam form yang sudah kami sediakan, kami menyediakan panduan pengukuran tubuh. Isi dengan angka dengan satuan centimeter (cm)</p>
+                <h6 onClick={handleOpen} className="my-2 uppercase font-medium underline">Paduan Pengukuran</h6>
                 <div className="">
                   <div className="mb-3">
                     <table>
                         <tbody>
                             <tr>
-                              <td className="text-sm font-medium">Ukuran Leher</td>
+                              <td className="text-sm font-medium">Panjang Baju</td>
                               <td><input 
-                                name="ukuran_leher" 
+                                name="panjang_baju" 
                                 type="text" 
-                                placeholder="ukuran leher"
+                                placeholder="panjang baju"
                                 onChange={handleChangeUkuranTubuh}
                                 className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
                               >
@@ -283,11 +550,11 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Panjang Lengan (Bagian Belakang)</td>
+                              <td className="text-sm font-medium">Lingkar Leher</td>
                               <td><input 
-                                name="panjang_lengan_belakang" 
+                                name="lingkar_leher" 
                                 type="text" 
-                                placeholder="panjang lengan bagian belakang" 
+                                placeholder="lingkar leher" 
                                 onChange={handleChangeUkuranTubuh}
                                 className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
                               >
@@ -295,11 +562,11 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Pinggang</td>
+                              <td className="text-sm font-medium">Lingkar Dada</td>
                               <td><input 
-                                name="pinggang" 
+                                name="lingkar_dada" 
                                 type="text" 
-                                placeholder="pinggang" 
+                                placeholder="lingkar dada" 
                                 onChange={handleChangeUkuranTubuh}
                                 className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
                               >
@@ -319,33 +586,53 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Panggul</td>
+                              <td className="text-sm font-medium">Lingkar Pinggul</td>
                               <td><input 
-                                name="panggul" 
+                                name="lingkar_pinggul" 
                                 type="text" 
-                                placeholder="panggul" 
+                                placeholder="lingkar pinggul" 
                                 onChange={handleChangeUkuranTubuh}
                                 className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
                             </tr>
-                            {/* <tr>
-                              <td>Pinggang</td>
-                              <td><input type="text" placeholder="pinggang"></input></td>
+                            <tr>
+                              <td className="text-sm font-medium">Lingkar Pinggang</td>
+                              <td><input 
+                                name="lingkar_pinggang" 
+                                type="text" 
+                                placeholder="lingkar pinggang" 
+                                onChange={handleChangeUkuranTubuh}
+                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                              >
+                                </input>
+                              </td>
                             </tr>
                             <tr>
-                              <td>Panjang Lengan (bagian belakang)</td>
-                              <td><input type="text" placeholder="panjang lengan"></input></td>
+                              <td className="text-sm font-medium">Lingkar Pergelangan Tangan</td>
+                              <td><input 
+                                name="lingkar_pergelangan_tangan" 
+                                type="text" 
+                                placeholder="lingkar pergelangan tangan" 
+                                onChange={handleChangeUkuranTubuh}
+                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                              >
+                                </input>
+                              </td>
                             </tr>
                             <tr>
-                              <td>Lebar Bahu</td>
-                              <td><input type="text" placeholder="lebar bahu"></input></td>
+                              <td className="text-sm font-medium">Lingkar Kerung Lengan</td>
+                              <td><input 
+                                name="lingkar_kerung_lengan" 
+                                type="text" 
+                                placeholder="lingkar kerung lengan" 
+                                onChange={handleChangeUkuranTubuh}
+                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                              >
+                                </input>
+                              </td>
                             </tr>
-                            <tr>
-                              <td>Panggul</td>
-                              <td><input type="text" placeholder="panggul"></input></td>
-                            </tr> */}
                         </tbody>
                       </table>
                   </div>
@@ -386,6 +673,25 @@ function JahitOnline() {
               </div>
 
               <div>
+                <h6 className="font-semibold text-lg text-primary mt-10">Alamat Pengiriman</h6>
+                <p>{userData?.sekargaluhetnic_user[0].alamats[0].alamat}, {userData?.sekargaluhetnic_user[0].alamats[0].kelurahan}, {userData?.sekargaluhetnic_user[0].alamats[0].kecamatan}, {userData?.sekargaluhetnic_user[0].alamats[0].kabupaten_kota}, {userData?.sekargaluhetnic_user[0].alamats[0].provinsi}, {userData?.sekargaluhetnic_user[0].alamats[0].negara}, {userData?.sekargaluhetnic_user[0].alamats[0].kodepos}.</p>
+              </div>
+
+              <div>
+                <h6 className="font-semibold text-lg text-primary mt-10">Opsi Pengiriman</h6>
+                <p className="font-medium">Pemberitahuan</p>
+                    <p className="mb-3">Dalam opsi pengiriman tidak terdapat pilihan kurir, kurir yang kami gunakan adalah kurir yang sudah bermitra dengan kami. Hanya terdapat pilihan kelas pengiriman yang berpengaruh kepada waktu sampai barang.</p>
+                    <div>
+                      <input type="radio" id="age1" name="age" value="reguler" onChange={() => setOpsiPengiriman("reguler")}/>
+                      <label className="ml-2 text-sm" for="age1">Reguler</label><br/>
+                      <p for="age1">JABODETABEK: 1-3 hari kerja, Pulau Jawa: 2-11 hari kerja, Luar Pulau Jawa: 4-14 hari kerja</p>
+                      <input type="radio" id="age2" name="age" value="cepat" onChange={() => setOpsiPengiriman("cepat")}/>
+                      <label className="ml-2 text-sm" for="age2">Cepat</label><br/>
+                      <p for="age1">JABODETABEK: NEXTDAY, Pulau Jawa: 2-5 hari kerja, Luar Pulau Jawa: 4-8 hari kerja</p>
+                    </div>
+              </div>
+
+              <div>
                 <h6 className="font-semibold text-lg text-primary mt-10">Total Biaya</h6>
                 <p>Biaya menyesuaikan dengan jenis pakaian yang dijahit dan kain yang digunakan</p>
                 <p className="text-base font-semibold mt-2 text-secondary">Rp{totalBiaya}</p>
@@ -396,6 +702,20 @@ function JahitOnline() {
             </div>
           </div>
           <Footer />
+
+          <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <div className="bg-white w-4/5 mx-auto mt-28 p-4 rounded-md">
+            <h6 className="text-center uppercase text-xl font-semibold text-secondary tracking-wider">Panduan Pengukuran Tubuh</h6>
+            <div>
+              <img className="mx-auto" src="https://media.discordapp.net/attachments/915505289174847510/1107581277688844368/Panduan_Pengukuran.png"></img>
+            </div>
+          </div>
+        </Modal>
       </div>
   )
 }

@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import ListItem from "./ListItem";
 import style from './Katalog.module.css'
+import LoadingSvg from "../Loading/LoadingSvgTransparent";
 
 import { FiChevronRight } from "react-icons/fi"
 
@@ -45,7 +46,7 @@ function Katalog() {
                 </div>
               </div>
               <div className="col-span-12 lg:col-span-10">
-                <div className="lg:flex lg:justify-between">
+                <div className="lg:flex lg:justify-between mb-10">
                   <div className="flex justify-end">
                     <select className="border-b p-2 text-sm text-gray-500 focus:outline-none">
                       <option>Pilih Berdasarkan</option>
@@ -59,9 +60,11 @@ function Katalog() {
                   </div>
                 </div>
 
-                <div className={`grid grid-cols-2 lg:grid-cols-4 mt-5 gap-7`}>
-                  {dataKatalog?.sekargaluhetnic_katalog?.map((katalog) => <ListItem key={katalog.id} items={katalog}/>)}
-                </div>
+                {loadingKatalog ? <LoadingSvg/> :
+                  <div className={`grid grid-cols-2 lg:grid-cols-4 mt-5 gap-7`}>
+                    {dataKatalog?.sekargaluhetnic_katalog?.map((katalog) => <ListItem key={katalog.id} items={katalog}/>)}
+                  </div>
+                }
               </div>
             </div>
           </div>

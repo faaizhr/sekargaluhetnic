@@ -68,8 +68,8 @@ function Login() {
     if(data?.sekargaluhetnic_user.length === 1) {
       // console.log("data", data?.sekargaluhetnic_user[0]?.id);
       setLoginSuccess("Login Berhasil, Harap Tunggu....")
-      Cookies.set("token", uuidv4());
-      Cookies.set("okogaye", data?.sekargaluhetnic_user[0]?.id);
+      Cookies.set("token", uuidv4(), {expires: 1 });
+      Cookies.set("okogaye", data?.sekargaluhetnic_user[0]?.id, {expires: 1 });
       return navigate ("/")
     } 
   }, [data]);

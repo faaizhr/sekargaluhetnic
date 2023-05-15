@@ -43,11 +43,13 @@ const Keranjang = () => {
 
   const {data: dataSubs, loading: loadingSubs, error:errorSubs} = useSubscription(SubscriptionKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye")}})
 
+  console.log("cek length", dataSubs?.sekargaluhetnic_katalog.length)
+
   const {data: dataTotalProduk, loading: loadingTdataTotalProduk, error: errorTdataTotalProduk} = useSubscription(SubscriptionSumKeranjang, {variables: {_eq: Cookies.get("okogaye")}})
   
   const taxProduk = (11/100) * (dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga)
 
-  const [insertPemesananFromKeranjang, {loading: loadingInsertPemesananInsertPemesananFromKeranjang}] = useMutation(InsertPemesananFromKeranjang);
+  const [insertPemesananFromKeranjang, {loading: loadingInsertPemesananFromKeranjang}] = useMutation(InsertPemesananFromKeranjang);
 
   
   var dateObj = new Date();
@@ -57,7 +59,7 @@ const Keranjang = () => {
 
   var newdate = year.toString() + month.toString()  + day.toString() + "-";
   // console.log("cek id", newdate + v1())
-  console.log("cek waktu", Date())
+
 
   const pemesanan = () => {
     if (LoggedIn) {
@@ -70,11 +72,11 @@ const Keranjang = () => {
             status: "Menunggu Pembayaran",
             ongkir: 0,
             total_harga: 0,
-            created_at: Date()
+            created_at: Date(),
           }
         })
         navigate("/pemesanan");
-        window.location.reload(false);
+        // window.location.reload(false);
       } else {
         navigate("/pemesanan");
         window.location.reload(false);
@@ -94,7 +96,7 @@ const Keranjang = () => {
 
 
           <div className="container mx-auto mt-4">
-            {!dataSubs ? 
+            {dataSubs?.sekargaluhetnic_katalog.length == 0 ? 
             <div className="my-10">
               <img src="https://cdn.discordapp.com/attachments/915505289174847510/1101853623983546389/No_data-rafiki.png" className="mx-auto -mt-20"></img>
               <h1 className="text-center font-semibold text-secondary">Keranjang Anda masih kosong, pilih katalog untuk dimasukkan ke keranjang . . .</h1>

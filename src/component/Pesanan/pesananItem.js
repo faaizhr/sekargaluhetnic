@@ -34,9 +34,18 @@ const PesananItem = ({items}) => {
     console.log("cek date", day)
     console.log("cek date", month)
     console.log("cek date", year)
+
+    // function status()  {
+    //   const stats = items.status
+    //   if (stats == "Dibatalkan") {
+    //     return <p className="m-0 bg-red-600 w-fit border border-red-600 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{stats}</p>
+    //   } else {
+    //     return <p className="m-0 bg-blue-400 w-fit border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{stats}</p>
+    //   }
+    // }
     
     return (
-      <div className="border p-2 rounded mb-2 ">
+      <div className="border-b p-2 rounded mb-2 ">
         <div className={``}>
           <div className="flex justify-between">
             <div className="flex justify-start gap-3">
@@ -50,10 +59,30 @@ const PesananItem = ({items}) => {
               </div>
             </div>
             <div className="flex flex-col justify-between">
-              <p className="m-0 bg-blue-400 w-fit border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p>
+              {(items.status == "Dibatalkan") ? 
+              <p className="m-0 bg-red-600 w-44 text-center border border-red-600 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              ""}
+              {(items.status == "Menunggu Pembayaran") ? 
+              <p className="m-0 bg-yellow-500 w-44 text-center border border-yellow-500 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              ""}
+              {(items.status == "Pembayaran Diproses") ? 
+              <p className="m-0 bg-blue-400 w-44 text-center border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              ""}
+              {(items.status == "Pesanan Diproses") ? 
+              <p className="m-0 bg-green-400 w-44 text-center border border-green-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              ""}
+              {(items.status == "Pesanan Diantar") ? 
+              <p className="m-0 bg-green-400 w-44 text-center border border-green-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              ""}
+
+
+              
+              {/* <p className="m-0 bg-blue-400 w-fit border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> */}
+              <status/>
+
               <div>
                 <p className="text-xs text-gray-500">Total belanja</p>
-                <p className="font-semibold">Rp{items.total_harga.toLocaleString()}</p>
+                <p className="font-semibold">Rp{items.total_harga}</p>
               </div>
             </div>
           </div>

@@ -15,8 +15,11 @@ import Keranjang from './component/Keranjang/keranjang';
 import Pemesanan from './component/Pemesanan/pemesanan';
 import Profile from './component/Profile/profile';
 import Alamat from './component/Profile/alamat';
+import SuntingAlamat from './component/Profile/suntingAlamat';
 import Pesanan from './component/Pesanan/pesanan';
 import PesananDetail from './component/Pesanan/pesananDetail';
+import PesananJahitDetail from './component/Pesanan/pesananJahitDetail';
+import PesananJahit from './component/Pesanan/pesananJahit';
 
 import Navbar from './component/Navbar/Navbar';
 
@@ -39,8 +42,11 @@ function App() {
         <Route exact path='/tentangkami' element={<AboutUs />}/>
         <Route exact path='/profil' element={<Profile />}/>
         <Route exact path='/alamat' element={<Alamat />}/>
+        <Route exact path='/sunting-alamat' element={<SuntingAlamat />}/>
         <Route exact path='/pesanan-pakaian' element={<Pesanan />}/>
+        <Route exact path='/pesanan-jahit' element={<PesananJahit />}/>
         <Route exact path='/pesanan-pakaian/:id' element={<PesananDetail />}/>
+        <Route exact path='/pesanan-jahit/:id' element={<PesananJahitDetail />}/>
       </Routes>
     </Router>
   );

@@ -98,11 +98,9 @@ const KatalogDetail = () => {
                   <p className="mt-4">{location.state.deskripsi}</p>
                 </div>
                 <div className="pt-4">
-                  <h6 className="mb-1">Ukuran Pakaian</h6>
-                  <p>Lebar Tubuh : </p>
-                  <p>Panjang Tubuh : </p>
-                  <p>Panjang Lengan : </p>
-                  <p className="my-5">Stok Tersedia   :   1</p>
+                  <p className="font-semibold text-gray-500">{location.state.kode_produk}</p>
+                  <h6 className="mb-1 font-medium">Ukuran Pakaian :  <span className="font-normal">{location.state.ukuran}</span></h6>
+                  <p className="my-5">Stok Tersedia   :   {location.state.stok}</p>
                   <div className="flex justify-start gap-2">
                     <button onClick={cart} className="text-white px-5 py-3 bg-secondary2 rounded-md hover:bg-white hover:text-secondary2 border border-secondary2 duration-200">Tambahkan ke Keranjang</button>
                     <button className="text-white px-4 py-3 bg-secondary rounded-md hover:bg-white hover:text-secondary border border-secondary duration-200">Langsung Beli</button>
@@ -144,10 +142,13 @@ const KatalogDetail = () => {
                   <p>Kebijakan Pengembalian</p>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                  </p>
+                  <ul className="list-disc text-sm ml-5">
+                    <li className="mb-2">Periode dalam pengembalian produk melalui pembelian online hanya berlaku maksimum 30 (tiga puluh) hari sejak tanggal pembelian.</li>
+                    <li className="mb-2">Syarat pengembalian produk melalui pembelian online adalah dalam kondisi baru, belum digunakan, dan belum pernah dicuci</li>
+                    <li className="mb-2">Jumlah dana yang dikembalikan berdasarkan pada jumlah yang telah Anda bayar</li>
+                    <li className="mb-2">Kami berhak untuk menolak pengembalian jika produk tidak memenuhi persyaratan kebijakan pengembalian di atas.</li>
+                    <li className="mb-2">Kami berhak mengubah kebijakan ini setiap saat tanpa pemberitahuan.</li>
+                  </ul>
                 </AccordionDetails>
               </Accordion>
             </div>

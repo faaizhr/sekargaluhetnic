@@ -69,19 +69,19 @@ const PesananDetail = () => {
             <p className="font-semibold">Profil</p>
           </div>
 
-          <div className={`container mx-auto mt-5`}>
+          <div className={`container mx-auto mt-14`}>
             <h2 className="text-primary text-4xl lg:text-6xl font-bold uppercase">Detail Pesanan</h2>
             <div className="my-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="col-span-8">
                 {location.state.pesanans.map((pesanan) => 
-                  <div className="grid grid-cols-5 mb-5 gap-10">
+                  <div className="grid grid-cols-5 mb-5 gap-10 border-b pb-5">
                     <div className="col-span-2">
-                      <img className="w-56 h-56 object-cover" src={pesanan.katalog.foto} />
+                      <img className="w-56 h-72 object-cover rounded-md" src={pesanan.katalog.foto} />
                     </div>
                     <div className="col-span-3">
                       <p className="font-medium text-lg text-primary">{pesanan.katalog.nama}</p>
                       <p>{pesanan.katalog.deskripsi}</p>
-                      <p className="font-semibold text-lg text-primary">Rp{pesanan.katalog.harga.toLocaleString()}</p>
+                      <p className="font-semibold text-lg text-primary mt-3">Rp{pesanan.katalog.harga.toLocaleString()}</p>
                     </div>
                   </div>
                 )}

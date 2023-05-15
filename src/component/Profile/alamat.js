@@ -86,7 +86,7 @@ function Alamat() {
                           <h5 className="font-semibold">Alamat Lengkap</h5>
                           <p className="mb-2 text-base">{dataAlamat?.alamat}, {dataAlamat?.kelurahan}, {dataAlamat?.kecamatan}, {dataAlamat?.kabupaten_kota}, {dataAlamat?.provinsi}, {dataAlamat?.negara}, {dataAlamat?.kodepos}</p>
                         </div> : 
-                        <p>Belum ada alamat. <Link to="/">Tambahkan alamat</Link></p>
+                        <p>Belum ada alamat. <Link to="/sunting-alamat"><u className="underline-offset-2 font-semibold text-secondary">Tambahkan alamat</u></Link></p>
                         )}
                     </div>
                 </div>

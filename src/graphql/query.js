@@ -8,6 +8,11 @@ query MyQuery {
     harga
     id
     nama
+    gender
+    ukuran
+    kode_produk
+    material
+    stok
   }
 }
 `;
@@ -95,13 +100,12 @@ query MyQuery($_eq: String!) {
 
 export const GetPesananJahitUser = gql `
 query MyQuery($_eq: Int!) {
-  sekargaluhetnic_pesanan_jahit(where: {user_id: {_eq: $_eq}}) {
+  sekargaluhetnic_pesanan_jahit(where: {user_id: {_eq: $_eq}, foto_desains_aggregate: {count: {predicate: {_gt: 0}}}}, order_by: {id: desc}) {
     id
     jahit_session
     jenis_pakaian
     kain
     panjang_lengan
-    ukuran_leher
     user_id
     foto_desains {
       foto
@@ -110,6 +114,19 @@ query MyQuery($_eq: Int!) {
     }
     updated_at
     created_at
+    deskripsi
+    lebar_bahu
+    lingkar_dada
+    lingkar_kerung_lengan
+    lingkar_leher
+    lingkar_pergelangan_tangan
+    lingkar_pinggang
+    lingkar_pinggul
+    ongkir
+    opsi_pengiriman
+    panjang_baju
+    total_biaya
+    status
   }
 }
 `

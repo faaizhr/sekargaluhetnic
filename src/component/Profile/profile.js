@@ -14,6 +14,7 @@ import { SubscriptionPesanan } from "../../graphql/subscription";
 
 import PesananItem from "../Pesanan/pesananItem";
 import MenuProfil from "./MenuProfil";
+import PesananJahitItem from "../Pesanan/pesananJahitItem";
 
 import Cookies from "js-cookie";
 
@@ -54,7 +55,7 @@ function Profile() {
     var hour = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(11, 13)); 
     var minute = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(14, 16)); 
 
-    const [waktu, setWaktu] = useState("")
+const [waktu, setWaktu] = useState("")
 
     // useEffect(() => {
     //     hour
@@ -64,6 +65,8 @@ function Profile() {
     console.log(year)
     var fulltime = day + " " + month + " " + year + " " + hour + " " + minute
     console.log("cek fulltime", fulltime)
+
+    console.log("cek jahit", dataPesananJahit?.sekargaluhetnic_pesanan_jahit)
 
 
     return(
@@ -75,7 +78,7 @@ function Profile() {
                 <p className="font-semibold">Profil</p>
             </div>
 
-            <div className="container mx-auto mt-5">
+            <div className="container mx-auto mt-14">
               <h2 className="text-primary text-4xl lg:text-6xl font-bold">PESANAN SAYA</h2>
                 <div className="">
                     <div className="grid lg:grid-cols-2 gap-10 mt-5">
@@ -84,7 +87,7 @@ function Profile() {
                             <div className="h-64 border rounded-md p-3">
                                 {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.slice(0, 2).map((el) => <PesananItem key={el.id} items={el} /> )}
                                 <div className="flex ml-auto mr-0 items-center gap-1 w-fit cursor-pointer">
-                                    <p className="text-right text-secondary"><u>Lihat semua</u></p>
+                                    <p className="text-right text-secondary"><u><Link to="/pesanan-pakaian">Lihat semua</Link></u></p>
                                     <FiChevronRight/>
                                 </div>
                             </div>
@@ -92,12 +95,13 @@ function Profile() {
                         <div className="">
                             <h4 className="font-semibold uppercase text-lg text-secondary">Pemesanan Jahit Pakaian</h4>
                             <div className="h-64 border rounded-md p-3">
-                                {dataPesananJahit?.sekargaluhetnic_pesanan_jahit?.map((el) => 
-                                    <div>
-                                        <p>{el.jenis_pakaian}</p>
-                                    </div>
+                                {dataPesananJahit?.sekargaluhetnic_pesanan_jahit?.slice(0, 2).map((el) => 
+                                <PesananJahitItem key={el.id} items={el}/>
                                 )}
-                                <p>Lihat semua</p>
+                                <div className="flex ml-auto mr-0 items-center gap-1 w-fit cursor-pointer">
+                                    <p className="text-right text-secondary"><u><Link to="/pesanan-jahit">Lihat semua</Link></u></p>
+                                    <FiChevronRight/>
+                                </div>
                             </div>
                         </div>
                     </div>

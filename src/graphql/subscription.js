@@ -45,7 +45,7 @@ subscription MySubscription($_eq: Int!) {
 
 export const SubscriptionPesanan = gql `
 subscription MySubscription($_eq: Int!) {
-  sekargaluhetnic_pesanan_pakaian(where: {user_id: {_eq: $_eq}, pesanans_aggregate: {count: {predicate: {_gt: 0}}}}) {
+  sekargaluhetnic_pesanan_pakaian(where: {user_id: {_eq: $_eq}, pesanans_aggregate: {count: {predicate: {_gt: 0}}}}, order_by: {id: desc}) {
     id
     ongkir
     pesanan_session

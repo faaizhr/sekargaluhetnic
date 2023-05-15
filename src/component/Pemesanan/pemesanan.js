@@ -75,18 +75,240 @@ const Pemesanan = () => {
   
 
   const [ongkir, setOngkir] = useState(0)
-  const [opsiPengiriman, setOpsiPengiriman] = useState('')
+  const [opsiPengiriman, setOpsiPengiriman] = useState("")
   let totalHarga = dataTotalProduk?.sekargaluhetnic_katalog_aggregate.aggregate.sum.harga + parseInt(ongkir)
 
   
   useEffect(() => { 
-    if (dataAlamat?.provinsi == "DKI Jakarta") {
+    if (dataAlamat?.provinsi == "Nanggroe Aceh Darussalam") {
       if (opsiPengiriman == "reguler") {
-        setOngkir(9000)
+        setOngkir(54000)
       } else if (opsiPengiriman == "cepat") {
-        setOngkir(15000)
+        setOngkir(63000)
       }
-    }
+    } else if (dataAlamat?.provinsi == "Sumatera Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(47000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(53000)
+      }
+    } else if (dataAlamat?.provinsi == "Sumatera Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(23000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(46000)
+      }
+    } else if (dataAlamat?.provinsi == "Sumatera Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(38000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(49000)
+      }
+    } else if (dataAlamat?.provinsi == "Bengkulu") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(34000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(39000)
+      }
+    } else if (dataAlamat?.provinsi == "Riau") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(38000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(49000)
+      }
+    } else if (dataAlamat?.provinsi == "Kepulauan Riau") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(47000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(55000)
+      }
+    } else if (dataAlamat?.provinsi == "Jambi") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(25000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(29000)
+      }
+    } else if (dataAlamat?.provinsi == "Lampung") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(20000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(38000)
+      }
+    } else if (dataAlamat?.provinsi == "Bangka Belitung") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(29000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(48000)
+      }
+    } else if (dataAlamat?.provinsi == "Kalimantan Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(47000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(60000)
+      }
+    } else if (dataAlamat?.provinsi == "Kalimantan Timur") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(59000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(69000)
+      }
+    } else if (dataAlamat?.provinsi == "Kalimantan Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(45000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(52000)
+      }
+    } else if (dataAlamat?.provinsi == "Kalimantan Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(45000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(52000)
+      }
+    } else if (dataAlamat?.provinsi == "Kalimantan Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(77000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(90000)
+      }
+    } else if (dataAlamat?.provinsi == "Banten") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(12000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(24000)
+      }
+    } else if (dataAlamat?.provinsi == "DKI Jakarta") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(10000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(18000)
+      }
+    } else if (dataAlamat?.provinsi == "Jawa Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(12000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(24000)
+      }
+    } else if (dataAlamat?.provinsi == "Jawa Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(19000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(35000)
+      }
+    } else if (dataAlamat?.provinsi == "Daerah Istimewa Yogyakarta") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(19000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(35000)
+      }
+    } else if (dataAlamat?.provinsi == "Jawa Timur") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(20000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(37000)
+      }
+    } else if (dataAlamat?.provinsi == "Bali") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(30000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(50000)
+      }
+    } else if (dataAlamat?.provinsi == "Nusa Tenggara Timur") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(74000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(86000)
+      }
+    } else if (dataAlamat?.provinsi == "Nusa Tenggara Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(46000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(60000)
+      }
+    } else if (dataAlamat?.provinsi == "Gorontalo") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(73000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(85000)
+      }
+    } else if (dataAlamat?.provinsi == "Sulawesi Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(55000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(64000)
+      }
+    } else if (dataAlamat?.provinsi == "Sulawesi Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(73000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(85000)
+      }
+    } else if (dataAlamat?.provinsi == "Sulawesi Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(67000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(78000)
+      }
+    } else if (dataAlamat?.provinsi == "Sulawesi Tenggara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(73000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(85000)
+      }
+    } else if (dataAlamat?.provinsi == "Sulawesi Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(56000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(75000)
+      }
+    } else if (dataAlamat?.provinsi == "Maluku Utara") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(89000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(104000)
+      }
+    } else if (dataAlamat?.provinsi == "Maluku ") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(89000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(104000)
+      }
+    } else if (dataAlamat?.provinsi == "Papua Barat") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(139000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(163000)
+      }
+    } else if (dataAlamat?.provinsi == "Papua") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(117000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(137000)
+      }
+    } else if (dataAlamat?.provinsi == "Papua Tengah") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(134000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(157000)
+      }
+    } else if (dataAlamat?.provinsi == "Papua Pegunungan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(134000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(157000)
+      }
+    } else if (dataAlamat?.provinsi == "Papua Selatan") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(166000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(195000)
+      }
+    } else if (dataAlamat?.provinsi == "Papua Barat Daya") {
+      if (opsiPengiriman == "reguler") {
+        setOngkir(122000)
+      } else if (opsiPengiriman == "cepat") {
+        setOngkir(143000)
+      }
+    } 
     
   }, [opsiPengiriman])
   
@@ -113,11 +335,12 @@ const Pemesanan = () => {
             id: dataID?.sekargaluhetnic_pesanan_pakaian[0]?.id,
             ongkir: ongkir,
             total_harga: totalHarga,
-            created_at: Date()
+            created_at: Date(),
+            opsi_pengiriman: opsiPengiriman
           }
         })
       }
-      // navigate("/profil")
+      navigate("/profil")
     } else {
       navigate("/login")
     }

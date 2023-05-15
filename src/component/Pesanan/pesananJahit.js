@@ -6,11 +6,10 @@ import { useState } from "react"
 
 import KeranjangItem from "../Keranjang/keranjangItem"
 import ListItem from "../Katalog/ListItem"
-import LoadingSvg  from "../Loading/LoadingSvgTransparent"
+import LoadingSvg from "../Loading/LoadingSvgTransparent"
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import style from "./Pesanan.module.css"
-
 
 import { AiOutlineRight } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi"
@@ -29,10 +28,11 @@ import { GetUserProfileData } from "../../graphql/query";
 import Cookies from "js-cookie";
 
 import PesananItem from "../Pesanan/pesananItem";
+import PesananJahitItem from "./pesananJahitItem"
 
 
 
-const Pesanan = () => {
+const PesananJahit = () => {
 
     const {data: dataUser, loading, error} = useQuery(GetUserProfileData, {variables: { _eq: Cookies.get("okogaye") }})
     // console.log("cek data profile", dataUser)
@@ -48,14 +48,14 @@ const Pesanan = () => {
           <div className="container mx-auto flex justify-start items-center gap-2">
                 <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
                 <FiChevronRight/>
-                <p className="font-semibold">Riwayat Pemesanan</p>
+                <p className="font-semibold">Riwayat Pemesanan Jahit</p>
             </div>
           
           <div className="container mx-auto mt-14">
-            <h2 className="text-primary text-4xl lg:text-6xl font-bold uppercase mb-10">Riwayat Pemesanan Pakaian</h2>
-            {loadingPesanan ? <LoadingSvg/> : 
+            <h2 className="text-primary text-4xl lg:text-6xl font-bold uppercase mb-10">Riwayat Pemesanan Jahit</h2>
+            {loadingPesananJahit ? <LoadingSvg/> :
             <div className="mt-10">
-              {dataPesanan?.sekargaluhetnic_pesanan_pakaian?.map((el) => <PesananItem key={el.id} items={el} /> )}
+              {dataPesananJahit?.sekargaluhetnic_pesanan_jahit?.map((el) => <PesananJahitItem key={el.id} items={el} /> )}
             </div>
             }
 
@@ -67,4 +67,4 @@ const Pesanan = () => {
 
 }
 
-export default Pesanan
+export default PesananJahit
