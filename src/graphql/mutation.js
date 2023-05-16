@@ -198,3 +198,41 @@ mutation MyMutation($_eq: Int!, $_set: sekargaluhetnic_alamat_set_input = {}) {
 //     "kodepos": 16433 
 //   }
 // }
+
+export const UpdateProfil = gql `
+mutation MyMutation($_eq: Int!, $telephone: String!, $name: String!, $jenis_kelamin: String!, $email: String!) {
+  update_sekargaluhetnic_user(where: {id: {_eq: $_eq}}, _set: {telephone: $telephone, name: $name, jenis_kelamin: $jenis_kelamin, email: $email}) {
+    affected_rows
+  }
+}
+`
+// {
+//   "_eq": 4,
+//   "telephone": "123456789",
+//   "name": "Rama Gio",
+//   "jenis_kelamin": "Pria",
+//   "email": "rama@gmail.com"
+// }
+
+export const UploadPembayaranPesananPakaian = gql `
+mutation MyMutation($_eq: Int!, $bukti_pembayaran: String!, $nama_rekening_pemilik: String!, $metode_pembayaran: String!) {
+  update_sekargaluhetnic_pesanan_pakaian(where: {id: {_eq: $_eq}}, _set: {bukti_pembayaran: $bukti_pembayaran, nama_rekening_pemilik: $nama_rekening_pemilik, metode_pembayaran: $metode_pembayaran, status: "Pembayaran Diproses"}) {
+    affected_rows
+  }
+}
+`
+// {
+//   "_eq": 66,
+//   "bukti_pembayaran": "tes",
+//   "nama_rekening_pemilik": "faiz",
+//   "metode_pembayaran": "bca"
+// }
+
+export const UploadPembayaranPesananJahit = gql `
+mutation MyMutation($_eq: Int!, $bukti_pembayaran: String!, $metode_pembayaran: String!, $nama_rekening_pemilik: String!) {
+  update_sekargaluhetnic_pesanan_jahit(where: {id: {_eq: $_eq}}, _set: {metode_pembayaran: $metode_pembayaran, nama_rekening_pemilik: $nama_rekening_pemilik, bukti_pembayaran: $bukti_pembayaran, status: "Pembayaran Diproses"}) {
+    affected_rows
+  }
+}
+
+`

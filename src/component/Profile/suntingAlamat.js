@@ -2,13 +2,10 @@ import { Component, useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import {useNavigate, Link} from "react-router-dom"
-import axios from "axios";
 
-import MenuProfil from "./MenuProfil";
 
 import { FiChevronRight } from "react-icons/fi"
 
-import style from './Profile.module.css'
 import { gql, useLazyQuery, useQuery, useMutation } from "@apollo/client";
 
 import { GetUserProfileData } from "../../graphql/query";

@@ -41,9 +41,9 @@ subscription MySubscription($_eq: Int!) {
 
 const Chat = ({id, popUp, chatModal}) => {
 
-  console.log("cek item", id)
-  console.log("cek popup", popUp)
-  console.log("cek chatmodal", chatModal)
+  // console.log("cek item", id)
+  // console.log("cek popup", popUp)
+  // console.log("cek chatmodal", chatModal)
 
   const LoggedIn = Cookies.get("token")
 
@@ -52,7 +52,7 @@ const Chat = ({id, popUp, chatModal}) => {
   const handleChangeMessage = (e) => {
     setMessage(e.target.value)
   }
-  console.log("cek message", message)
+  // console.log("cek message", message)
   
   // const location = useLocation()
   // const { id } = location.state
@@ -60,7 +60,7 @@ const Chat = ({id, popUp, chatModal}) => {
   // const navigate = useNavigate()
 
   const {data: dataChat, loading: loadingChat, error:errorChat} = useSubscription(SubscriptionChat, {variables: { _eq: id}})
-  console.log("cek data pesanaan", dataChat)
+  // console.log("cek data pesanaan", dataChat)
 
   const {insertChat, loadingInsertChat} = useInsertChat()
   const sendChat = (e) => {
