@@ -76,10 +76,14 @@ const Keranjang = () => {
           }
         })
         navigate("/pemesanan");
-        // window.location.reload(false);
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 1000);
       } else {
         navigate("/pemesanan");
-        window.location.reload(false);
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 1000);
       }
     }
   }

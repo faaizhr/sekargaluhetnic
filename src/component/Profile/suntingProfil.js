@@ -32,6 +32,7 @@ export default function SuntingProfil() {
     jenis_kelamin: dataUser?.sekargaluhetnic_user[0].jenis_kelamin,
     telephone: dataUser?.sekargaluhetnic_user[0].telephone
   })
+  console.log(profil)
 
   const handleChangeUpdateProfil = (e) => {
     const name = e.target.name;
@@ -80,19 +81,19 @@ export default function SuntingProfil() {
                 <div> 
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Nama</h6>
-                    <input name="name" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Nama" value={profil.name}></input>
+                    <input name="name" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Nama" value={ profil.name ? profil.name : dataUser?.sekargaluhetnic_user[0].name}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Email</h6>
-                    <input name="email" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Email" value={profil.email}></input>
+                    <input name="email" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Email" value={ profil.email ? profil.email : dataUser?.sekargaluhetnic_user[0].email}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Jenis Kelamin</h6>
-                    <input name="jenis_kelamin" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Jenis Kelamin" value={profil.jenis_kelamin}></input>
+                    <input name="jenis_kelamin" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Jenis Kelamin" value={ profil.jenis_kelamin ? profil.jenis_kelamin : dataUser?.sekargaluhetnic_user[0].jenis_kelamin}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Telephone</h6>
-                    <input name="telephone" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Telephone" value={profil.telephone}></input>
+                    <input name="telephone" onChange={handleChangeUpdateProfil} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Telephone" value={ profil.telephone ? profil.telephone : dataUser?.sekargaluhetnic_user[0].telephone}></input>
                   </div>
 
                   

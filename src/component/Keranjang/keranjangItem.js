@@ -26,6 +26,8 @@ const KeranjangItem = ({items}) => {
     const { id, nama, harga, foto, deskripsi} = items
 
     const navigate = useNavigate()
+
+    console.log(items)
     
     const handleDetail = () => {
         navigate(`/menu/${items.id}`, {
@@ -84,9 +86,7 @@ const KeranjangItem = ({items}) => {
                 <h5 className="">{nama}</h5>
                 <p className="mb-3 fw-bold text-muted">Kode Produk : 78568HSJ4</p>
                 <p className={`mb-1 ${style.semiBold}`}>Ukuran</p>
-                <p className="mb-1">Lebar Tubuh</p>
-                <p className="mb-1">Panjang Tubuh</p>
-                <p className="mb-1">Panjang Lengan</p>
+                <p className="mb-1 border rounded-md px-2 py-1 w-fit">{items.ukuran}</p>
                 <h6 className="mt-4">Rp{harga.toLocaleString()}</h6>
                 <div className={style.deleteButton}>
                   <MdDeleteOutline onClick={() => {

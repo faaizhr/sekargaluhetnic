@@ -48,8 +48,10 @@ const Pesanan = () => {
           <div className="container mx-auto flex justify-start items-center gap-2">
                 <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
                 <FiChevronRight/>
-                <p className="font-semibold">Riwayat Pemesanan</p>
-            </div>
+                <Link className="" to="/profil"><p>Profil</p></Link>
+                <FiChevronRight/>
+                <p className="font-semibold">Riwayat Pemesanan Pakaian</p>
+          </div>
           
           <div className="container mx-auto mt-14">
             <h2 className="text-primary text-4xl lg:text-6xl font-bold uppercase mb-10">Riwayat Pemesanan Pakaian</h2>

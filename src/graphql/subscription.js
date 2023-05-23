@@ -27,6 +27,8 @@ subscription MySubscription($_eq: Int!) {
     harga
     id
     nama
+    ukuran
+    kode_produk
   }
 }
 `;

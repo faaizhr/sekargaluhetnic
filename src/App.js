@@ -22,6 +22,7 @@ import UploadPembayaranPesanan from './component/Pesanan/UploadPembayaranPesanan
 import PesananDetail from './component/Pesanan/pesananDetail';
 import PesananJahitDetail from './component/Pesanan/pesananJahitDetail';
 import PesananJahit from './component/Pesanan/pesananJahit';
+import ReturBarang from './component/ReturBarang/ReturBarang';
 
 import { PrivateRoute } from './PrivateRoute';
 
@@ -35,8 +36,8 @@ function App() {
         {/* <Route exact path='/' element={<Login />}/> */}
         <Route exact path='/login' element={<Login />}/>
         <Route exact path='/' element={<PrivateRoute/>}>
-          <Route exact path='/register' element={<Register />}/>
           <Route exact path='/' element={<Home />}/>
+          <Route exact path='/register' element={<Register />}/>
           <Route exact path='/katalog' element={<Katalog />}/>
           <Route exact path='/jahit' element={<Jahit />}/>
           <Route exact path='/jahit-online' element={<JahitOnline />}/>
@@ -54,6 +55,7 @@ function App() {
           <Route exact path='/pesanan-jahit' element={<PesananJahit />}/>
           <Route exact path='/pesanan-pakaian/:id' element={<PesananDetail />}/>
           <Route exact path='/pesanan-jahit/:id' element={<PesananJahitDetail />}/>
+          <Route exact path='/retur-barang' element={<ReturBarang />}/>
         </Route>
       </Routes>
     </Router>

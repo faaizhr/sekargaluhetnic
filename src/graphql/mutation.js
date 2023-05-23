@@ -236,3 +236,41 @@ mutation MyMutation($_eq: Int!, $bukti_pembayaran: String!, $metode_pembayaran: 
 }
 
 `
+
+export const HandleStatusPesananPakaian = gql ` 
+mutation MyMutation($_eq: Int!, $status: String = "") {
+  update_sekargaluhetnic_pesanan_pakaian(where: {id: {_eq: $_eq}}, _set: {status: $status}) {
+    affected_rows
+  }
+}
+`
+// {
+//   _eq: 2,
+//   status: status
+// }
+
+export const HandleStatusPesananJahit = gql `
+mutation MyMutation($_eq: Int!, $status: String!) {
+  update_sekargaluhetnic_pesanan_jahit(where: {id: {_eq: $_eq}}, _set: {status: $status}) {
+    affected_rows
+  }
+}
+`
+// {
+//   _eq: 2,
+//   status: status
+// }
+
+export const InsertReturBarang = gql `
+mutation MyMutation($objects: [sekargaluhetnic_retur_produk_insert_input!] = {}) {
+  insert_sekargaluhetnic_retur_produk(objects: $objects) {
+    affected_rows
+  }
+}
+`
+// {
+//   "objects": {
+//     "alasan": "halo galo glalgoa",
+//     "pesanan_jahit_id": 35
+//   }
+// }

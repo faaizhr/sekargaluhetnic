@@ -94,12 +94,14 @@ const Chat = ({id, popUp, chatModal}) => {
                   <AiOutlineClose onClick={popUp} className="w-5 h-5 fill-secondary hover:fill-red-800 cursor-pointer"/>
                 </div>
               </div>
-              <div className="h-96">
-                {dataChat?.sekargaluhetnic_chat?.map((el) => 
-                  <div className={el.user_id == Cookies.get("okogaye") ? "bg-secondary text-white px-3 py-2 w-3/4 flex justify-end mb-1 ml-auto mr-0 rounded-tl-xl rounded-bl-xl rounded-br-xl" : "bg-primary text-white px-3 py-2 w-3/4 flex justify-start mb-1 ml-0 mr-auto rounded-tr-xl rounded-bl-xl rounded-br-xl"}>
-                    <p className="m-0 text-white font-light tracking-wide">{el.message}</p>
-                  </div>
-                )}
+              <div className="h-96 flex-col-reverse flex overflow-y-scroll">
+                <div className="">
+                  {dataChat?.sekargaluhetnic_chat?.map((el) => 
+                    <div className={el.user_id == Cookies.get("okogaye") ? "bg-secondary text-white px-3 py-2 w-3/4 flex justify-end mb-1 ml-auto mr-2 rounded-tl-xl rounded-bl-xl rounded-br-xl" : "bg-primary text-white px-3 py-2 w-3/4 flex justify-start mb-1 ml-0 mr-auto rounded-tr-xl rounded-bl-xl rounded-br-xl"}>
+                      <p className="m-0 text-white font-light tracking-wide ">{el.message}</p>
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="border-t px-2 py-2">
                 <form onSubmit={sendChat}>

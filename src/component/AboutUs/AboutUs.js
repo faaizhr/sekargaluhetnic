@@ -39,7 +39,7 @@ function AboutUs() {
                     <h5 className="font-bold text-3xl text-secondary tracking-wide">KENALI PEMILIK KAMI</h5>
                     <div className="mt-10">
                         <img className="w-72 h-72 mx-auto" src="https://cdn.discordapp.com/attachments/915505289174847510/1107669149255225414/Group_132.png"></img>
-                        <p className="mt-5 text-base">Beliau adalah <span className="font-semibold text-lg text-secondary">Dwi Novianti</span> yang merupakan pemilik dari UMKM Sekar Galuh Etnic. Lahir di Tulungagung Jawa Timur pada </p>
+                        <p className="mt-5 text-base">Beliau adalah <span className="font-semibold text-lg text-secondary">Dwi Novianti</span> yang merupakan pemilik dari UMKM Sekar Galuh Etnic. Lahir di Tulungagung Jawa Timur pada tahun 1965. Beliau adalah sosoknya teliti dalam mengerjakan segala hal. Beliau sangat cinta menajahit, oleh karenanya hasil jahitan beliau sangatlah baik karena didesain dan dijahit sepenuh hati.</p>
                     </div>
                 </div>
             </div>

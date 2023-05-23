@@ -25,7 +25,7 @@ function MenuProfil() {
                 <p><Link to="/sunting-alamat">Sunting Alamat</Link></p>
                 <p><Link to="/pesanan-pakaian">Riwayat Pesanan Pakaian</Link></p>
                 <p><Link to="/pesanan-jahit">Riwayat Pesanan Jahit</Link></p>
-                <p><Link to="/">Retur Barang</Link></p>
+                <p><Link to="/retur-barang">Retur Barang</Link></p>
             </div>
             {/* <h6 className="uppercase font-medium mb-3">Ajukan Retur Barang</h6> */}
         </div>
