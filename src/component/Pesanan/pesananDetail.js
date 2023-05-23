@@ -227,7 +227,9 @@ const PesananDetail = () => {
       variables: {
         objects: {
           alasan: returValues.alasan,
-          pesanan_pakaian_id: location.state.id
+          pesanan_pakaian_id: location.state.id,
+          user_id: Cookies.get("okogaye"),
+          status: "Menunggu Konfirmasi"
         }
       }
     })
