@@ -29,6 +29,8 @@ subscription MySubscription($_eq: Int!) {
     nama
     ukuran
     kode_produk
+    material
+    stok
   }
 }
 `;

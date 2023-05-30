@@ -302,9 +302,9 @@ const PesananDetail = () => {
                 <h6 className="font-medium text-base">Alamat Pengiriman</h6>
                 <p>{dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].alamat}, {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].kelurahan}, {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].kecamatan}, {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].kabupaten_kota}, {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].provinsi}, {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].negara}, {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.user.alamats[0].kodepos}</p>
                 <h6 className="font-medium text-base mt-3">Biaya Ongkos Kirim</h6>
-                <p>Rp{dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.ongkir}</p>
+                <p>Rp{dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.ongkir.toLocaleString()}</p>
                 <h6 className="font-medium text-base mt-3">Total Biaya</h6>
-                <p>Rp468,000</p>
+                <p>Rp{dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.total_harga.toLocaleString()}</p>
                 <h6 className="font-medium text-base mt-3">Status</h6>
                 <p>{dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.status}</p>
                 <h6 className="font-medium text-base mt-3">Waktu Pemesanan</h6>

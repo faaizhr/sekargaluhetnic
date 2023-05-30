@@ -21,6 +21,8 @@ import { SubscriptionKeranjangKatalog } from "../../graphql/subscription"
 import { SubscriptionSumKeranjang } from "../../graphql/subscription"
 import { InsertPemesananPakaian } from "../../graphql/mutation";
 import { UpdatePemesananPakaian } from "../../graphql/mutation";
+import { EmptyCart } from "../../graphql/mutation";
+import { DecreaseStok } from "../../graphql/mutation";
 
 import { AiOutlineRight } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi"
@@ -72,6 +74,13 @@ const Pemesanan = () => {
     }
   }) 
   console.log("coba mapping", mappingPesanan)
+
+  const mappingKeranjang = dataSubs?.sekargaluhetnic_katalog?.map(function(el) {
+    return {
+      "where": {"id": {"_eq": el.id}},
+      "_set": {"stok": el.stok - 1}
+    }
+  }) 
   
 
   const [ongkir, setOngkir] = useState(0)
@@ -315,9 +324,12 @@ const Pemesanan = () => {
   console.log("opsi", opsiPengiriman)
   console.log("cek ongkir" ,ongkir)
 
-  
+  const [emptyCart, {loading: loadingEmptyCart}] = useMutation(EmptyCart)
   const [updatePemesananPakaian, {loading: loadingUpdatePemesananPakaian}] = useMutation(UpdatePemesananPakaian)
   const {insertPemesananPakaian, loadingInsertPemesananPakaian} = useInsertToPemesanan()
+  const [decreaseStok, {loading: loadingDecreaseStok}] = useMutation(DecreaseStok)
+
+
   const pesan = () => {
     if(LoggedIn) {
       if(ongkir == 0) {
@@ -339,12 +351,33 @@ const Pemesanan = () => {
             opsi_pengiriman: opsiPengiriman
           }
         })
+
+        emptyCart({
+          variables: {
+            _eq: Cookies.get("okogaye")
+          }
+        })
+
+        decreaseStok({
+          variables: {
+            updates: mappingKeranjang
+          }
+        })
+
+        navigate("/profil")
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 1500);
       }
-      navigate("/profil")
     } else {
       navigate("/login")
     }
   }
+
+
+  
+
+  
 
 
     return (

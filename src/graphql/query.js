@@ -25,6 +25,11 @@ query MyQuery($_neq: Int!) {
     harga
     id
     nama
+    gender
+    ukuran
+    kode_produk
+    material
+    stok
   }
 }
 `;
@@ -34,10 +39,14 @@ query MyQuery($_eq: Int!) {
   sekargaluhetnic_katalog(where: {keranjangs: {user_id: {_eq: $_eq}}}) {
     deskripsi
     foto
-    gender
     harga
     id
     nama
+    gender
+    ukuran
+    kode_produk
+    material
+    stok
   }
 }
 `;

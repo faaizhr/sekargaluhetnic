@@ -274,3 +274,34 @@ mutation MyMutation($objects: [sekargaluhetnic_retur_produk_insert_input!] = {})
 //     "pesanan_jahit_id": 35
 //   }
 // }
+
+export const EmptyCart = gql `
+mutation MyMutation($_eq: Int!) {
+  delete_sekargaluhetnic_keranjang(where: {user_id: {_eq: $_eq}}) {
+    affected_rows
+  }
+}
+`
+// {
+//   "_eq": 2
+// }
+
+export const DecreaseStok = gql `
+mutation MyMutation($updates: [sekargaluhetnic_katalog_updates!] = {}) {
+  update_sekargaluhetnic_katalog_many(updates: $updates) {
+    affected_rows
+  }
+}
+`
+// {
+//   "updates": [
+//     {
+//       "where": {"id": {"_eq": 2}},
+//       "_set": {"stok": 12}
+//     },
+//     {
+//       "where": {"id": {"_eq": 1}},
+//       "_set": {"stok": 9}
+//     }
+//   ]
+// }

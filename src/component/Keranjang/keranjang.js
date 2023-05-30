@@ -87,6 +87,10 @@ const Keranjang = () => {
       }
     }
   }
+
+  const lanjutBelanja = () => {
+    navigate("/katalog")
+  }
   
 
     return (
@@ -144,7 +148,7 @@ const Keranjang = () => {
                         <button onClick={pemesanan} className="bg-secondary w-full py-2 border border-secondary text-white hover:bg-white hover:text-secondary duration-200 rounded-md">LANJUTKAN KE PEMESANAN</button>
                       </div>
                       <div className="mt-2">
-                        <button className="bg-secondary3 w-full py-2 border border-secondary3 text-secondary hover:bg-white duration-200 rounded-md">LANJUT BELANJA</button>
+                        <button onClick={lanjutBelanja} className="bg-secondary3 w-full py-2 border border-secondary3 text-secondary hover:bg-white duration-200 rounded-md">LANJUT BELANJA</button>
                       </div>
                     </div>
                   </div>

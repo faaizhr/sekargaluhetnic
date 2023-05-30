@@ -706,13 +706,13 @@ function JahitOnline() {
           <Modal
           open={open}
           onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+          className="focus:outline-none"
         >
-          <div className="bg-white w-4/5 mx-auto mt-28 p-4 rounded-md">
+          <div className="bg-white w-4/5 mx-auto mt-24 p-4 rounded-md focus:outline-none h-[800px] overflow-scroll">
             <h6 className="text-center uppercase text-xl font-semibold text-secondary tracking-wider">Panduan Pengukuran Tubuh</h6>
             <div>
-              <img className="mx-auto" src="https://media.discordapp.net/attachments/915505289174847510/1107581277688844368/Panduan_Pengukuran.png"></img>
+              <img className="mx-auto w-[1000px]" src="https://firebasestorage.googleapis.com/v0/b/sekargaluhetnic.appspot.com/o/Asset%2FGroup%20144.png?alt=media&token=0d4b15a9-289c-4f90-86fc-cf8560d39f60"></img>
+              <img className="mx-auto w-[1000px]" src="https://firebasestorage.googleapis.com/v0/b/sekargaluhetnic.appspot.com/o/Asset%2FGroup%20145.png?alt=media&token=26a389d8-65c6-41cf-a1c2-1a3ad5d7a5d6"></img>
             </div>
           </div>
         </Modal>

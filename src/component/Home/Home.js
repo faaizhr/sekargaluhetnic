@@ -1,4 +1,5 @@
 import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router-dom";
 import style from './Home.module.css'
 // import useGetComicLatest from "../../hooks/useGetComicLatest";
 // import useGetComicBest from "../../hooks/useGetBestMenu";
@@ -26,13 +27,21 @@ function Home() {
         link: "/jahit"
     },
     {
-        name: "Random Name #2",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales.",
+        name: "Batik",
+        description: "Kami menjual berbagai macam jenis pakaian mulai dari kemeja, kebaya, outer, dan lain sebagainya yang berfokus menggunakan kain batik",
         image: "https://cdn.discordapp.com/attachments/915505289174847510/1065477784794832947/fashion-designer-cutting-tailor-made-concept_1.jpg",
-        button: "Jahit Online",
-        link: "/"
+        button: "Lihat Katalog",
+        link: "/katalog"
     }
 ]
+  const navigate = useNavigate()
+
+  const navigateJahit = () => {
+    navigate("/jahit")
+  } 
+  const navigateKatalog = () => {
+    navigate("/katalog")
+  } 
 
 
   return (
@@ -57,7 +66,7 @@ function Home() {
               <div className="">
                 <h3 className="font-semibold text-2xl text-secondary">Apa yang kami lakukan?</h3>
                 <p className="text-base mt-3">Kami menjahit pakaian dengan spesialisasi menjahit batik. Kami menerima pesanan jahit kustom sesuai dengan permintaan pelanggan dan juga menjahit pakaian untuk dijual secara bebas.</p>
-                <button className="mt-3 px-10 py-3 bg-secondary text-white rounded-md">Selengkapnya</button>
+                <button onClick={navigateJahit} className="mt-3 px-10 py-3 bg-secondary text-white rounded-md">Selengkapnya</button>
               </div>
             </div>
           </div>
@@ -68,7 +77,7 @@ function Home() {
                 <h3 className="text-right font-semibold text-2xl text-secondary2">Apa yang kami jual?</h3>
                 <p className="text-right text-base mt-3">Kami menjual produk berupa pakaian yang sudah jadi. Pakaian yang dijual adalah pakaian hasil jahitan dari UMKM kami dan juga desain kami pribadi. Kami juga membuka jasa jahit pakaian secara kustom.</p>
                 <div className="flex justify-end">
-                  <button className="mt-3 px-10 py-3 bg-secondary2 text-white rounded-md">Selengkapnya</button>
+                  <button onClick={navigateKatalog} className="mt-3 px-10 py-3 bg-secondary2 text-white rounded-md">Selengkapnya</button>
                 </div>
               </div>
             </div>

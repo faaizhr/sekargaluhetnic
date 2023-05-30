@@ -74,6 +74,23 @@ const KatalogDetail = () => {
     }
   }
 
+  const langsungBeli = () => {
+    if(LoggedIn) {
+      insertToCart({
+        variables: {
+          user_id: Cookies.get("okogaye"),
+          katalog_id: id,
+        }
+      })
+      navigate("/pemesanan")
+      setTimeout(() => {
+        window.location.reload()
+      }, 500);
+    } else {
+      navigate("/login")
+    }
+  }
+
 
     return (
         <div>
@@ -99,11 +116,12 @@ const KatalogDetail = () => {
                 </div>
                 <div className="pt-4">
                   <p className="font-semibold text-gray-500">{location.state.kode_produk}</p>
-                  <h6 className="mb-1 font-medium">Ukuran Pakaian :  <span className="font-normal">{location.state.ukuran}</span></h6>
+                  <h6 className="mb-1 font-medium text-sm">Ukuran Pakaian</h6>
+                  <p className="border rounded-md p-2 w-fit">{location.state.ukuran}</p>
                   <p className="my-5">Stok Tersedia   :   {location.state.stok}</p>
                   <div className="flex justify-start gap-2">
                     <button onClick={cart} className="text-white px-5 py-3 bg-secondary2 rounded-md hover:bg-white hover:text-secondary2 border border-secondary2 duration-200">Tambahkan ke Keranjang</button>
-                    <button className="text-white px-4 py-3 bg-secondary rounded-md hover:bg-white hover:text-secondary border border-secondary duration-200">Langsung Beli</button>
+                    <button onClick={langsungBeli} className="text-white px-4 py-3 bg-secondary rounded-md hover:bg-white hover:text-secondary border border-secondary duration-200">Langsung Beli</button>
                   </div>
                 </div>
               </div>
@@ -125,8 +143,7 @@ const KatalogDetail = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    {location.state.material}
                   </p>
                 </AccordionDetails>
               </Accordion>

@@ -296,7 +296,9 @@ const PesananJahitDetail = () => {
                       <p><span className="font-medium">Nama Rekening Pemilik : </span> {dataPesanan?.sekargaluhetnic_pesanan_jahit[0]?.nama_rekening_pemilik}</p>
                       <p className="capitalize"><span className="font-medium">Metode Pembayaran : </span> {dataPesanan?.sekargaluhetnic_pesanan_jahit[0]?.metode_pembayaran}</p>
                       <p className="font-medium">Bukti Pembayaran : </p>
-                      <img className="w-80" src={dataPesanan?.sekargaluhetnic_pesanan_jahit[0]?.bukti_pembayaran}></img>
+                      <div className="border rounded-md p-2 w-fit">
+                        <img className="w-80" src={dataPesanan?.sekargaluhetnic_pesanan_jahit[0]?.bukti_pembayaran}></img>
+                      </div>
                     </div> :
                     <p>Anda <u>belum melakukan pembayaran</u>, harap segera upload bukti bayar. Terima Kasih</p>
                     }

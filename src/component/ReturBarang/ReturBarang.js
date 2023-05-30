@@ -16,7 +16,7 @@ import { GetReturBarangJahit } from "../../graphql/query"
 
 export default function ReturBarang() {
 
-  const navigate = useNavigate
+  const navigate = useNavigate()
 
   const {data: dataReturJahit, loading: loadingReturPakaian, error: errorReturPakaian} = useQuery(GetReturBarangPakaian, { variables: {_eq: Cookies.get("okogaye")}})
   const {data: dataReturPakaian, loading: loadingReturJahit, error: errorReturJahit} = useQuery(GetReturBarangJahit, { variables: {_eq: Cookies.get("okogaye")}})
@@ -25,13 +25,20 @@ export default function ReturBarang() {
   const [handleID, setHandleID] = useState()
 
   const handleNavigatePakaian = (id) => {
-    // setHandleID(id)
-    navigate(`/pesanan-pakaian/${id}`)
-    // console.log("cek id", handleID)
+    navigate(`/pesanan-pakaian/${id}`, {
+      state: {
+        id: id
+      }
+    })
+
   }
 
   const handleNavigateJahit = (id) => {
-    navigate(`/pesanan-pakaian/${id}`)
+    navigate(`/pesanan-jahit/${id}`, {
+      state: {
+        id: id
+      }
+    })
   }
 
   return (
@@ -57,7 +64,7 @@ export default function ReturBarang() {
               <div className="border col-span-1 p-2 rounded-md grid gap-5">
                 <h5 className="uppercase text-xl font-semibold text-secondary">Pesanan Pakaian</h5>
                 { dataReturPakaian?.sekargaluhetnic_retur_produk.map((el) => 
-                  <div onClick={() => handleNavigatePakaian(el.retur_produk_pesanan_pakaian.id)} className="border-b pb-2 grid grid-cols-2">
+                  <div onClick={() => handleNavigatePakaian(el.retur_produk_pesanan_pakaian.id)} className="border-b pb-2 grid grid-cols-2 cursor-pointer">
                     <div>
                       <h6 className="font-medium text-sm text-primary">Kode Pemesanan</h6>
                       <p>{el.retur_produk_pesanan_pakaian.kode_pemesanan}</p>
@@ -82,7 +89,7 @@ export default function ReturBarang() {
               <div className="border col-span-1 p-2 rounded-md grid gap-5">
                 <h5 className="uppercase text-xl font-semibold text-secondary">Pesanan Jahit</h5>
                 { dataReturJahit?.sekargaluhetnic_retur_produk.map((el) => 
-                  <div onClick={() => handleNavigateJahit(el.retur_produk_pesanan_jahit.id)} className="border-b pb-2 grid grid-cols-2">
+                  <div onClick={() => handleNavigateJahit(el.retur_produk_pesanan_jahit.id)} className="border-b pb-2 grid grid-cols-2 cursor-pointer">
                   <div>
                     <h6 className="font-medium text-sm text-primary">Kode Pemesanan</h6>
                     <p>{el.retur_produk_pesanan_jahit.kode_pemesanan}</p>

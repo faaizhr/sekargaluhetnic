@@ -20,7 +20,7 @@ export default function SuntingAlamat() {
   const navigate = useNavigate();
 
   const {data: dataUser, loading, error} = useQuery(GetUserProfileData, {variables: { _eq: Cookies.get("okogaye") }})
-  const dataAlamat = dataUser?.sekargaluhetnic_user[0].alamats[0];
+  const dataAlamat = dataUser?.sekargaluhetnic_user[0]?.alamats[0];
   console.log("alamat", dataAlamat)
 
   const [insertAlamat, {loading: loadingInsertAalamat}] = useMutation(InsertAlamat)
@@ -106,7 +106,7 @@ export default function SuntingAlamat() {
     setTimeout(() => {
       navigate("/alamat")
       window.location.reload(false);
-    }, 2000);
+    }, 1000);
   }
 
 
@@ -212,7 +212,7 @@ export default function SuntingAlamat() {
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Provinsi</h6>
                     <div className="border px-3 py-1 text-sm rounded-md w-fit mt-1">
-                      <select className="focus:outline-none" name="provinsi" onChange={handleChangeUpdateAlamat} value={editAlamat?.provinsi}>
+                      <select className="focus:outline-none" name="provinsi" onChange={handleChangeUpdateAlamat} value={ editAlamat.provinsi ? editAlamat.provinsi : dataAlamat.provinsi }>
                         <option value="Nanggroe Aceh Darussalam">Nanggroe Aceh Darussalam</option>
                         <option value="Sumatera Utara">Sumatera Utara</option>
                         <option value="Sumatera Selatan">Sumatera Selatan</option>
@@ -256,23 +256,23 @@ export default function SuntingAlamat() {
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Kabupaten / Kota</h6>
-                    <input name="kabupatenkota" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kabupaten / Kota" value={editAlamat?.kabupatenkota}></input>
+                    <input name="kabupatenkota" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kabupaten / Kota" value={editAlamat.kabupatenkota ? editAlamat.kabupatenkota : dataAlamat.kabupaten_kota}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Kecamatan</h6>
-                    <input name="kecamatan" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kecamatan" value={editAlamat?.kecamatan}></input>
+                    <input name="kecamatan" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kecamatan" value={editAlamat.kecamatan ? editAlamat.kecamatan : dataAlamat.kecamatan}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Kelurahan</h6>
-                    <input name="kelurahan" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kelurahan" value={editAlamat?.kelurahan}></input>
+                    <input name="kelurahan" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kelurahan" value={editAlamat.kelurahan ? editAlamat.kelurahan : dataAlamat.kelurahan}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Detail Alamat</h6>
-                    <input name="detailalamat" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Nama Jalan / Perumahan / RT / RW" value={editAlamat?.detailalamat}></input>
+                    <input name="detailalamat" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Nama Jalan / Perumahan / RT / RW" value={editAlamat.detailalamat ? editAlamat.detailalamat : dataAlamat.alamat}></input>
                   </div>
                   <div className="mt-1 mb-3">
                     <h6 className="font-medium">Kode Pos</h6>
-                    <input name="kodepos" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kode Pos" value={editAlamat?.kodepos}></input>
+                    <input name="kodepos" onChange={handleChangeUpdateAlamat} className="border-b w-full focus:outline-none focus:border-primary text-sm p-1" placeholder="Kode Pos" value={editAlamat.kodepos ? editAlamat.kodepos : dataAlamat.kodepos}></input>
                   </div>
                   
                   <div className="mt-10 flex justify-center">

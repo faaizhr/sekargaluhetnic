@@ -28,24 +28,41 @@ const ListItem = ({items}) => {
     // console.log("cek rating avg di listitem", ratings_aggregate)
     
     return (
-      <div className="hover:shadow-md rounded-md duration-300 max-w-[200px] w-full border">
-        <div className="">
-          <img src={foto} className="rounded-t-md mb-3 " alt="..." />
-          <div className="px-3 pb-3">
-            <p className="text-gray-600 font-semibold text-xs">Wanita</p>
-            <h5 className="font-medium text-primary text-sm h-11 cursor-pointer" onClick={() => handleDetail(items.id)}>{nama}</h5>
-            {/* <p className="">{deskripsi}</p> */}
-            <div className="text-right">
-              <h6 className="text-base font-semibold text-secondary">Rp{harga.toLocaleString()}</h6>
+      <div>
+        { (items.stok > 0) 
+          ? 
+          <div className="hover:shadow-md rounded-md duration-300 max-w-[200px] w-full border">
+            <div className="">
+              <img  onClick={() => handleDetail(items.id)} src={foto} className="rounded-t-md mb-3 cursor-pointer" alt="..." />
+              <div className="px-3 pb-3">
+                <p className="text-gray-600 font-semibold text-xs">Wanita</p>
+                <h5 className="font-medium text-primary text-sm h-11 cursor-pointer" onClick={() => handleDetail(items.id)}>{nama}</h5>
+                {/* <p className="">{deskripsi}</p> */}
+                <div className="text-right">
+                  <h6 className="text-base font-semibold text-secondary">Rp{harga.toLocaleString()}</h6>
+                </div>
+              </div>
             </div>
+          </div> 
+          : 
+          <div className="rounded-md max-w-[200px] bg-gray-200 z-20 relative">
+            <div className="hover:shadow-md rounded-md duration-300 max-w-[200px] relative w-full border z-10">
+              <div className="">
+                <img src={foto} className="rounded-t-md mb-3 grayscale" alt="..." />
+                {/* <p className="absolute -top-60 left-2 text-xl text-secondary3 font-medium">Stok habis</p> */}
+                <div className="px-3 pb-3">
+                  <p className="text-gray-600 font-semibold text-xs">Wanita</p>
+                  <h5 className="font-medium text-primary text-sm h-11">{nama}</h5>
+                  <p className="text-[11px] float-left">Stok Habis</p>
+                  <div className="text-right">
+                    <h6 className="text-base font-semibold text-secondary">Rp{harga.toLocaleString()}</h6>
+                  </div>
+                </div>
+              </div>
+            </div> 
           </div>
-          <ul className="">
-            {/* <li className="list-group-item">{item.id}</li> */}
-            {/* <li className="list-group-item">{penulis}</li>
-            <li className="list-group-item">{penerbit}</li>
-            <li className="list-group-item">{tahunTerbit}</li> */}
-          </ul>
-        </div>
+        }
+        
       </div>
     )
     
