@@ -12,7 +12,7 @@ import { v4 } from "uuid";
 import Cookies from "js-cookie";
 import Modal from '@mui/material/Modal';
 
-import { GetKain } from "../../graphql/query";
+import { GetKain, CountPesananJahit } from "../../graphql/query";
 import { GetPesananID } from "../../graphql/query";
 import { UpdateJahitBaju } from "../../graphql/mutation";
 import { InsertFotoDesainJahit } from "../../graphql/mutation";
@@ -190,8 +190,25 @@ function JahitOnline() {
     }
   }) 
   console.log("coba mapping", mappingImage)
+  console.log("imageurls", imageUrls)
 
-  console.log(Date())
+  var date = new Date()
+  var day = ("0" + date.getDate()).slice(-2)
+  var month = ("0" + date.getMonth()).slice(-2)
+  var year = date.getFullYear()
+  
+  var fulltime = year + month + day
+  console.log("cek bulan", fulltime)
+
+  const {data: dataCountPesanan} = useQuery(CountPesananJahit)
+  const [kodePemesanan, setKodePemesanan] = useState()
+
+  useEffect(() => {
+    setKodePemesanan("PJHT" + "/" + fulltime + "/" + (dataCountPesanan?.sekargaluhetnic_pesanan_jahit_aggregate.aggregate.count + 1))
+  
+  }, [fulltime + dataCountPesanan?.sekargaluhetnic_pesanan_jahit_aggregate.aggregate.count])
+
+  console.log("cek count jahit", kodePemesanan)
   
   const handleUploadPesanan = () => {
       updatePesanan({
@@ -210,6 +227,7 @@ function JahitOnline() {
           panjang_lengan: ukuranTubuh.panjang_lengan,
           ongkir: ongkir,
           opsi_pengiriman: opsiPengiriman,
+          kode_pemesanan: kodePemesanan,
           deskripsi: deskripsi,
           updated_at: Date(),
           created_at: Date(),

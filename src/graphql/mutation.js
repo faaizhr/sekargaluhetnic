@@ -27,12 +27,11 @@ mutation MyMutation($jahit_session: String!, $user_id: Int!) {
 `;
 
 export const UpdateJahitBaju = gql `
-mutation MyMutation($_eq: String = "", $jenis_pakaian: String!, $kain: String!, $panjang_lengan: Int!, $lebar_bahu: Int!, $lingkar_dada: Int!, $lingkar_kerung_lengan: Int!, $lingkar_leher: Int!, $lingkar_pergelangan_tangan: Int!, $lingkar_pinggang: Int!, $lingkar_pinggul: Int!, $ongkir: Int!, $opsi_pengiriman: String!, $panjang_baju: Int!, $updated_at: String!, $deskripsi: String!, $total_biaya: Int!, $status: String!, $created_at: String!) {
-  update_sekargaluhetnic_pesanan_jahit(where: {jahit_session: {_eq: $_eq}}, _set: {jenis_pakaian: $jenis_pakaian, kain: $kain, panjang_lengan: $panjang_lengan, lebar_bahu: $lebar_bahu, lingkar_dada: $lingkar_dada, lingkar_kerung_lengan: $lingkar_kerung_lengan, lingkar_leher: $lingkar_leher, lingkar_pergelangan_tangan: $lingkar_pergelangan_tangan, lingkar_pinggang: $lingkar_pinggang, lingkar_pinggul: $lingkar_pinggul, ongkir: $ongkir, opsi_pengiriman: $opsi_pengiriman, panjang_baju: $panjang_baju, updated_at: $updated_at, deskripsi: $deskripsi, total_biaya: $total_biaya, status: $status, created_at: $created_at}) {
+mutation MyMutation($_eq: String = "", $jenis_pakaian: String!, $kain: String!, $panjang_lengan: Int!, $lebar_bahu: Int!, $lingkar_dada: Int!, $lingkar_kerung_lengan: Int!, $lingkar_leher: Int!, $lingkar_pergelangan_tangan: Int!, $lingkar_pinggang: Int!, $lingkar_pinggul: Int!, $ongkir: Int!, $opsi_pengiriman: String!, $panjang_baju: Int!, $updated_at: String!, $deskripsi: String!, $total_biaya: Int!, $status: String!, $created_at: String!, $kode_pemesanan: String!) {
+  update_sekargaluhetnic_pesanan_jahit(where: {jahit_session: {_eq: $_eq}}, _set: {jenis_pakaian: $jenis_pakaian, kain: $kain, panjang_lengan: $panjang_lengan, lebar_bahu: $lebar_bahu, lingkar_dada: $lingkar_dada, lingkar_kerung_lengan: $lingkar_kerung_lengan, lingkar_leher: $lingkar_leher, lingkar_pergelangan_tangan: $lingkar_pergelangan_tangan, lingkar_pinggang: $lingkar_pinggang, lingkar_pinggul: $lingkar_pinggul, ongkir: $ongkir, opsi_pengiriman: $opsi_pengiriman, panjang_baju: $panjang_baju, updated_at: $updated_at, deskripsi: $deskripsi, total_biaya: $total_biaya, status: $status, created_at: $created_at, kode_pemesanan: $kode_pemesanan}) {
     affected_rows
   }
 }
-
 
 `;
 // {
@@ -115,8 +114,8 @@ mutation MyMutation($objects: [sekargaluhetnic_pesanan_insert_input!] = {}) {
 // }
 
 export const UpdatePemesananPakaian = gql `
-mutation MyMutation($id: Int!, $ongkir: Int!, $total_harga: Int!, $created_at: String!, $opsi_pengiriman: String!) {
-  update_sekargaluhetnic_pesanan_pakaian_by_pk(pk_columns: {id: $id}, _set: {ongkir: $ongkir, total_harga: $total_harga, created_at: $created_at, opsi_pengiriman: $opsi_pengiriman}) {
+mutation MyMutation($id: Int!, $ongkir: Int!, $total_harga: Int!, $created_at: String!, $opsi_pengiriman: String!, $kode_pemesanan: String!) {
+  update_sekargaluhetnic_pesanan_pakaian_by_pk(pk_columns: {id: $id}, _set: {ongkir: $ongkir, total_harga: $total_harga, created_at: $created_at, opsi_pengiriman: $opsi_pengiriman, kode_pemesanan: $kode_pemesanan}) {
     id
   }
 }

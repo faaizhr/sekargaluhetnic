@@ -12,7 +12,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import style from "./Pemesanan.module.css"
 
-import { GetKeranjangKatalog, GetSumKeranjang } from "../../graphql/query"
+import { GetKeranjangKatalog, GetSumKeranjang, CountPesananPakaian } from "../../graphql/query"
 import { GetAnotherKatalog } from "../../graphql/query"
 import useGetKeranjangKatalog from "../../hooks/useGetKeranjangKatalog"
 import useInsertToCart from "../../hooks/useInsertToCart"
@@ -329,6 +329,23 @@ const Pemesanan = () => {
   const {insertPemesananPakaian, loadingInsertPemesananPakaian} = useInsertToPemesanan()
   const [decreaseStok, {loading: loadingDecreaseStok}] = useMutation(DecreaseStok)
 
+  var date = new Date()
+  var day = ("0" + date.getDate()).slice(-2)
+  var month = ("0" + date.getMonth()).slice(-2)
+  var year = date.getFullYear()
+  
+  var fulltime = year + month + day
+  console.log("cek bulan", fulltime)
+
+  const {data: dataCountPesanan} = useQuery(CountPesananPakaian)
+  const [kodePemesanan, setKodePemesanan] = useState()
+
+  useEffect(() => {
+    setKodePemesanan("PPKN" + "/" + fulltime + "/" + (dataCountPesanan?.sekargaluhetnic_pesanan_pakaian_aggregate.aggregate.count + 1))
+  
+  }, [fulltime + dataCountPesanan?.sekargaluhetnic_pesanan_pakaian_aggregate.aggregate.count])
+  
+  console.log("cek state kode", kodePemesanan)
 
   const pesan = () => {
     if(LoggedIn) {
@@ -348,7 +365,8 @@ const Pemesanan = () => {
             ongkir: ongkir,
             total_harga: totalHarga,
             created_at: Date(),
-            opsi_pengiriman: opsiPengiriman
+            opsi_pengiriman: opsiPengiriman,
+            kode_pemesanan: kodePemesanan
           }
         })
 
@@ -365,9 +383,9 @@ const Pemesanan = () => {
         })
 
         navigate("/profil")
-        setTimeout(() => {
-          window.location.reload(false);
-        }, 1500);
+        // setTimeout(() => {
+        //   window.location.reload(false);
+        // }, 1500);
       }
     } else {
       navigate("/login")

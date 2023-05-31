@@ -374,5 +374,24 @@ query MyQuery($_eq: Int!) {
 }
 `
 
+export const CountPesananPakaian = gql `
+query MyQuery {
+  sekargaluhetnic_pesanan_pakaian_aggregate(where: {pesanans_aggregate: {count: {predicate: {_gt: 0}}}}) {
+    aggregate {
+      count
+    }
+  }
+}
+`
+
+export const CountPesananJahit = gql `
+query MyQuery {
+  sekargaluhetnic_pesanan_jahit_aggregate(where: {kode_pemesanan: {_is_null: false}}) {
+    aggregate {
+      count
+    }
+  }
+}
+`
 
 
