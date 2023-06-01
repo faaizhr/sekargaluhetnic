@@ -97,8 +97,8 @@ const Chat = ({id, popUp, chatModal}) => {
               <div className="h-96 flex-col-reverse flex overflow-y-scroll">
                 <div className="">
                   {dataChat?.sekargaluhetnic_chat?.map((el) => 
-                    <div className={el.user_id == Cookies.get("okogaye") ? "bg-secondary text-white px-3 py-2 w-3/4 flex justify-end mb-1 ml-auto mr-2 rounded-tl-xl rounded-bl-xl rounded-br-xl" : "bg-primary text-white px-3 py-2 w-3/4 flex justify-start mb-1 ml-0 mr-auto rounded-tr-xl rounded-bl-xl rounded-br-xl"}>
-                      <p className="m-0 text-white font-light tracking-wide ">{el.message}</p>
+                    <div className={el.user_id == Cookies.get("okogaye") ? "bg-secondary px-3 py-2 w-3/4 flex justify-end mb-1 ml-auto mr-2 rounded-tl-xl rounded-bl-xl rounded-br-xl" : "bg-secondary3 text-black px-3 py-2 w-3/4 flex justify-start mb-1 ml-0 mr-auto rounded-tr-xl rounded-bl-xl rounded-br-xl"}>
+                      <p className={ el.user_id == Cookies.get("okogaye") ? "m-0 font-normal text-sm text-white" : "m-0 font-normal text-sm text-black"}>{el.message}</p>
                     </div>
                   )}
                 </div>

@@ -394,4 +394,41 @@ query MyQuery {
 }
 `
 
+export const SeacrhKatalog = gql `
+query MyQuery($_ilike: String!) {
+  sekargaluhetnic_katalog(where: {nama: {_ilike: $_ilike}}) {
+    deskripsi
+    foto
+    harga
+    id
+    nama
+    gender
+    ukuran
+    kode_produk
+    material
+    stok
+  }
+}
+`
+// {
+//   "_ilike": "%atasan tunik%"
+// }
+
+export const FilterKatalog = gql `
+query MyQuery($_ilike: String!) {
+  sekargaluhetnic_katalog(where: {gender: {_ilike: $_ilike}}) {
+    deskripsi
+    foto
+    harga
+    id
+    nama
+    gender
+    ukuran
+    kode_produk
+    material
+    stok
+  }
+}
+`
+
 
