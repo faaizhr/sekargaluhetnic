@@ -394,6 +394,16 @@ query MyQuery {
 }
 `
 
+export const CountReturBarang = gql `
+query MyQuery {
+  sekargaluhetnic_retur_produk_aggregate {
+    aggregate {
+      count
+    }
+  }
+}
+`
+
 export const SeacrhKatalog = gql `
 query MyQuery($_ilike: String!) {
   sekargaluhetnic_katalog(where: {nama: {_ilike: $_ilike}}) {

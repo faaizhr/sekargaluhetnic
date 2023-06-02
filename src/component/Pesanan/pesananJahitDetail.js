@@ -221,9 +221,9 @@ const PesananJahitDetail = () => {
       <div className="container mx-auto flex justify-start items-center gap-2">
         <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
         <FiChevronRight/>
-        <Link className="" to="/riwayat-pesanan"><p>Riwayat Pesanan</p></Link>
+        <Link className="" to="/pesanan-jahit"><p>Riwayat Pesanan Jahit</p></Link>
         <FiChevronRight/>
-        <p className="font-semibold">Profil</p>
+        <p className="font-semibold">{dataPesanan?.sekargaluhetnic_pesanan_jahit[0].kode_pemesanan}</p>
       </div>
 
       <div className={`container mx-auto mt-14`}>

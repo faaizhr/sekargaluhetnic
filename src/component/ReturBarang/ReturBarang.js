@@ -71,7 +71,21 @@ export default function ReturBarang() {
                       <p>{el.retur_produk_pesanan_pakaian.pesanans.length} produk</p>
                     </div>
                     <div>
-                      <p className="text-[10px] bg-blue-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p>
+                      { el.status == "Menunggu Konfirmasi" ?
+                        <p className="text-[10px] bg-blue-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Diterima UMKM" ?
+                        <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Ditolak UMKM" ?
+                        <p className="text-[10px] bg-red-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Diproses" ?
+                        <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Sedang Dikirim ke Pelanggan" ?
+                        <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
                       <h6 className="text-sm font-medium mt-3">Total Harga Pesanan</h6>
                       <p>Rp{el.retur_produk_pesanan_pakaian.total_harga.toLocaleString()}</p>
                     </div>
@@ -96,7 +110,21 @@ export default function ReturBarang() {
                     {/* <p>{el.retur_produk_pesanan_jahit.pesanans.length} produk</p> */}
                   </div>
                   <div>
-                    <p className="text-[10px] bg-blue-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p>
+                      { el.status == "Menunggu Konfirmasi" ?
+                        <p className="text-[10px] bg-blue-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Diterima UMKM" ?
+                        <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Ditolak UMKM" ?
+                        <p className="text-[10px] bg-red-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Diproses" ?
+                        <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
+                      { el.status == "Barang Sedang Dikirim ke Pelanggan" ?
+                        <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
+                      }
                     <h6 className="text-sm font-medium mt-3">Total Harga Pesanan</h6>
                     <p>Rp{el.retur_produk_pesanan_jahit.total_biaya.toLocaleString()}</p>
                   </div>

@@ -538,7 +538,7 @@ function JahitOnline() {
               <div className="">
                 <h6 className="font-semibold text-lg text-primary">Masukkan Ukuran Tubuh</h6>
                 <p>Input ukuran tubuh Anda ke dalam form yang sudah kami sediakan, kami menyediakan panduan pengukuran tubuh. Isi dengan angka dengan satuan centimeter (cm)</p>
-                <h6 onClick={handleOpen} className="my-2 uppercase font-medium underline">Paduan Pengukuran</h6>
+                <h6 onClick={handleOpen} className="my-2 uppercase font-medium underline cursor-pointer w-fit hover:">Paduan Pengukuran</h6>
                 <div className="">
                   <div className="mb-3">
                     <table>

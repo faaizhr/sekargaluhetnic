@@ -17,7 +17,7 @@ import { UploadPembayaranPesananPakaian } from "../../graphql/mutation";
 import { GetPesananPakaianDetail } from "../../graphql/query";
 import { HandleStatusPesananPakaian } from "../../graphql/mutation";
 import { InsertReturBarang } from "../../graphql/mutation";
-import { GetReturBarangJahit } from "../../graphql/query";
+import { GetReturBarangJahit, CountReturBarang } from "../../graphql/query";
 
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -210,6 +210,27 @@ const PesananDetail = () => {
 
   // RETUR BARANG ======================================
 
+  const {data: countReturBarang} = useQuery(CountReturBarang)
+
+  console.log("cnt retur", countReturBarang)
+
+  var date = new Date()
+  var day = ("0" + date.getDate()).slice(-2)
+  var month = ("0" + date.getMonth()).slice(-2)
+  var year = date.getFullYear()
+  
+  var fulltime = year + month + day
+  console.log("cek bulan", fulltime)
+
+  const [kodeRetur, setKodeRetur] = useState()
+
+  useEffect(() => {
+    setKodeRetur("RTR" + "/" + fulltime + "/" + (countReturBarang?.sekargaluhetnic_retur_produk_aggregate.aggregate.count + 1))
+  
+  }, [fulltime + countReturBarang?.sekargaluhetnic_retur_produk_aggregate.aggregate.count])
+  
+  console.log("cek state kode", kodeRetur)
+
   const [returValues, setReturValues] = useState({})
 
   const handleChangeReturBarang = (e) => {
@@ -229,7 +250,8 @@ const PesananDetail = () => {
           alasan: returValues.alasan,
           pesanan_pakaian_id: location.state.id,
           user_id: Cookies.get("okogaye"),
-          status: "Menunggu Konfirmasi"
+          status: "Menunggu Konfirmasi",
+          kode_retur: kodeRetur
         }
       }
     })
@@ -273,9 +295,9 @@ const PesananDetail = () => {
           <div className="container mx-auto flex justify-start items-center gap-2">
             <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
             <FiChevronRight/>
-            <Link className="" to="/riwayat-pesanan"><p>Riwayat Pesanan</p></Link>
+            <Link className="" to="/pesanan-pakaian"><p>Riwayat Pesanan Pakaian</p></Link>
             <FiChevronRight/>
-            <p className="font-semibold">Profil</p>
+            <p className="font-semibold">{dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.kode_pemesanan}</p>
           </div>
 
           <div className={`container mx-auto mt-14`}>

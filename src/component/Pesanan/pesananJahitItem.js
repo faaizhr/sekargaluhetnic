@@ -60,7 +60,7 @@ export default function PesananJahitItem({items}) {
                   {(items.status == "Pembayaran Diproses") ? 
                   <p className="m-0 bg-blue-400 w-44 text-center border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
                   ""}
-                  {(items.status == "Pesanan Diproses") || (items.status == "Pesanan Diantar") || (items.status == "Menunggu Kurir") || (items.status == "Pesanan Selesai") ? 
+                  {(items.status == "Pesanan Diproses") || (items.status == "Pesanan Diantar") || (items.status == "Menunggu Kurir") || (items.status == "Pesanan Selesai") || (items.status == "Pembayaran Diterima") ? 
                   <p className="m-0 bg-green-400 w-44 text-center border border-green-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
                   ""}
 
