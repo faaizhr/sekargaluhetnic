@@ -46,27 +46,27 @@ function Profile() {
 
     // console.log("cek pesanan", dataPesananJahit)
     // console.log("cek time stamp", dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at)
-    var timestamp = dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at
-    console.log(timestamp)
+    // var timestamp = dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at
+    // console.log(timestamp)
 
-    var year = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(0, 4));
-    var month = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(5, 7)); 
-    var day = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(8, 10)); 
-    var hour = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(11, 13)); 
-    var minute = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(14, 16)); 
+    // var year = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(0, 4));
+    // var month = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(5, 7)); 
+    // var day = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(8, 10)); 
+    // var hour = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(11, 13)); 
+    // var minute = parseInt(dataPesananJahit?.sekargaluhetnic_pesanan_jahit[0]?.updated_at.substring(14, 16)); 
 
-const [waktu, setWaktu] = useState("")
+    // const [waktu, setWaktu] = useState("")
 
-    // useEffect(() => {
-    //     hour
-    //   }, []);
+    // // useEffect(() => {
+    // //     hour
+    // //   }, []);
     
 
-    console.log(year)
-    var fulltime = day + " " + month + " " + year + " " + hour + " " + minute
-    console.log("cek fulltime", fulltime)
+    // console.log(year)
+    // var fulltime = day + " " + month + " " + year + " " + hour + " " + minute
+    // console.log("cek fulltime", fulltime)
 
-    console.log("cek jahit", dataPesananJahit?.sekargaluhetnic_pesanan_jahit)
+    // console.log("cek jahit", dataPesananJahit?.sekargaluhetnic_pesanan_jahit)
 
 
     return(
