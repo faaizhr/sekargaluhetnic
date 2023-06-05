@@ -28,7 +28,7 @@ function Jahit() {
         }
       })
       navigate("/jahit-online")
-      window.location.reload(false);
+      // window.location.reload(false);
       
     } else {
       navigate("/jahit-online")

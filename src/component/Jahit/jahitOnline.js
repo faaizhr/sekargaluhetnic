@@ -11,6 +11,7 @@ import { storage } from "../../firebase";
 import { v4 } from "uuid";
 import Cookies from "js-cookie";
 import Modal from '@mui/material/Modal';
+import { ToastContainer, toast } from "react-toastify"
 
 import { GetKain, CountPesananJahit } from "../../graphql/query";
 import { GetPesananID } from "../../graphql/query";
@@ -125,7 +126,7 @@ function JahitOnline() {
   const [updatePesanan, {loading: loadngUpdatePesanan}] = useMutation(UpdateJahitBaju);
   const [insertFotoDesain, {loading: loadingInsertFotoDesain}] = useMutation(InsertFotoDesainJahit)
   const {data: userData, loading: userLoading} = useQuery(GetUserProfileData, {variables: { _eq: Cookies.get("okogaye")}})
-  console.log("cek user", userData)
+  // console.log("cek user", userData)
 
   const [ongkir, setOngkir] = useState(0)
   const [opsiPengiriman, setOpsiPengiriman] = useState('')
@@ -149,7 +150,7 @@ function JahitOnline() {
   const {data, loading, error} = useQuery(GetKain)
   // console.log(data)
 
-  console.log("cek deskripsi", deskripsi)
+  // console.log("cek deskripsi", deskripsi)
 
   const handleSelectJenisPakaian = (value) => {
    setPilihJenisPakaian(value.nama)
@@ -169,7 +170,7 @@ function JahitOnline() {
 
   // setTotalBiaya(hargaKain + hargaJenisPakaian)
 
-  console.log("cek harga", totalBiaya)
+  // console.log("cek harga", totalBiaya)
 
   const handleChangeUkuranTubuh = (e) => {
     setUkuranTubuh({
@@ -177,7 +178,7 @@ function JahitOnline() {
       [e.target.name]: e.target.value
     })
   }
-  console.log(ukuranTubuh)
+  // console.log(ukuranTubuh)
   // console.log(ukuranTubuh.ukuran_leher)
   // console.log(pilihJenisPakaian)
   // console.log(pilihKain)
@@ -189,7 +190,7 @@ function JahitOnline() {
       user_id: Cookies.get("okogaye")
     }
   }) 
-  console.log("coba mapping", mappingImage)
+  // console.log("coba mapping", mappingImage)
   console.log("imageurls", imageUrls)
 
   var date = new Date()
@@ -198,7 +199,7 @@ function JahitOnline() {
   var year = date.getFullYear()
   
   var fulltime = year + month + day
-  console.log("cek bulan", fulltime)
+  // console.log("cek bulan", fulltime)
 
   const {data: dataCountPesanan} = useQuery(CountPesananJahit)
   const [kodePemesanan, setKodePemesanan] = useState()
@@ -208,9 +209,12 @@ function JahitOnline() {
   
   }, [fulltime + dataCountPesanan?.sekargaluhetnic_pesanan_jahit_aggregate.aggregate.count])
 
-  console.log("cek count jahit", kodePemesanan)
+  // console.log("cek count jahit", kodePemesanan)
   
   const handleUploadPesanan = () => {
+    if(imageUrls.length == 0) {
+      toast.error("Harap upload foto desain")
+    } else {
       updatePesanan({
         variables: {
           _eq: Cookies.get("jahit-session"),
@@ -235,17 +239,22 @@ function JahitOnline() {
           status: "Menunggu Pembayaran"
         }
       })
-
+  
       insertFotoDesain({
         variables: {
           objects: mappingImage
         }
       })
-
+  
       Cookies.remove("jahit-session")
       setTimeout(() => {
         navigate("/profil")
-      }, 2000);
+      }, 1000);
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 1000);
+    }
+
   }
 
   useEffect(() => { 
@@ -481,8 +490,8 @@ function JahitOnline() {
     
   }, [opsiPengiriman])
   
-  console.log("opsi", opsiPengiriman)
-  console.log("cek ongkir" ,ongkir)
+  // console.log("opsi", opsiPengiriman)
+  // console.log("cek ongkir" ,ongkir)
 
   // MODAL
     const [open, setOpen] = useState(false);
@@ -492,6 +501,7 @@ function JahitOnline() {
   return(
       <div>
           <Navbar/>
+          <ToastContainer/>
           <div className="container mx-auto flex justify-start items-center gap-2">
                 <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
                 <FiChevronRight/>

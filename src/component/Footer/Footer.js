@@ -6,7 +6,7 @@ function Footer() {
     return (
         <div className={`mt-5 ${style.footer}`}>
             <div className="container mx-auto pt-4">
-                <div className='grid lg:grid-cols-3 mt-5 mb-5 gap-10 py-10'>
+                <div className='grid lg:grid-cols-2 mt-5 mb-5 gap-10 py-10'>
                     <div className=''>
                         <h6><span className={style.textLogo}>Sekar Galuh Etnic</span></h6>
                         <p>UMKM di bidang pakaian. Kami menjual produk berupa pakaian yang sudah jadi yang kami jahit dan desain sendiri serta kami menerima pemesanan pakaian secara custom</p>
@@ -15,7 +15,7 @@ function Footer() {
                         <h6 className='font-semibold text-base text-secondary mb-1'>Hubungi Kami</h6>
                         <div className='flex justify-start items-center gap-3'>
                             <i className="bi bi-telephone "></i>
-                            <p className=''>082288062499</p>
+                            <p className=''>0811179919</p>
                         </div>
                         <div className='flex justify-start items-center gap-3'>
                             <i className="bi bi-geo-alt d-inline"></i>
@@ -26,7 +26,7 @@ function Footer() {
                             <p className=''>sekargaluhetnic@gmail.com</p>
                         </div>
                     </div>
-                    <div className=''>
+                    {/* <div className=''>
                         <h6 className='font-semibold text-base text-secondary mb-1'>Ikuti Kami</h6>
                         <div className={style.logo}>
                             <div className={style.instagramLogo}>
@@ -39,7 +39,7 @@ function Footer() {
                                 <a href="https://shopee.co.id/chiliesious" target="_blank"><i className="bi bi-bag-fill me-4"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="border-t">
                     <p className='text-center py-2'>Copyright © 2022-2023 SekarGaluhEtnic All Rights Reserved</p>

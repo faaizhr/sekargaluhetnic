@@ -101,7 +101,7 @@ function Navbar() {
                     </div>
 
                     <div className={sidebar ? "block" : "hidden"}>
-                        <div className='h-screen w-96 bg-primary fixed top-0 right-0 z-50 p-5 rounded-l-3xl'>
+                        <div className='h-screen w-72 bg-primary fixed top-0 right-0 z-50 p-5 rounded-l-3xl'>
                             <AiOutlineClose onClick={handleSidebar} className='fill-white hover:fill-secondary2 duration-200 cursor-pointer'/>
                             <div>
                                 <div className="grid gap-5 mt-10 text-white font-light mb-5">

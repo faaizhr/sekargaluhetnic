@@ -78,11 +78,11 @@ function Katalog() {
                 <div className="lg:flex lg:justify-between mb-10">
                   <div className="flex justify-start gap-5">
                     <div>
-                      <select className="border-b p-2 text-sm text-gray-500 focus:outline-none">
+                      {/* <select className="border-b p-2 text-sm text-gray-500 focus:outline-none">
                         <option disabled selected="selected">Urutkan</option>
                         <option>Termahal - Termurah</option>
                         <option>Termurah - Termahal</option>
-                      </select>
+                      </select> */}
                     </div>
                     {/* <div>
                       <select className="border-b p-2 text-sm text-gray-500 focus:outline-none">

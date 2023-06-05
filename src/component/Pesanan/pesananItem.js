@@ -49,10 +49,10 @@ const PesananItem = ({items}) => {
         <div className={``}>
           <div className="flex justify-between">
             <div className="flex justify-start gap-3">
-              <img src={items.pesanans[0].katalog.foto} className="w-20 h-20 rounded-md object-cover"></img>
+              <img src={items.pesanans[0].katalog.foto} className="w-20 h-20 rounded-md object-cover md:block hidden"></img>
               <div className="flex flex-col justify-between">
                 <div>
-                  <h6 className="text-sm font-semibold text-secondary" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</h6>
+                  <h6 className="md:text-sm text-xs font-semibold text-secondary" onClick={() => handleDetail(items.id)}>{items.pesanans[0].katalog.nama}</h6>
                   <p className="text-[10px] lg:text-xs text-gray-500">1 barang x Rp{items.pesanans[0].katalog.harga.toLocaleString()}</p>
                 </div>
                 {items.pesanans.length > 1 ? <p className="text-[10px] lg:text-xs text-gray-500"> +{items.pesanans.length - 1} barang lainnya</p> : ""}
@@ -60,16 +60,16 @@ const PesananItem = ({items}) => {
             </div>
             <div className="flex flex-col justify-between">
               {(items.status == "Dibatalkan") ? 
-              <p className="m-0 bg-red-600 w-44 text-center border border-red-600 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              <p className="m-0 bg-red-600 w-36 md:w-44 text-center border border-red-600 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
               ""}
               {(items.status == "Menunggu Pembayaran") ? 
-              <p className="m-0 bg-yellow-500 w-44 text-center border border-yellow-500 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              <p className="m-0 bg-yellow-500 w-36 md:w-44 text-center border border-yellow-500 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
               ""}
               {(items.status == "Pembayaran Diproses") ? 
-              <p className="m-0 bg-blue-400 w-44 text-center border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              <p className="m-0 bg-blue-400 w-36 md:w-44 text-center border border-blue-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
               ""}
               {(items.status == "Pesanan Diproses") || (items.status == "Pesanan Diantar") || (items.status == "Menunggu Kurir") || (items.status == "Pesanan Selesai") || (items.status == "Pembayaran Diterima") ? 
-              <p className="m-0 bg-green-400 w-44 text-center border border-green-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
+              <p className="m-0 bg-green-400 w-36 md:w-44 text-center border border-green-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :
               ""}
               {/* {(items.status == "Pesanan Diantar") ? 
               <p className="m-0 bg-green-400 w-44 text-center border border-green-400 px-3 py-1 text-white rounded-3xl text-[9px] lg:text-xs">{items.status}</p> :

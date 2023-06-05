@@ -218,8 +218,10 @@ const PesananJahitDetail = () => {
   return(
     <div>
       <Navbar/>
-      <div className="container mx-auto flex justify-start items-center gap-2">
+      <div className="container mx-auto flex justify-start items-center gap-2 flex-wrap">
         <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
+        <FiChevronRight/>
+        <Link className="" to="/profil"><p>Profil</p></Link>
         <FiChevronRight/>
         <Link className="" to="/pesanan-jahit"><p>Riwayat Pesanan Jahit</p></Link>
         <FiChevronRight/>

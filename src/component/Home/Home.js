@@ -74,9 +74,9 @@ function Home() {
           <div className="grid lg:grid-cols-5 mt-10 gap-10">
             <div className="col-span-3 flex items-center">
               <div>
-                <h3 className="text-right font-semibold text-2xl text-secondary2">Apa yang kami jual?</h3>
-                <p className="text-right text-base mt-3">Kami menjual produk berupa pakaian yang sudah jadi. Pakaian yang dijual adalah pakaian hasil jahitan dari UMKM kami dan juga desain kami pribadi. Kami juga membuka jasa jahit pakaian secara kustom.</p>
-                <div className="flex justify-end">
+                <h3 className="lg:text-right font-semibold text-2xl text-secondary2">Apa yang kami jual?</h3>
+                <p className="lg:text-right text-base mt-3">Kami menjual produk berupa pakaian yang sudah jadi. Pakaian yang dijual adalah pakaian hasil jahitan dari UMKM kami dan juga desain kami pribadi. Kami juga membuka jasa jahit pakaian secara kustom.</p>
+                <div className="flex lg:justify-end">
                   <button onClick={navigateKatalog} className="mt-3 px-10 py-3 bg-secondary2 text-white rounded-md">Selengkapnya</button>
                 </div>
               </div>

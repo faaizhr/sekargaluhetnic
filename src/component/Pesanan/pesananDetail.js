@@ -292,8 +292,10 @@ const PesananDetail = () => {
     return (
         <div className="detailPesanan">
           <Navbar/>
-          <div className="container mx-auto flex justify-start items-center gap-2">
+          <div className="container mx-auto flex justify-start items-center gap-2 flex-wrap">
             <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
+            <FiChevronRight/>
+            <Link className="" to="/profil"><p>Profil</p></Link>
             <FiChevronRight/>
             <Link className="" to="/pesanan-pakaian"><p>Riwayat Pesanan Pakaian</p></Link>
             <FiChevronRight/>
@@ -305,7 +307,7 @@ const PesananDetail = () => {
             <div className="my-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
               <div className="col-span-8">
                 {dataPesanan?.sekargaluhetnic_pesanan_pakaian[0]?.pesanans.map((pesanan) => 
-                  <div className="grid grid-cols-5 mb-5 gap-10 border-b pb-5">
+                  <div className="grid lg:grid-cols-5 mb-5 gap-10 border-b pb-5">
                     <div className="col-span-2">
                       <img className="w-56 h-72 object-cover rounded-md" src={pesanan.katalog.foto} />
                     </div>

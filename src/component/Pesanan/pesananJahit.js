@@ -40,7 +40,7 @@ const PesananJahit = () => {
     const {data: dataPesananJahit, loading: loadingPesananJahit, error: errorPesananJahit} = useQuery(GetPesananJahitUser, {variables: {_eq: Cookies.get("okogaye")}})
 
     const {data: dataPesanan, loading: loadingPesanan, error:errorPesanan} = useSubscription(SubscriptionPesanan, {variables: { _eq: Cookies.get("okogaye")}})
-    console.log("cek data pesanaan", dataPesanan)
+    console.log("cek data pesanaan", dataPesananJahit)
 
     return (
         <div>
