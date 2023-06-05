@@ -66,7 +66,7 @@ export default function PesananJahitItem({items}) {
 
                     <div>
                         <p className="text-xs text-gray-500">Total Biaya</p>
-                        <p className="font-semibold">Rp{items.total_biaya.toLocaleString()}</p>
+                        <p className="font-semibold">Rp{items.total_biaya}</p>
                     </div>
                 </div>
             </div>
