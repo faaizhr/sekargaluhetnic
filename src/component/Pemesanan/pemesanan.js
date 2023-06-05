@@ -350,7 +350,7 @@ const Pemesanan = () => {
   const pesan = () => {
     if(LoggedIn) {
       if(ongkir == 0) {
-        toast.error("Pilih Opsi Pengiriman")
+        toast.error("Pilih Opsi Pengiriman / Lengkapkan Alamat")
       } else {
         insertPemesananPakaian({
           variables: {
@@ -419,7 +419,7 @@ const Pemesanan = () => {
                     <h5 className="uppercase text-lg font-semibold text-secondary">ALAMAT PENGIRIMAN</h5>
                     {(dataAlamat ? 
                     <p>{dataAlamat?.alamat}, {dataAlamat?.kelurahan}, {dataAlamat?.kecamatan}, {dataAlamat?.kabupaten_kota}, {dataAlamat?.provinsi}, {dataAlamat?.negara}, {dataAlamat?.kodepos}</p> :
-                    <p>Belum ada alamat</p>
+                    <p>Belum ada alamat, <Link to="/sunting-alamat"><u className="font-medium">tambahkan alamat</u></Link></p>
                     )}
                   </div>
                   <div className="mt-5">

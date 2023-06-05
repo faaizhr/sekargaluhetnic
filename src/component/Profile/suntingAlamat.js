@@ -47,7 +47,7 @@ export default function SuntingAlamat() {
     kodepos: dataAlamat?.kodepos
   })
 
-  console.log("cek alamat", editAlamat)
+  console.log("cek edit alamat", editAlamat)
 
   const handleChangeInsertAlamat = (e) => {
 
@@ -59,6 +59,7 @@ export default function SuntingAlamat() {
       [name]: value,
     })
   }
+  console.log("cek alamat", alamat)
   const handleChangeUpdateAlamat = (e) => {
 
     const name = e.target.name;
@@ -85,6 +86,7 @@ export default function SuntingAlamat() {
        }
       }
     })
+    toast.success("Alamat berhasil ditambahkan")
   }
 
   const handleUpdateAlamat = () => {
