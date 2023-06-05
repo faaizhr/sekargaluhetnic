@@ -37,13 +37,13 @@ export default function PesananJahitItem({items}) {
   console.log("cek item jahit", items)
   return (
     <div>
-      <div className="border-b p-2 rounded mb-2">
+      <div onClick={() => handleDetail(items.id)} className="border-b p-2 rounded mb-2 cursor-pointer">
         <div className={``}>
             <div className="flex justify-between">
                 <div className="flex justify-start gap-3">
                     <img src={items.foto_desains[0].foto} className="w-20 h-20 rounded-md object-cover md:block hidden"></img>
                     <div className="flex flex-col justify-between">
-                        <div onClick={() => handleDetail(items.id)}>
+                        <div >
                         <h6 className="md:text-sm text-xs  font-semibold text-secondary">{items.jenis_pakaian}</h6>
                         <p className="text-[10px] lg:text-xs text-gray-500">{items.kain}</p>
                         </div>
