@@ -36,16 +36,16 @@ function App() {
         {/* <Route exact path='/' element={<Login />}/> */}
         <Route exact path='/login' element={<Login />}/>
         <Route exact path='/register' element={<Register />}/>
+        <Route exact path='/' element={<Home />}/>
+        <Route exact path='/katalog' element={<Katalog />}/>
+        <Route exact path='/menu/:id' element={<KatalogDetail />}/>
+        <Route exact path='/galeri' element={<Galeri />}/>
+        <Route exact path='/tentangkami' element={<AboutUs />}/>
+        <Route exact path='/jahit' element={<Jahit />}/>
         <Route exact path='/' element={<PrivateRoute/>}>
-          <Route exact path='/' element={<Home />}/>
-          <Route exact path='/katalog' element={<Katalog />}/>
-          <Route exact path='/jahit' element={<Jahit />}/>
-          <Route exact path='/jahit-online' element={<JahitOnline />}/>
-          <Route exact path='/menu/:id' element={<KatalogDetail />}/>
+        <Route exact path='/jahit-online' element={<JahitOnline />}/>
           <Route exact path='/keranjang' element={<Keranjang />}/>
           <Route exact path='/pemesanan' element={<Pemesanan />}/>
-          <Route exact path='/galeri' element={<Galeri />}/>
-          <Route exact path='/tentangkami' element={<AboutUs />}/>
           <Route exact path='/profil' element={<Profile />}/>
           <Route exact path='/sunting-profil' element={<SuntingProfil />}/>
           <Route exact path='/alamat' element={<Alamat />}/>
