@@ -133,7 +133,17 @@ function JahitOnline() {
 
   const [pilihJenisPakaian, setPilihJenisPakaian] = useState("")
   const [pilihKain, setPilihKain] = useState("")
-  const [ukuranTubuh, setUkuranTubuh] = useState({})
+  const [ukuranTubuh, setUkuranTubuh] = useState({
+    panjang_baju: "",
+    panjang_lengan: "",
+    lingkar_leher: "",
+    lingkar_dada: "",
+    lebar_bahu: "",
+    lingkar_pinggul: "",
+    lingkar_pinggang: "",
+    lingkar_pergelangan_tangan: "",
+    lingkar_kerung_lengan: ""
+  })
   const [value, setValue] = useState('');
   const [hargaJenisPakaian, setHargaJenisPakaian] = useState(0)
   const [hargaKain, setHargaKain] = useState(0)
@@ -178,7 +188,7 @@ function JahitOnline() {
       [e.target.name]: e.target.value
     })
   }
-  // console.log(ukuranTubuh)
+  console.log(ukuranTubuh)
   // console.log(ukuranTubuh.ukuran_leher)
   // console.log(pilihJenisPakaian)
   // console.log(pilihKain)
@@ -195,11 +205,11 @@ function JahitOnline() {
 
   var date = new Date()
   var day = ("0" + date.getDate()).slice(-2)
-  var month = ("0" + date.getMonth()).slice(-2)
+  var month = ("0" + (date.getMonth() + 1)).slice(-2)
   var year = date.getFullYear()
   
   var fulltime = year + month + day
-  // console.log("cek bulan", fulltime)
+  // console.log("cek bulan", month)
 
   const {data: dataCountPesanan} = useQuery(CountPesananJahit)
   const [kodePemesanan, setKodePemesanan] = useState()
@@ -214,7 +224,34 @@ function JahitOnline() {
   const handleUploadPesanan = () => {
     if(imageUrls.length == 0) {
       toast.error("Harap upload foto desain")
-    } else {
+    } else if(pilihJenisPakaian == "") {
+      toast.error("Harap pilih jenis pakaian")
+    } else if(pilihKain == "") {
+      toast.error("Harap pilih kain")
+    } else if(ukuranTubuh.panjang_baju == "") {
+      toast.error("Harap isi panjang baju")
+    } else if(ukuranTubuh.panjang_lengan == "") {
+      toast.error("Harap isi panjang lengan")
+    } else if(ukuranTubuh.lingkar_leher == "") {
+      toast.error("Harap isi lingkar leher")
+    } else if(ukuranTubuh.lingkar_dada == "") {
+      toast.error("Harap isi lingkar dada")
+    } else if(ukuranTubuh.lebar_bahu == "") {
+      toast.error("Harap isi lebar bahu")
+    } else if(ukuranTubuh.lingkar_pinggul == "") {
+      toast.error("Harap isi lingkar pinggul")
+    } else if(ukuranTubuh.lingkar_pinggang == "") {
+      toast.error("Harap isi lingkar pinggang")
+    } else if(ukuranTubuh.lingkar_pergelangan_tangan == "") {
+      toast.error("Harap isi lingkar pergelangan tangan")
+    } else if(ukuranTubuh.lingkar_kerung_lengan == "") {
+      toast.error("Harap isi lingkar kerung lengan")
+    } else if(deskripsi == "") {
+      toast.error("Harap isi deskripsi desain")
+    } else if(opsiPengiriman == "") {
+      toast.error("Harap pilih opsi pengiriman")
+    }
+    else {
       updatePesanan({
         variables: {
           _eq: Cookies.get("jahit-session"),
@@ -557,10 +594,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Panjang Baju</td>
                               <td><input 
                                 name="panjang_baju" 
-                                type="text" 
+                                type="number"
+                                min="5" max="200" 
                                 placeholder="panjang baju"
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -569,10 +607,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Panjang Lengan</td>
                               <td><input 
                                 name="panjang_lengan" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="panjang lengan" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -581,10 +620,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lingkar Leher</td>
                               <td><input 
                                 name="lingkar_leher" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lingkar leher" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -593,10 +633,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lingkar Dada</td>
                               <td><input 
                                 name="lingkar_dada" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lingkar dada" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -605,10 +646,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lebar Bahu</td>
                               <td><input 
                                 name="lebar_bahu" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lebar bahu" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -617,10 +659,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lingkar Pinggul</td>
                               <td><input 
                                 name="lingkar_pinggul" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lingkar pinggul" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -629,10 +672,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lingkar Pinggang</td>
                               <td><input 
                                 name="lingkar_pinggang" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lingkar pinggang" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -641,10 +685,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lingkar Pergelangan Tangan</td>
                               <td><input 
                                 name="lingkar_pergelangan_tangan" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lingkar pergelangan tangan" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>
@@ -653,10 +698,11 @@ function JahitOnline() {
                               <td className="text-sm font-medium">Lingkar Kerung Lengan</td>
                               <td><input 
                                 name="lingkar_kerung_lengan" 
-                                type="text" 
+                                type="number"
+                                min="5" max="100" 
                                 placeholder="lingkar kerung lengan" 
                                 onChange={handleChangeUkuranTubuh}
-                                className="ml-10 text-sm border-b p-1 focus:outline-none focus:border-b-primary"
+                                className="ml-10 text-sm border-b p-1 w-full focus:outline-none focus:border-b-primary"
                               >
                                 </input>
                               </td>

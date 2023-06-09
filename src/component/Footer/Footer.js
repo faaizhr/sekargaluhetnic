@@ -15,7 +15,7 @@ function Footer() {
                         <h6 className='font-semibold text-base text-secondary mb-1'>Hubungi Kami</h6>
                         <div className='flex justify-start items-center gap-3'>
                             <i className="bi bi-telephone "></i>
-                            <p className=''>0811179919</p>
+                            <p className=''><a href='https://wa.link/aujfec' target='_blank'>0811179919</a></p>
                         </div>
                         <div className='flex justify-start items-center gap-3'>
                             <i className="bi bi-geo-alt d-inline"></i>

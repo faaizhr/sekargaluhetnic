@@ -255,9 +255,9 @@ const PesananDetail = () => {
         }
       }
     })
-    // setTimeout(() => {
-    //   window.location.reload(false);
-    // }, 1500);
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 1000);
   }
 
 

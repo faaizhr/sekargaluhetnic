@@ -267,8 +267,8 @@ function Register() {
                   </FormControl>
                   <p className={style.regexTest}>{errorMessagePassword}</p>
                 </div>
-                <p className={style.regisFailed}>{regisFailed}</p>
-                <p className={style.regisSuccess}>{regisSuccess}</p>
+                <p className="text-right text-sm text-red-600" >{regisFailed}</p>
+                <p className="text-right text-sm">{regisSuccess}</p>
                 <div className={style.loginButton}>
                   <button 
                     type="submit">

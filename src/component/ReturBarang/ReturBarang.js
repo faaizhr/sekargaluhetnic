@@ -74,10 +74,10 @@ export default function ReturBarang() {
                       { el.status == "Menunggu Konfirmasi" ?
                         <p className="text-[10px] bg-blue-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
                       }
-                      { el.status == "Barang Diterima UMKM" ?
+                      { el.status == "Retur Barang Diterima" ?
                         <p className="text-[10px] bg-green-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
                       }
-                      { el.status == "Barang Ditolak UMKM" ?
+                      { el.status == "Retur Barang Ditolak" ?
                         <p className="text-[10px] bg-red-500 text-white px-5 py-1 rounded-full w-fit">{el.status}</p> : ""
                       }
                       { el.status == "Barang Diproses" ?
