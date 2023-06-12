@@ -19,11 +19,11 @@ function Footer() {
                         </div>
                         <div className='flex justify-start items-center gap-3'>
                             <i className="bi bi-geo-alt d-inline"></i>
-                            <p className=''>Pondok Labu, Jakarta Selatan, DKI Jakarta</p>
+                            <p className=''><a href='https://goo.gl/maps/uy7h6u3NHF1DYTi88' target='_blank'>Pondok Labu, Jakarta Selatan, DKI Jakarta</a></p>
                         </div>
                         <div className='flex justify-start items-center gap-3'>
                             <i className="bi bi-envelope"></i>
-                            <p className=''>sekargaluhetnic@gmail.com</p>
+                            <p className=''><a href='https://mail.google.com/mail/?view=cm&fs=1&to=sekargaluhetnic@gmail.com' target='_blank'>sekargaluhetnic@gmail.com</a></p>
                         </div>
                     </div>
                     {/* <div className=''>

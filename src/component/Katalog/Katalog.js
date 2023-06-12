@@ -99,7 +99,7 @@ function Katalog() {
                 </div>
 
                 {loadingSearch ? <LoadingSvg/> :
-                  <div className={`grid grid-cols-2 lg:grid-cols-4 mt-5 gap-7`}>
+                  <div className={`grid grid-cols-1 lg:grid-cols-4 mt-5 gap-3 lg:gap-7`}>
                     {data?.sekargaluhetnic_katalog?.map((katalog) => <ListItem key={katalog.id} items={katalog}/>)}
                   </div>
                 }

@@ -141,9 +141,9 @@ const Keranjang = () => {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <h5 className="text-lg font-semibold text-primary">KETENTUAN PENGGUNAAN</h5>
+                      {/* <h5 className="text-lg font-semibold text-primary">KETENTUAN PENGGUNAAN</h5>
                       <p>Dengan menekan tombol pembayaran, Anda setuju dengan syarat dan ketentuan kami.</p>
-                      <Link className="underline-offset-2" to="/"><u>KETENTUAN PENGGUNAAN</u></Link>
+                      <Link className="underline-offset-2" to="/"><u>KETENTUAN PENGGUNAAN</u></Link> */}
                       <div className="mt-7">
                         <button onClick={pemesanan} className="bg-secondary w-full py-2 border border-secondary text-white hover:bg-white hover:text-secondary duration-200 rounded-md">LANJUTKAN KE PEMESANAN</button>
                       </div>

@@ -591,7 +591,7 @@ function JahitOnline() {
                     <table>
                         <tbody>
                             <tr>
-                              <td className="text-sm font-medium">Panjang Baju</td>
+                              <td className="md:text-sm text-xs font-medium">Panjang Baju</td>
                               <td><input 
                                 name="panjang_baju" 
                                 type="number"
@@ -604,7 +604,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Panjang Lengan</td>
+                              <td className="md:text-sm text-xs font-medium">Panjang Lengan</td>
                               <td><input 
                                 name="panjang_lengan" 
                                 type="number"
@@ -617,7 +617,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lingkar Leher</td>
+                              <td className="md:text-sm text-xs font-medium">Lingkar Leher</td>
                               <td><input 
                                 name="lingkar_leher" 
                                 type="number"
@@ -630,7 +630,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lingkar Dada</td>
+                              <td className="md:text-sm text-xs font-medium">Lingkar Dada</td>
                               <td><input 
                                 name="lingkar_dada" 
                                 type="number"
@@ -643,7 +643,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lebar Bahu</td>
+                              <td className="md:text-sm text-xs font-medium">Lebar Bahu</td>
                               <td><input 
                                 name="lebar_bahu" 
                                 type="number"
@@ -656,7 +656,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lingkar Pinggul</td>
+                              <td className="md:text-sm text-xs font-medium">Lingkar Pinggul</td>
                               <td><input 
                                 name="lingkar_pinggul" 
                                 type="number"
@@ -669,7 +669,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lingkar Pinggang</td>
+                              <td className="md:text-sm text-xs font-medium">Lingkar Pinggang</td>
                               <td><input 
                                 name="lingkar_pinggang" 
                                 type="number"
@@ -682,7 +682,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lingkar Pergelangan Tangan</td>
+                              <td className="md:text-sm text-xs font-medium">Lingkar Pergelangan Tangan</td>
                               <td><input 
                                 name="lingkar_pergelangan_tangan" 
                                 type="number"
@@ -695,7 +695,7 @@ function JahitOnline() {
                               </td>
                             </tr>
                             <tr>
-                              <td className="text-sm font-medium">Lingkar Kerung Lengan</td>
+                              <td className="md:text-sm text-xs font-medium">Lingkar Kerung Lengan</td>
                               <td><input 
                                 name="lingkar_kerung_lengan" 
                                 type="number"
@@ -782,7 +782,7 @@ function JahitOnline() {
           onClose={handleClose}
           className="focus:outline-none"
         >
-          <div className="bg-white w-4/5 mx-auto mt-24 p-4 rounded-md focus:outline-none h-[800px] overflow-scroll">
+          <div className="bg-white w-4/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-md focus:outline-none h-[800px] overflow-scroll">
             <h6 className="text-center uppercase text-xl font-semibold text-secondary tracking-wider">Panduan Pengukuran Tubuh</h6>
             <div>
               <img className="mx-auto w-[1000px]" src="https://firebasestorage.googleapis.com/v0/b/sekargaluhetnic.appspot.com/o/Asset%2FGroup%20144.png?alt=media&token=0d4b15a9-289c-4f90-86fc-cf8560d39f60"></img>

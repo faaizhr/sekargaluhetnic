@@ -50,7 +50,7 @@ function Jahit() {
               <h5 className="font-semibold text-primary">Ketentuan Jahit Online</h5>
               <ul className="list-disc list-outside ml-5 text-sm">
                 <li>Waktu pengerjaan penjahitan baju kurang lebih 4-7 hari kerja (tergantung kesulitan desain)</li>
-                <li>Kami hanya menyediakan bahan terbatas, bisa memakai kain dari Anda (biaya pengiriman ditanggung pelanggan)</li>
+                <li>Kami hanya menyediakan bahan terbatas sesuai ketersediaan bahan</li>
                 <li>Harga yang kami berikan adalah harga net, harga akan menyesuaikan dengan jenis pakaian (kemeja / gaun / blouse dan lain sebagainya)</li>
                 <li>Bisa melakukan retur barang setelah jadinya pakaian untuk memperbaiki jika ada kesalahan MAKSIMAL 1X (biaya pengiriman ditanggung pelanggan)</li>
                 <li>Toleransi jahitan 1 cm - 2 cm karena terkadang bahan tertentu bisa berubah ketika dijahit dan digosok</li>

@@ -115,7 +115,7 @@ const KatalogDetail = () => {
                   <p className="mt-4">{location.state.deskripsi}</p>
                 </div>
                 <div className="pt-4">
-                  <p className="font-semibold text-gray-500">{location.state.kode_produk}</p>
+                  {/* <p className="font-semibold text-gray-500">{location.state.kode_produk}</p> */}
                   <h6 className="mb-1 font-medium text-sm">Ukuran Pakaian</h6>
                   <p className="border rounded-md p-2 w-fit">{location.state.ukuran}</p>
                   <p className="my-5">Stok Tersedia   :   {location.state.stok}</p>

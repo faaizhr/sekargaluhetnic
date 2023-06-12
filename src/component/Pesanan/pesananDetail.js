@@ -408,7 +408,7 @@ const PesananDetail = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
               >
-                <div className="bg-white w-[650px] mx-auto mt-40 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
+                <div className="bg-white w-[650px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
                   <h6 className="text-center text-2xl font-semibold text-secondary">Upload Bukti Pembayaran</h6>
                   <div className="border-b border-secondary pb-3">
                     <p className="text-base mt-5">Berikut adalah beberapa panduan untuk mengupload bukti pembayaran</p>
@@ -476,7 +476,7 @@ const PesananDetail = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
               >
-                <div className="bg-white w-[650px] mx-auto mt-40 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
+                <div className="bg-white w-[650px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
                   <h6 className="text-center text-2xl font-semibold text-secondary">Ajukan Retur Produk</h6>
                   <div className="border-b border-secondary pb-3">
                     <p className="text-base my-5">Terdapat syarat yang harus dipenuhi untuk dapat mengembalikan produk. Berikut syarat - syarat pengembalian produk</p>

@@ -31,7 +31,7 @@ const ListItem = ({items}) => {
       <div>
         { (items.stok > 0) 
           ? 
-          <div className="hover:shadow-md rounded-md duration-300 max-w-[200px] w-full border">
+          <div className="hover:shadow-md rounded-md duration-300 max-w-[300px] w-full border mx-auto">
             <div className="">
               <img  onClick={() => handleDetail(items.id)} src={foto} className="rounded-t-md mb-3 cursor-pointer" alt="..." />
               <div className="px-3 pb-3">
@@ -45,8 +45,8 @@ const ListItem = ({items}) => {
             </div>
           </div> 
           : 
-          <div className="rounded-md max-w-[200px] bg-gray-200 z-20 relative">
-            <div className="hover:shadow-md rounded-md duration-300 max-w-[200px] relative w-full border z-10">
+          <div className="rounded-md max-w-[300px] bg-gray-200 z-20 relative mx-auto">
+            <div className="hover:shadow-md rounded-md duration-300 max-w-[300px] relative w-full border z-10 mx-auto">
               <div className="">
                 <img src={foto} className="rounded-t-md mb-3 grayscale" alt="..." />
                 {/* <p className="absolute -top-60 left-2 text-xl text-secondary3 font-medium">Stok habis</p> */}
