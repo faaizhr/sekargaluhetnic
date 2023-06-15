@@ -146,28 +146,46 @@ const PesananDetail = () => {
   // ==================================================
 
   // UPDATE PEMBAYARAN ================================
-  const [values, setValues] = useState({})
+  const [values, setValues] = useState({
+    nama_rekening_pemilik: "",
+    metode_pembayaran: ""
+  })
 
   const handleChangePembayaran = (e) => {
     setValues({
       ...values,
       [e.target.name]: e.target.value
     })
+    // console.log("cek pembayarn", values)
   }
-  // console.log("cek value", values)
+  console.log("cek value", values)
+  console.log("cek foto bayar", imageUrls[0])
 
   const handleUpdatePembayaran = () => {
-    uploadPembayaran({
-      variables: {
-        _eq: location.state.id,
-        bukti_pembayaran: imageUrls[0],
-        nama_rekening_pemilik: values.nama_rekening_pemilik,
-        metode_pembayaran: values.metode_pembayaran,
-      }
-    })
-    window.location.reload(false);
-    // setImageUrls("")
+    if (imageUrls[0] == undefined) {
+      toast.error("Harap unggah foto bukti pembayaran terlebih dahulu")
+    } else if (values.nama_rekening_pemilik == "") {
+      toast.error("Harap masukkan Nama Rekening Pemeilik")
+    } else if (values.metode_pembayaran == "") {
+      toast.error("Harap pilih metode pembayaran terlebih dahulu")
+    } else {
+      uploadPembayaran({
+        variables: {
+          _eq: location.state.id,
+          bukti_pembayaran: imageUrls[0],
+          nama_rekening_pemilik: values.nama_rekening_pemilik,
+          metode_pembayaran: values.metode_pembayaran,
+        }
+      })
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 1000);
+      // setImageUrls("")
+
+    }
+
   }
+
   // ===================================================
 
   // PEMABATALAN PESANAN ===============================
@@ -229,7 +247,7 @@ const PesananDetail = () => {
   
   }, [fulltime + countReturBarang?.sekargaluhetnic_retur_produk_aggregate.aggregate.count])
   
-  console.log("cek state kode", kodeRetur)
+  // console.log("cek state kode", kodeRetur)
 
   const [returValues, setReturValues] = useState({})
 
@@ -267,13 +285,13 @@ const PesananDetail = () => {
   // FIND RETUR BARANG =================================
   
   const {data: dataRetur, loading: loadingRetur, error: errorRetur} = useQuery(GetReturBarangJahit, { variables: { _eq: Cookies.get("okogaye")}})
-  console.log("cek data retur", dataRetur)
+  // console.log("cek data retur", dataRetur)
 
   const isRetured = dataRetur?.sekargaluhetnic_retur_produk.find(({ pesanan_pakaian_id }) => pesanan_pakaian_id === location.state.id)
 
   const [isRequest, setRequest] = useState()
 
-  console.log("cek req", isRetured)
+  // console.log("cek req", isRetured)
   // console.log("cek req", isRequested)
   
   useEffect(() => {
@@ -284,13 +302,14 @@ const PesananDetail = () => {
     }
   }, [isRetured])
 
-  console.log("cek reqqss", isRequest)
+  // console.log("cek reqqss", isRequest)
 
 
   // ===================================================
 
     return (
         <div className="detailPesanan">
+          <ToastContainer/>
           <Navbar/>
           <div className="container mx-auto flex justify-start items-center gap-2 flex-wrap">
             <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
@@ -428,6 +447,7 @@ const PesananDetail = () => {
                       <div>
                         <p className="text-base">Metode Pembayaran</p>
                         <select name="metode_pembayaran" onChange={handleChangePembayaran} className="w-full mt-2 border-b p-1">
+                          <option value="" selected="selected" disabled>-- Pilih Metode Pembayaran --</option>
                           <option value="transfer_bank">Transfer Bank</option>
                           <option value="gopay">Gopay</option>
                           <option value="ovo">Ovo</option>

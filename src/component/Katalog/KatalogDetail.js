@@ -9,8 +9,10 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import style from "./Katalog.module.css"
 
+import { GetKeranjangKatalog, GetSumKeranjang } from "../../graphql/query"
 import { GetAnotherKatalog } from "../../graphql/query"
 import useInsertToCart from "../../hooks/useInsertToCart"
+import { SubscriptionKeranjangKatalog } from "../../graphql/subscription"
 
 import { AiOutlineRight } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi"
@@ -50,6 +52,10 @@ const KatalogDetail = () => {
   console.log("cek state", location.state)
   const navigate = useNavigate()
 
+  // const {data, loading, error} = useQuery(GetKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye") }})
+  const {data: dataSubs, loading: loadingSubs, error:errorSubs} = useSubscription(SubscriptionKeranjangKatalog, {variables: { _eq: Cookies.get("okogaye")}})
+  console.log("cek data", dataSubs)
+
   
 
   // const {data, loading, error} = useSubscription(SubscriptionMenu, {variables: { _eq: id}})
@@ -59,16 +65,23 @@ const KatalogDetail = () => {
   const LoggedIn = Cookies.get("token")
 
   const {data: dataKatalog, loading: loadingKatalog, error: errorKatalog} = useQuery(GetAnotherKatalog, {variables: { _neq: id }})
+
+  const isOnCart = dataSubs?.sekargaluhetnic_katalog.find(({ id }) => id === location.state.id)
+  console.log("isoncart", isOnCart)
   
   const {insertToCart, loadingInsertToCart} = useInsertToCart()
   const cart = () => {
     if(LoggedIn) {
-      insertToCart({
-        variables: {
-          user_id: Cookies.get("okogaye"),
-          katalog_id: id,
-        }
-      })
+      if(isOnCart != undefined) {
+        toast.error("Katalog sudah ada dikeranjang")
+      } else {
+        insertToCart({
+          variables: {
+            user_id: Cookies.get("okogaye"),
+            katalog_id: id,
+          }
+        })
+      }
     } else {
       navigate("/login")
     }
@@ -95,6 +108,7 @@ const KatalogDetail = () => {
     return (
         <div>
           <Navbar/>
+          <ToastContainer/>
           <div className="container mx-auto flex justify-start items-center gap-2">
             <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
             <FiChevronRight/>
