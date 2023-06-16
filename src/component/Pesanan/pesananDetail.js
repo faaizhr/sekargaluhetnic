@@ -193,15 +193,20 @@ const PesananDetail = () => {
   const [cancelPesanan, {loading: loadingCancelPesanan}] =useMutation(HandleStatusPesananPakaian)
 
   const handleCancelPesanan = () => {
-    cancelPesanan({
-      variables: {
-        _eq: location.state.id,
-        status: "Dibatalkan"
-      }
-    })
-    setTimeout(() => {
-      window.location.reload(false);
-    }, 1500);
+    if(window.confirm("Apakah Anda yakin ingin membatalkan pesanan ini?") == true) {
+      cancelPesanan({
+        variables: {
+          _eq: location.state.id,
+          status: "Dibatalkan"
+        }
+      })
+      toast.success("Pesanan berhasil dibatalkan")
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 2000);
+    } else {
+
+    }
 
   }
 
@@ -427,7 +432,7 @@ const PesananDetail = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
               >
-                <div className="bg-white w-[650px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
+                <div className="bg-white w-full md:w-[650px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
                   <h6 className="text-center text-2xl font-semibold text-secondary">Upload Bukti Pembayaran</h6>
                   <div className="border-b border-secondary pb-3">
                     <p className="text-base mt-5">Berikut adalah beberapa panduan untuk mengupload bukti pembayaran</p>
@@ -438,7 +443,7 @@ const PesananDetail = () => {
                       <li>Upload bukti pembayaran yang jelas.</li>
                     </ul>
                   </div>
-                  <div className="mt-3">
+                  <div className="mt-3 w-full">
                     <div className="grid gap-3">
                       <div>
                         <p className="text-base">Nama Rekening Pemilik</p>
@@ -496,7 +501,7 @@ const PesananDetail = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
               >
-                <div className="bg-white w-[650px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
+                <div className="bg-white w-full md:w-[650px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 rounded-md border shadow-sm h-[600px] overflow-scroll">
                   <h6 className="text-center text-2xl font-semibold text-secondary">Ajukan Retur Produk</h6>
                   <div className="border-b border-secondary pb-3">
                     <p className="text-base my-5">Terdapat syarat yang harus dipenuhi untuk dapat mengembalikan produk. Berikut syarat - syarat pengembalian produk</p>

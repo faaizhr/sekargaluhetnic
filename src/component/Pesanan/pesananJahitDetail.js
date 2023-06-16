@@ -29,6 +29,7 @@ import { InsertReturBarang } from "../../graphql/mutation";
 
 import { AiOutlineRight } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi"
+import { ToastContainer, toast } from "react-toastify"
 import Modal from '@mui/material/Modal';
 
 import Cookies from "js-cookie";
@@ -69,15 +70,7 @@ const PesananJahitDetail = () => {
   
     // ================================================
 
-  const [values, setValues] = useState({})
 
-  const handleChangePembayaran = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value
-    })
-  }
-  console.log("cek value", values)
 
     // UPLOAD IMAGE ===================================
 
@@ -130,17 +123,42 @@ const PesananJahitDetail = () => {
 
   
     // HANDLE PEMBAYARAN ================================
-    const handleUpdatePembayaran = () => {
-      uploadPembayaran({
-        variables: {
-          _eq: location.state.id,
-          bukti_pembayaran: imageUrls[0],
-          nama_rekening_pemilik: values.nama_rekening_pemilik,
-          metode_pembayaran: values.metode_pembayaran,
-        }
+    const [values, setValues] = useState({
+      nama_rekening_pemilik: "",
+      metode_pembayaran: ""
+    })
+
+    const handleChangePembayaran = (e) => {
+      setValues({
+        ...values,
+        [e.target.name]: e.target.value
       })
-      window.location.reload(false);
-      // setImageUrls("")
+    }
+    console.log("cek value", values)
+
+    const handleUpdatePembayaran = () => {
+      if (imageUrls[0] == undefined) {
+        toast.error("Harap unggah foto bukti pembayaran terlebih dahulu")
+      } else if (values.nama_rekening_pemilik == "") {
+        toast.error("Harap masukkan Nama Rekening Pemeilik")
+      } else if (values.metode_pembayaran == "") {
+        toast.error("Harap pilih metode pembayaran terlebih dahulu")
+      } else {
+        uploadPembayaran({
+          variables: {
+            _eq: location.state.id,
+            bukti_pembayaran: imageUrls[0],
+            nama_rekening_pemilik: values.nama_rekening_pemilik,
+            metode_pembayaran: values.metode_pembayaran,
+          }
+        })
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 1000);
+        // setImageUrls("")
+  
+      }
+  
     }
     // ===================================================
 
@@ -149,15 +167,20 @@ const PesananJahitDetail = () => {
     const [cancelPesanan, {loading: loadingCancelPesanan}] = useMutation(HandleStatusPesananJahit)
 
     const handleCancelPesanan = () => {
-      cancelPesanan({
-        variables: {
-          _eq: location.state.id,
-          status: "Dibatalkan"
-        }
-      })
-      setTimeout(() => {
-        window.location.reload(false);
-      }, 1500);
+      if(window.confirm("Apakah Anda yakin ingin membatalkan pesanan ini?") == true) {
+        cancelPesanan({
+          variables: {
+            _eq: location.state.id,
+            status: "Dibatalkan"
+          }
+        })
+        toast.success("Pesanan berhasil dibatalkan")
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 2000);
+      } else {
+  
+      }
     }
 
     // ===================================================
@@ -218,6 +241,7 @@ const PesananJahitDetail = () => {
   return(
     <div>
       <Navbar/>
+      <ToastContainer/>
       <div className="container mx-auto flex justify-start items-center gap-2 flex-wrap">
         <Link className="" to="/"><p>SekarGaluhEtnic</p></Link>
         <FiChevronRight/>
