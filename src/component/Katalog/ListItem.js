@@ -10,7 +10,7 @@ const ListItem = ({items}) => {
     const navigate = useNavigate()
     
     const handleDetail = () => {
-        navigate(`/menu/${items.id}`, {
+        navigate(`/katalog/${items.id}`, {
             state: {
                 id: items.id,
                 nama: items.nama,

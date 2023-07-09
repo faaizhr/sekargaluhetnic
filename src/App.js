@@ -38,7 +38,7 @@ function App() {
         <Route exact path='/register' element={<Register />}/>
         <Route exact path='/' element={<Home />}/>
         <Route exact path='/katalog' element={<Katalog />}/>
-        <Route exact path='/menu/:id' element={<KatalogDetail />}/>
+        <Route exact path='/katalog/:id' element={<KatalogDetail />}/>
         <Route exact path='/galeri' element={<Galeri />}/>
         <Route exact path='/tentangkami' element={<AboutUs />}/>
         <Route exact path='/jahit' element={<Jahit />}/>
