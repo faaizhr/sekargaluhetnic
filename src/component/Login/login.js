@@ -97,6 +97,10 @@ function Login() {
     event.preventDefault();
   };
 
+  const forgotPassword = () => {
+    navigate("/forgot-password")
+  }
+
     return(
         <div className={style.loginBackground}>
           <div 
@@ -161,6 +165,7 @@ function Login() {
                   </FormControl>
                 </div>
                 {data && <h4 className={style.loginFailed}>Email atau kata sandi salah!!</h4>}
+                <p className="text-right text-[14px] text-secondary hover:underline cursor-pointer" onClick={forgotPassword}>Lupa kata sandi</p>
                 
                 <div className={style.loginButton}>
                   <button type="submit">
@@ -168,7 +173,7 @@ function Login() {
                   </button>
                 </div>
               </form>
-              <p className={`mt-3 text-center`}>Belum punya akun?<span className={style.loginDaftar}><a href="/register"> Daftar</a></span></p>
+              <p className={`mt-3 text-center text-base`}>Belum punya akun?<span className={style.loginDaftar}><a href="/register"> Daftar</a></span></p>
             </div>
 
             <div className="lg:block hidden" >

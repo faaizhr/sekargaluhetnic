@@ -23,6 +23,8 @@ import PesananDetail from './component/Pesanan/pesananDetail';
 import PesananJahitDetail from './component/Pesanan/pesananJahitDetail';
 import PesananJahit from './component/Pesanan/pesananJahit';
 import ReturBarang from './component/ReturBarang/ReturBarang';
+import ForgotPassword from './component/Login/forgotPassword';
+import ResetPassword from './component/Login/resetPassword';
 
 import { PrivateRoute } from './PrivateRoute';
 
@@ -35,6 +37,8 @@ function App() {
       <Routes>
         {/* <Route exact path='/' element={<Login />}/> */}
         <Route exact path='/login' element={<Login />}/>
+        <Route exact path='/forgot-password' element={<ForgotPassword />}/>
+        <Route exact path='/reset-password/:id' element={<ResetPassword />}/>
         <Route exact path='/register' element={<Register />}/>
         <Route exact path='/' element={<Home />}/>
         <Route exact path='/katalog' element={<Katalog />}/>

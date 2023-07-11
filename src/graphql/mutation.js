@@ -304,3 +304,19 @@ mutation MyMutation($updates: [sekargaluhetnic_katalog_updates!] = {}) {
 //     }
 //   ]
 // }
+
+
+export const ResetPasswordUser = gql `
+mutation MyMutation($_eq: String!, $password: String!) {
+  update_sekargaluhetnic_user(where: {token: {_eq: $_eq}}, _set: {password: $password}) {
+    affected_rows
+    returning {
+      email
+    }
+  }
+}
+`
+// {
+//   "_eq": "7F39e6Rhdv5p",
+//   "password": "andhika"
+// }
