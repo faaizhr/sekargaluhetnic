@@ -67,6 +67,9 @@ function ForgotPassword() {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
+  const origin = window.location.origin
+  console.log("cek url", origin)
+
 
   const [values, setValues] = useState({
     email: "",
@@ -200,7 +203,7 @@ function ForgotPassword() {
                     {/* <label>Email</label> */}
                     <input type="email" name="email" onChange={handleInput} className="w-full border-b focus:outline-none focus:border-secondary p-1" placeholder="Email ( ex: andi123@gmail.com )"/>
                     {/* <label>Message</label> */}
-                    <textarea name="message" value={`http://localhost:3000/reset-password/${dataToken?.sekargaluhetnic_user[0]?.token}`} className="hidden" />
+                    <textarea name="message" value={`${origin}/reset-password/${dataToken?.sekargaluhetnic_user[0]?.token}`} className="hidden" />
                     <div className="flex justify-end mt-5">
                       <input type="submit" value="Kirim" className="px-5 py-1 bg-secondary border border-secondary rounded-md text-white hover:text-secondary hover:bg-white duration-200"/>
                     </div>
